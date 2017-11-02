@@ -11,14 +11,14 @@
     <string name="show_countries">Show Countries For This Card</string>
     <string name="create_notification">Add Notification for this Card</string>
     <string name="create_new_card">Add New Card</string>
-    <string name="additional_languages_countries">26 additional languages, for 140 countries,</string>
-    <string name="total_languages_countries">140</string>
-    <string name="total_languages_number">32</string>
-    <string name="pro_languages_number">26</string>
-    <string name="pro_countries_number">40</string>
+    <string name="additional_languages_countries">27 additional languages, for 166 countries,</string>
+    <string name="total_languages_countries">166</string>
+    <string name="total_languages_number">33</string>
+    <string name="pro_languages_number">27</string>
+    <string name="pro_countries_number">33</string>
     <string name="free_countries_number">6</string>
     <string name="allergies_number">14</string>
-    <string name="total_cards_number">448</string>
+    <string name="total_cards_number">462</string>
     <string name="title_activity_drawer">DrawerActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -39,7 +39,6 @@
     <!--<string name="lupin">Lupin is a flower, but it is also sometimes found in flour and is sometimes used in bread, pastries and pasta.</string>-->
     <!--<string name="sulphides">This is an ingredient often used in dried fruits and in some meat products, soft drinks, vegetables, wine and beer.</string>-->
     <!--<string name="molluscs">Molluscs includes mussels, land snails, squid and whelks, but can also be found in oyster sauce.</string>-->
-
 
     <string name="gluten">Gluten includes wheat, rye, barley and oats. These are often found in foods containing flour, some baking powder, batter, breadcrumbs, cakes, couscous, meat products, pasta, pastry, sauces, soups and some fried food.</string>
 

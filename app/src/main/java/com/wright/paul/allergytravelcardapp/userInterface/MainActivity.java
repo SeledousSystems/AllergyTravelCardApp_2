@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
         int id = item.getItemId();
         switch (id) {
             case R.id.nav_version:
-                alert("Version: 2.2.0\nDeveloper: PeaJay");
+                alert("Version: 2.3\nDeveloper: PeaJay");
                 break;
 
             case R.id.nav_about:
