@@ -1,0 +1,43 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+
+    <!--build an overflow menu-->
+    <!--<item-->
+        <!--android:id="@+id/action_settings"-->
+        <!--android:icon="@drawable/overflow_menu"-->
+        <!--android:orderInCategory="100"-->
+        <!--android:title="action settings"-->
+        <!--app:showAsAction="always">-->
+
+        <!--<menu>-->
+            <!--<item-->
+                <!--android:id="@+id/features"-->
+                <!--android:title="App Features" />-->
+            <!--<item-->
+                <!--android:id="@+id/about"-->
+                <!--android:title="About" />-->
+            <!--<item-->
+                <!--android:id="@+id/upgrade"-->
+                <!--android:title="Upgrade to PRO" />-->
+            <!--<item-->
+                <!--android:id="@+id/rate"-->
+                <!--android:title="Rate the app" />-->
+            <!--<item-->
+                <!--android:id="@+id/version"-->
+                <!--android:title="Version" />-->
+
+        <!--</menu>-->
+
+    <!--</item>-->
+
+    <item
+        android:id="@+id/premium_Icon"
+        android:icon="@drawable/upgrade_button"
+        android:orderInCategory="2"
+        android:title="Premium"
+        app:showAsAction="always" />
+
+</menu>

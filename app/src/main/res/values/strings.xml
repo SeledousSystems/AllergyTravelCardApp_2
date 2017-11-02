@@ -1,0 +1,218 @@
+<resources>
+    <string name="app_name">Allergy Cards</string>
+    <string name="card_bottom_text">Allergy Travel Cards</string>
+    <string name="title_activity_create_card">CreateCardActivity</string>
+    <string name="title_activity_card">CardActivity</string>
+    <string name="location_service">Location Service</string>
+    <string name="view_card">View Card</string>
+    <string name="delete_card">Delete Card</string>
+    <string name="move_card_bottom">Move Card To The Bottom</string>
+    <string name="move_card_top">Move Card To The Top</string>
+    <string name="show_countries">Show Countries For This Card</string>
+    <string name="create_notification">Add Notification for this Card</string>
+    <string name="create_new_card">Add New Card</string>
+    <string name="additional_languages_countries">26 additional languages, for 140 countries,</string>
+    <string name="total_languages_countries">140</string>
+    <string name="total_languages_number">32</string>
+    <string name="pro_languages_number">26</string>
+    <string name="pro_countries_number">40</string>
+    <string name="free_countries_number">6</string>
+    <string name="allergies_number">14</string>
+    <string name="total_cards_number">448</string>
+    <string name="title_activity_drawer">DrawerActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="eat_safely">Eat Safely</string>
+    <string name="features_body">Create allergy cards:\n Use the \"Add New Card\" button, select the language and allergy and then press the \"Create Card\" button. \n\nView a card:\nTap a previously created card.\n\nView different cards: Swipe a card to the left or right to view the next card.\n\nDelete allergy cards: Swipe a card to the right.\n\nAdditional options:\nTap and hold a card in the home screen to view additional options.</string>
+
+    <!--<string name="soya">Found sometimes in bean curd, edamame beans, miso pates, textured soya protein, soya flour or tofu, soya is a staple ingredient in oriental food. It can be found in desserts, ice cream, meat products, sauces and vegetarian products.</string>-->
+    <!--<string name="gluten">Wheat, rye, barley and oats are often found in foods containing flour, some baking powder, batter, breadcrumbs, cakes, couscous, meat products, pasta, pastry, sauces, soups and some fried food.</string>-->
+    <!--<string name="peanut">Peanuts are often used as an ingredient in biscuits, cakes, curries, desserts, sauces, groundnut oil and peanut flour.</string>-->
+    <!--<string name="treenut">Treenuts include Almonds, Hazelnuts, Walnuts, Cashews, Pecan Nuts, Brazil Nuts, Pistachio Nuts, Macadamia or Queensland Nuts</string>-->
+    <!--<string name="mustard">This includes Mustard in the form of powder, liquid and seeds. This ingredient is used in breads, curries, marinades, meat products, salad dressings, sauces and soups.</string>-->
+    <!--<string name="dairy">Milk is found in dairy products such as butter, cheese, cream, milk powders and yoghurt. Some foods are also glazed with milk during cooking. It’s also commonly found in powdered soups and sauces.</string>-->
+    <!--<string name="eggs">Eggs are found in cakes, some meat products, mayonnaise, mousses, pasta, quiche, sauces and pastries. Some food products are glazed with eggs during cooking.</string>-->
+    <!--<string name="seasame">These are found commonly in bread, usually sprinkled on buns such as hamburger buns, bread sticks, houmous, sesame oil and tahini</string>-->
+    <!--<string name="fish">Fish is often found in some sauces in pizzas, relishes, salad dressings, stock cubes and Worcestershire sauce</string>-->
+    <!--<string name="celery">This includes the celery stalks, leaves, seeds and the root. Usually found in celery salt, salads, some meat products, soups and stock cubes.</string>-->
+    <!--<string name="crustaceans">Crabs, lobster, prawns and scampi are crustaceans. Shrimp paste is an allergen in this category that is commonly used in Thai and South-east Asian cooking</string>-->
+    <!--<string name="lupin">Lupin is a flower, but it is also sometimes found in flour and is sometimes used in bread, pastries and pasta.</string>-->
+    <!--<string name="sulphides">This is an ingredient often used in dried fruits and in some meat products, soft drinks, vegetables, wine and beer.</string>-->
+    <!--<string name="molluscs">Molluscs includes mussels, land snails, squid and whelks, but can also be found in oyster sauce.</string>-->
+
+
+    <string name="gluten">Gluten includes wheat, rye, barley and oats. These are often found in foods containing flour, some baking powder, batter, breadcrumbs, cakes, couscous, meat products, pasta, pastry, sauces, soups and some fried food.</string>
+
+    <string name="crustaceans">Crustaceans includes crabs, lobster, prawns and scampi. Shrimp paste is an allergen in this category that is commonly used in Thai and South-east Asian cooking.</string>
+
+    <string name="eggs">Eggs are found in cakes, some meat products, mayonnaise, mousses, pasta, quiche, sauces and pastries. Some food products are glazed with eggs during cooking.</string>
+
+    <string name="fish">As well as fish meat, you may find fish sauces in pizzas, relishes, salad dressings, stock cubes and Worcestershire sauce.</string>
+
+    <string name="peanut">Peanuts are often used as an ingredients in biscuits, cakes, curries, desserts, sauces, groundnut oil and peanut flour.</string>
+
+    <string name="soya">Soya can be found in bean curd, edamame beans, miso pates, textured soya protein, soya flour or tofu. Soya is a staple ingredient in oriental food. It can be found in desserts, ice cream, meat products, sauces and vegetarian products.</string>
+
+    <string name="dairy">Dairy includes butter, cheese, cream, milk powders and yoghurt. Some foods are also glazed with milk during cooking. Dairy products are also commonly found in powdered soups and sauces.</string>
+
+    <string name="treenuts">TreeNuts (excluding Peanuts) refers to nuts that are grown on trees; unlike peanuts, which are grown underground. This includes cashew nuts, almonds and hazelnuts.</string>
+
+    <string name="celery">Celery includes the celery stalks, leaves, seeds and the root. Usually found in celery salt, salads, some meat products, soups and stock cubes.</string>
+
+    <string name="mustard">Mustard can be found as a powder, liquid or seeds. Mustard is used in breads, curries, marinades, meat products, salad dressings, sauces and soups.</string>
+
+    <string name="sesame">Sesame is commonly found in bread, usually sprinkled on buns such as hamburger buns, bread sticks, hummus, sesame oil and tahini.</string>
+
+    <string name="sulphides">Sulphides are often used in dried fruits and in some meat products, soft drinks, vegetables, wine and beer. Asthmatics have a higher risk of developing an allergy to sulphites.</string>
+
+    <string name="lupin">Lupin is a flower, but it can be found in bread, pastries and pasta.</string>
+
+    <string name="molluscs">Molluscs includes mussels, land snails, squid and whelks, but can also be found in oyster sauce, which is commonly used in fish stews.</string>
+
+    <!--<string name="gluten2">Cereals containing gluten, namely wheat (such as spelt and Khorasan wheat), rye, barley, oats and their hybridised strains. Exclusions include:-->
+<!--a) wheat based glucose syrups including dextrose-->
+<!--b) wheat based maltodextrins-->
+<!--c) glucose syrups based on barley-->
+<!--d) cereals used for making alcoholic distillates including ethyl alcohol of agricultural origin-->
+<!--</string>-->
+
+    <!--<string name="crustaceans2">Crustaceans, include prawns, lobster, crabs and crayfish and products made from these.</string>-->
+
+    <!--<string name="eggs2">Egg and products made from eggs, including a lot of baking products.</string>-->
+
+    <!--<string name="fish2">Fish and products made from fish, except:\n-->
+<!--a) fish gelatine used as carrier for vitamin or carotenoid preparations.-->
+<!--b) fish gelatine or Isinglass used as a fining agent in beer and wine.</string>-->
+
+    <!--<string name="peanut2">Peanuts and products made from peanuts, such as peanut butter.</string>-->
+
+    <!--<string name="soya2">Soybeans and products made from soybeans, except:-->
+<!--a) fully refined soybean oil and fat.-->
+<!--b) natural mixed toco pherols (E306), natural D-alphatocopherols, natural D-alpha tocopherol acetate and natural D-alpha tocopherol succinate from soybean sources.-->
+<!--c) vegetable oils derived phytosterols and phytosterol esters from soybean sources.-->
+<!--d) plant stanol ester produced from vegetable oil sterols from soybean sources.-->
+<!--</string>-->
+
+    <!--<string name="dairy2">Milk and products made from milk(including lactose), except:-->
+<!--a) whey used for making alcoholic distillates including ethyl alcohol of agricultural origin.-->
+<!--b) lactitol.</string>-->
+
+    <!--<string name="treenuts2">Treenuts, namely almond, hazelnut, walnut, cashew, pecan nut, Brazil nut, pistachio nut and Macadamia nut(Queensland nut) and products made from these nuts. This excludes nuts used for making alcoholic distillates including ethyl alcohol of agricultural origin.</string>-->
+
+    <!--<string name="celery2">Celery and products made from celery.</string>-->
+
+    <!--<string name="mustard2">Mustard and products made from mustard.</string>-->
+
+    <!--<string name="sesame2">Sesame seeds and products made from or that contain seasame seeds.</string>-->
+
+    <!--<string name="sulphides2">Sulphur dioxide and/or sulphites at concentrations of more than 10mg/kg or 10mg/L(litre) in terms of the total SO2 which are to be 13 calculated for products as proposed ready for consumption or as reconstituted according to the instructions of the manufacturers.</string>-->
+
+    <!--<string name="lupin2">Lupin and products made from lupin.</string>-->
+
+    <!--<string name="molluscs2">Molluscs includes mussels, clams, oysters, scallops, snails and squid and products made from these.</string>-->
+
+
+    <string name="gluten_label">
+Wheat, Durum wheat, Semolina, Spelt, Kamut, Eincorn, Faro, Barley, Rye, Oat, Malt, Couscous.</string>
+    <string name="gluten_foods">
+Bread, Baked goods, Baking mixes, Pasta, Crackers, Cereals, Condiments, Chocolates, Sauces.</string>
+
+
+    <string name="crusteans_label">
+Amphipods, Barnacles, Crabs, Hermit Crabs, Crayfish, Isopods, Lobsters, Mantis Shrimp, Mussel Shrimp, Mysids, Sea Spiders, Shrimp, Prawns.</string>
+    <string name="crusteans_foods">
+Paella, Chinese products, Thai Curry, Prepared sauces, Soups, Asian Salad, Fried rice, Fish paste, Fish Soup.</string>
+
+
+    <string name="eggs_label">
+Albumin, Apovitellin, Cholesterol free egg substitute, Dried egg solids, Dried egg, Egg, Egg white, Egg yolk, Egg wash, Eggnog, Fat substitutes, Globulin, Livetin, Lysozyme, Mayonnaise, Meringue, Meringue powder, Ovalbumin, Ovoglobulin, Ovomucin, Ovomucoid, Ovotransferrin, Ovovitelia, Ovovitellin, Powdered eggs, Silici albuminate, Simplesse, Surimi, Trailblazer, Vitellin, Whole egg.</string>
+    <string name="eggs_foods">
+Meringue, Mayonnaise, Marzipan, Marshmallow, Artificial flavouring, Baked goods, Lecithin, Natural flavourings, Nougat, Pasta, Salad dressing, Tartare Sauce, Hollandaise, Cakes, Egg glazed pastry, Some ice cream, Some custard.</string>
+
+
+    <string name="fish_label">
+Anchovies, Bass, Catfish, Cod, Flounder, Grouper, Haddock, Hake, Halibut, Herring, Mahi Mahi, Perch, Pike, Pollock, Salmon, Scrod, Swordfish, Sole, Snapper, Tilapia, Trout, Tuna.</string>
+    <string name="fish_foods">
+Barbecue Sauce, Soups, Pizza, Caesar salad and Caesar dressing, Worcestershire sauce, Bouillabaisse, Imitation or artificial fish or shellfish (“sea legs” or “sea sticks,” is one example), Meatloaf, Barbecue sauce, Caponata, a Sicilian eggplant relish, Num Pla, Dips, Gelatine, Relishes.</string>
+
+
+    <string name="peanuts_label">
+Ground Nuts, Beer nuts, Monkey nuts, Nut meat, Arachis oil, Kernels, Peanut protein, Arachic oil, Arachis, Arachis hypogaea, Artificial nuts, Beer nuts, Boiled peanuts, Cold pressed, Extruded or expelled peanut oil, Crushed nuts, Crushed peanuts, Earth nuts, Goober peas
+Ground nuts, Ground peanuts, Hydrolyzed peanut protein, Mandelonas, Mixed nuts, Nut pieces, Nutmeat, Peanut butter, Peanut butter chips, Peanut butter morsels, Peanut flour, Peanut paste, Peanut sauce, Peanut syrup, Virginia peanuts.</string>
+    <string name="peanuts_foods">
+Artificial flavouring, Baked goods, Candy, Chili, Chocolate, Crumb toppings, Egg rolls, Enchilada sauce, Ethnic foods: African, Asian, Chinese, Indian, Indonesian, Thai, Vietnamese, Mexican, Fried foods, Flavouring, Graham cracker crust, Hydrolyzed plant protein, Hydrolyzed vegetable protein, Marzipan, Mole sauce, Natural flavouring, Nougat.</string>
+
+
+    <string name="soya_label">Soy flour, Soya Milk, Soya nuts, Bean curd, Edamame (soybeans in pods), Hydrolyzed soy protein, Kinnoko flour, Kyodofu (freeze dried tofu), Miso, Natto, Okara (soy pulp), Shoyu sauce, Soy albumin, Soy concentrate, Soy fiber, Soy formula, Soy grits, Soy milk, Soy miso, Soy nuts, Soy nut butter, Soy protein, Soy protein concentrate, Soy protein isolate, Soy sauce, Soy sprouts, Soya, Soya flour, Soybeans, Soybean granules, Soybean curd, Soybean flour, Soy lecithin, Soybean paste, Supro, Tamari, Tempeh, Teriyaki sauce, Textured soy flour (TSF), Textured soy protein (TSP), Textured vegetable protein (TVP), Tofu, Yakidofu, Yuba (bean curd), Soy oil, Soybean, Textured vegetable protein, Edemame, Bean curd, Vegetable starch, Vegetable gum.
+</string>
+    <string name="soya_foods">
+Artificial flavouring, Baked goods, Candy, Chili, Chocolate, Crumb toppings, Egg rolls, Enchilada sauce, Ethnic foods: African, Asian, Chinese, Indian, Indonesian, Thai, Vietnamese, Mexican, Fried foods, Flavouring, Graham cracker crust, Hydrolyzed plant protein, Hydrolyzed vegetable protein, Marzipan, Mole sauce, Natural flavouring, Nougat.
+</string>
+
+
+    <string name="dairy_label">
+Milk — acidophilus milk, buttermilk, buttermilk blend, buttermilk solids, cultured milk, condensed milk, dried milk, dry milk solids (DMS), evaporated milk, fat‐free milk, fully cream milk powder, goat’s milk, lactose free milk, low fat milk, malted milk, milk derivative, milk powder, milk protein, milk solids, milk solid pastes, nonfat dry milk, nonfat milk, nonfat milk solids, pasteurised milk, powdered milk, sheep’s milk, skim milk, skim milk powder, sour milk, sour milk solids, sweet cream buttermilk powder, sweetened condensed milk, sweetened condensed skim milk,whole milk, 1% milk, 2% milk, Butter — artificial butter, artificial butter flavour, butter, butter extract, butter fat, butter flavoured oil, butter solids, dairy butter, natural butter, natural butter flavour, whipped butter, Casein &amp; caseinates — ammonium caseinate, calcium caseinate, hydrolyzed casein, iron caseinate magnesium caseinate, potassium caseinate, sodium caseinate, zinc caseinate.
+
+Cheese — cheese (all types), cheese flavor (artificial and natural), cheese food, cottage cheese, cream cheese, imitation cheese, vegetarian cheeses with casein.
+
+Cream, Whipped cream, Curds, Custard, Dairy product solids, Galactose, Ghee, Half &amp; Half
+
+Hydrolysates — Casein hydrolysate, Milk protein hydrolysate, Protein hydrolysate, Whey hydrolysate, Whey protein hydrolysate Ice cream, Ice milk, Sherbet, Casein, Whey, Lactoalbumin, Lactulose, Lactoferrin, Lactoglobulin, Milk protein, Hydrolysate, Lactalbumin, Lactalbumin phosphate, Lactate solids, Lactyc yeast, Lactitol monohydrate, Lactoglobulin, Lactose, Lactulose, Milk fat, anhydrous milk fat, Nisin preparation, Nougat, Pudding, Quark, Recaldent, Rennet, Rennet casein, Simplesse® (fat replacer), Sour cream, Sour cream solids, Imitation sour cream, Whey — acid whey, Cured whey, Delactosed whey, Demineralised whey, Hydrolyzed whey, Powdered whey, Reduced mineral whey, Sweet dairy whey, Whey, Whey protein, Whey protein concentrate, Whey powder, Whey solids, Yogurt (regular or frozen), Yogurt powder.
+</string>
+    <string name="dairy_foods">Milk, Milk powder, Buttermilk, Butter, Ghee, Yoghurt, Natural flavouring, Flavouring, Caramel flavouring, High protein flour, Lactic acid starter culture, Rice cheese, Soy cheese, Cream, Ice Cream, Cheese, Custard, Margarine, Chocolate, Instant Mash.
+</string>
+
+
+    <string name="treenuts_label">Almond, Hazelnuts, Walnuts, Cashews, Pecan Nuts, Brazil Nuts, Pistachio Nuts, Macadamia or Queensland Nuts.
+</string>
+    <string name="treenuts_foods">Chocolate spread, Nut butter, Chocolates, Artificial flavoring, Baked goods, Mortadella, Natural flavouring, Nougat, Pesto, Salad dressings, BBQ sauce, Pesto, Crackers, Desserts.
+</string>
+
+
+    <string name="celery_label">Celery seed, Celery leaf, Celery salt, Celariac, Celery stalk.
+</string>
+    <string name="celery_foods">Vegetable juice, Spice mixes, Soups, vegetable, Marmite, Curry, Bouillon, Processed meat products, Savoury snacks, Sausages, Prepared Salads.
+</string>
+
+
+    <string name="mustard_label">Mustard powder, Mustard seeds, Mustard flour, Mustard leaves, Mustard oil, Sprouted mustard seeds.
+</string>
+    <string name="mustard_foods">Sausages and processed meat products, Chutneys, Soups, Sauces, Chutney, Piccalilli, Salad dressing, Indian foods, Salad Dressings (vinaigrettes and cruditées), Spices, flavouring or seasoning, Barbecue Sauce, Curry Sauce, Cumberland Sauce, Ketchup, tomato sauce, Béarnaise Sauce, Mayonnaises, Pesto, Gravies, Marinades, Chutneys pickles and other pickled products, Vegetables with vinegar, Dehydrated soups.
+</string>
+
+
+    <string name="seasame_label">Sesame seeds, Sesame oil, Benne, Benne seed, Gingelly, Gingelly oil.
+</string>
+    <string name="seasame_foods">Bread, Soups, Crackers, Tahini butter, Dressings, Marinades, Toasts, Dips, Hummus, Sauces, Chutney.
+</string>
+
+
+    <string name="slphides_label">Sulphur, Sulphur Dioxide, Sulphite, Sulphites, Potassium bisulphite, Metabisulphite, Sodium bisulphite, Dithionite, Metabisulphite, Sulphiting agents, Sulphurous acid, E220 Sulphur dioxide, E221 Sodium sulphite, E222 Sodium hydrogen sulphite, E223 Sodium metabisulphite, E224 Potassium metabisulphite, E226 Calcium sulphite, E227 Calcium hydrogen sulphite, E228 Potassium hydrogen sulphite, E150b Caustic sulphite caramel, E150d Sulphite ammonia caramel.
+</string>
+    <string name="sulphides_foods">Pickled foods and vinegar, Dried fruit eg dried apricots, prunes, raisins etc, Maraschino cherries, Tinned coconut milk, Beer, wine and cider, Vegetable juices, Some soft drinks, Grape juice, Bottled lemon juice and lime juice, Condiments (bottled sauces etc.), Guacamole, Dehydrated, pre-cut or peeled potatoes, Fresh or frozen prawns, Some processed meat products.
+</string>
+
+
+    <string name="lupin_label">Lupine, Lupin flour, Lupin seed, Lupin bean.
+</string>
+    <string name="lupin_foods">Pastry cases, Pies, Waffles, Pancakes, Crepes, Products containing crumb, Pizzas, Vegetarian meat substitute, Deep-coated vegetables such as onion rings.
+</string>
+
+
+    <string name="molluscs_label">Oysters, Snails, Squid, Scallops, Mussels, Clams and cockles, Abalone, Mussels, Octopus.
+</string>
+    <string name="molluscs_foods">Ethnic Food, Soups, Sauces, Mussel dishes, Scallops, Calamari.
+</string>
+
+    <!-- Nav Drawer Menu Items -->
+    <string-array name="nav_drawer_items">
+        <item>App Features</item>
+        <item>Upgrade to PRO</item>
+        <item>About</item>
+        <item>Rate The App</item>
+        <!--<item>Allergy Resources</item>-->
+        <item>Version</item>
+    </string-array>
+
+
+</resources>

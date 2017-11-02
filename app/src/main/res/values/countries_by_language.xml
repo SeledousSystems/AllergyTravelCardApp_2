@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="hungarian">
+        <item>Hungary</item>
+    </string-array>
+
+    <string-array name="albanian">
+        <item>Albania</item>
+        <item>Kosovo</item>
+    </string-array>
+
+    <string-array name="bosnian">
+        <item>Bosnia</item>
+    </string-array>
+
+    <string-array name="danish">
+        <item>Denmark</item>
+    </string-array>
+
+    <string-array name="estonian">
+        <item>Estonia</item>
+    </string-array>
+
+    <string-array name="icelandic">
+        <item>Iceland</item>
+    </string-array>
+
+    <string-array name="latvian">
+        <item>Latvia</item>
+    </string-array>
+
+    <string-array name="slovak">
+        <item>Slovakia</item>
+    </string-array>
+
+    <string-array name="swedish">
+        <item>Finland</item>
+        <item>Sweden</item>
+    </string-array>
+
+    <string-array name="slovenian">
+        <item>Slovenia</item>
+    </string-array>
+
+    <string-array name="polish">
+        <item>Poland</item>
+    </string-array>
+
+    <string-array name="italian">
+        <item>Italy</item>
+        <item>San Marino</item>
+        <item>Vatican City</item>
+    </string-array>
+
+    <string-array name="japanese">
+        <item>Japan</item>
+    </string-array>
+
+    <string-array name="romanian">
+        <item>Moldova</item>
+        <item>Romania</item>
+    </string-array>
+
+    <string-array name="turkish">
+        <item>Bulgaria</item>
+        <item>Cyprus</item>
+        <item>Turkey</item>
+    </string-array>
+
+    <string-array name="german">
+        <item>Austria</item>
+        <item>Switzerland</item>
+        <item>Liechtenstein</item>
+        <item>Germany</item>
+    </string-array>
+
+    <string-array name="english">
+        <item>Anguilla</item>
+        <item>Antigua \&amp; Barbuda</item>
+        <item>Australia</item>
+        <item>the Bahamas</item>
+        <item>Barbados</item>
+        <item>Bermuda</item>
+        <item>Belize</item>
+        <item>the British Indian Ocean Territory</item>
+        <item>the British Virgin Islands</item>
+        <item>Canada</item>
+        <item>The Cayman Islands</item>
+        <item>The Falkland Islands</item>
+        <item>Gibraltar</item>
+        <item>Grenada</item>
+        <item>Guam</item>
+        <item>Guernsey</item>
+        <item>Guyana</item>
+        <item>Ireland</item>
+        <item>Isle of Man</item>
+        <item>Jamaica</item>
+        <item>Jersey</item>
+        <item>Montserrat</item>
+        <item>Nauru</item>
+        <item>New Zealand</item>
+        <item>Pitcairn Islands</item>
+        <item>Saint Helena</item>
+        <item>Saint Kitts \&amp; Nevis</item>
+        <item>Saint Vincent \&amp; the Grenadines</item>
+        <item>Singapore</item>
+        <item>South Georgia Islands</item>
+        <item>South Sandwich Islands</item>
+        <item>Trinidad \&amp; Tobago</item>
+        <item>United Kingdom</item>
+        <item>The Virgin Islands</item>
+        <item>The United States</item>
+    </string-array>
+
+    <string-array name="chinese">
+        <item>China</item>
+        <item>Hong Kong</item>
+        <item>Macau</item>
+        <item>Tibet</item>
+        <item>Indonesia</item>
+        <item>Malaysia</item>
+        <item>Singapore</item>
+        <item>Taiwan</item>
+    </string-array>
+
+    <string-array name="spanish">
+        <item>Argentina</item>
+        <item>Bolivia</item>
+        <item>Chile</item>
+        <item>Colombia</item>
+        <item>Costa Rica</item>
+        <item>Cuba</item>
+        <item>Dominican Republic</item>
+        <item>Ecuador</item>
+        <item>Equatorial Guinea</item>
+        <item>El Salvador</item>
+        <item>Guatemala</item>
+        <item>Honduras</item>
+        <item>México</item>
+        <item>Nicaragua</item>
+        <item>Panamá</item>
+        <item>Paraguay</item>
+        <item>Perú</item>
+        <item>Puerto Rico</item>
+        <item>Spain</item>
+        <item>Uruguay</item>
+        <item>Venezuela</item>
+    </string-array>
+
+    <string-array name="arabic">
+        <item>Algeria</item>
+        <item>Bahrain</item>
+        <item>Comoros</item>
+        <item>Chad</item>
+        <item>Djibouti</item>
+        <item>Egypt</item>
+        <item>Eritrea</item>
+        <item>Iraq</item>
+        <item>Israel</item>
+        <item>Jordan</item>
+        <item>Kuwait</item>
+        <item>Lebanon</item>
+        <item>Libya</item>
+        <item>Mauritania</item>
+        <item>Morocco</item>
+        <item>Oman</item>
+        <item>Qatar</item>
+        <item>Saudi Arabia</item>
+        <item>Somalia</item>
+        <item>Sudan</item>
+        <item>Syria</item>
+        <item>Tunisia</item>
+        <item>The United Arab Emirates</item>
+        <item>Yemen</item>
+        <item>Palestine</item>
+        <item>Western Sahara</item>
+    </string-array>
+
+    <string-array name="french">
+        <item>Belgium</item>
+        <item>Benin</item>
+        <item>Burkina</item>
+        <item>Faso</item>
+        <item>Burundi</item>
+        <item>Cameroon</item>
+        <item>Canada</item>
+        <item>Central</item>
+        <item>African Republic</item>
+        <item>Chad</item>
+        <item>Comoros</item>
+        <item>Côte</item>
+        <item>d\'Ivoire</item>
+        <item>Democratic</item>
+        <item>Republic of the Congo</item>
+        <item>Djibouti</item>
+        <item>Equatorial Guinea</item>
+        <item>France</item>
+        <item>Guinea</item>
+        <item>Haiti</item>
+        <item>Luxembourg</item>
+        <item>Madagascar</item>
+        <item>Mali</item>
+        <item>Monaco</item>
+        <item>Niger</item>
+        <item>The Republic of the Congo</item>
+        <item>Rwanda</item>
+        <item>Senegal</item>
+        <item>Seychelles</item>
+        <item>Switzerland</item>
+        <item>Togo</item>
+        <item>Vanuatu</item>
+    </string-array>
+
+    <string-array name="russian">
+        <item>Armenia</item>
+        <item>Azerbaijan</item>
+        <item>Byelorussia</item>
+        <item>Estonia</item>
+        <item>Georgia</item>
+        <item>Kazakhstan</item>
+        <item>Kyrghyzstan,Latvia</item>
+        <item>Lithuania</item>
+        <item>Moldova</item>
+        <item>Russia</item>
+        <item>Tajikistan</item>
+        <item>Turkmenistan</item>
+        <item>Uzbekistan</item>
+        <item>Ukraine</item>
+    </string-array>
+
+    <string-array name="dutch">
+        <item>Netherlands</item>
+        <item>Belgium(Flanders)</item>
+        <item>Suriname</item>
+        <item>Aruba</item>
+        <item>The Dutch Antilles</item>
+    </string-array>
+
+    <string-array name="afrikaans">
+        <item>Namibia</item>
+        <item>South Africa</item>
+    </string-array>
+
+    <string-array name="croatian">
+        <item>Croatia</item>
+        <item>Bosnia \&amp; Herzegovina</item>
+    </string-array>
+
+    <string-array name="finnish">
+        <item>Finland</item>
+    </string-array>
+
+    <string-array name="norwegian">
+        <item>Norway</item>
+    </string-array>
+
+    <string-array name="vietnamese">
+        <item>Vietnam</item>
+    </string-array>
+
+    <string-array name="czech">
+        <item>The Czech Republic</item>
+    </string-array>
+
+    <string-array name="greek">
+        <item>Greece</item>
+        <item>Cyprus</item>
+    </string-array>
+
+    <string-array name="indonesian">
+        <item>Indonesia</item>
+    </string-array>
+
+    <string-array name="thai">
+        <item>Thailand</item>
+    </string-array>
+
+    <string-array name="portuguese">
+        <item>Brazil</item>
+        <item>Mozambique</item>
+        <item>Angola</item>
+        <item>Portugal</item>
+        <item>Guinea-Bissau</item>
+        <item>East Timor</item>
+        <item>Equatorial Guinea</item>
+        <item>Macau</item>
+        <item>Cape Verde</item>
+        <item>São Tomé \&amp; Príncipe</item>
+    </string-array>
+
+  <string-array name="hindi">
+        <item>India</item>
+        <item>Mauritius</item>
+        <item>Fiji</item>
+        <item>Suriname</item>
+        <item>Guyana</item>
+        <item>Trinidad \&amp; Tobago</item>
+        <item>Nepal</item>
+    </string-array>
+
+</resources>
+
+
+
+
+
+
+
+
+
+
+
+

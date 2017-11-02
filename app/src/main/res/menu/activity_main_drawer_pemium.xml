@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:title="Passie Details">
+        <menu>
+            <item
+                android:id="@+id/nav_features"
+                android:icon="@drawable/appl_icon"
+                android:title="App Features" />
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/ic_info_outline_black_24dp"
+                android:title="About" />
+            <item
+                android:id="@+id/nav_get_pro"
+                android:icon="@drawable/ic_play_arrow_black_24dp"
+                android:title="GetPro" />
+            <item
+                android:id="@+id/nav_rate"
+                android:icon="@drawable/ic_star_black_24dp"
+                android:title="Rate" />
+            <item
+                android:id="@+id/nav_version"
+                android:icon="@drawable/ic_code_black_24dp"
+                android:title="Version" />
+        </menu>
+    </item>
+
+
+</menu>

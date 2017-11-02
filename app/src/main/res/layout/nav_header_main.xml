@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/side_nav_bar"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="24dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:paddingTop="20sp"
+        android:paddingBottom="20sp"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/appl_icon" />
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="match_parent"
+            android:layout_height="30sp"
+            android:text="Allergy Travel Cards"
+            app:autoSizeMaxTextSize="50sp"
+            android:gravity="center"
+            app:autoSizeMinTextSize="16sp"
+            app:autoSizeStepGranularity="1sp"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:maxLines="1"
+            app:autoSizeTextType="uniform"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/toolbar_title_2"
+            android:layout_width="match_parent"
+            android:layout_height="25sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Eat Safely"
+            android:maxLines="1"
+            android:paddingLeft="5sp"
+            android:paddingRight="8sp"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="15sp"
+            app:autoSizeStepGranularity="1sp"
+            app:autoSizeTextType="uniform"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/view_card"
+        android:title="@string/view_card" />
+    <item
+        android:id="@+id/delete_card"
+        android:title="@string/delete_card" />
+    <item
+        android:id="@+id/move_card_bottom"
+        android:title="@string/move_card_bottom" />
+    <item
+        android:id="@+id/move_card_top"
+        android:title="@string/move_card_top" />
+    <item
+        android:id="@+id/create_notification"
+        android:title="@string/create_notification" />
+    <item
+        android:id="@+id/show_countries"
+        android:title="@string/show_countries" />
+
+</menu>

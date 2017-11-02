@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="allergy_array">
+        <item>Celery</item>
+        <item>Crustaceans</item>
+        <item>Dairy</item>
+        <item>Eggs</item>
+        <item>Fish</item>
+        <item>Gluten</item>
+        <item>Lupin</item>
+        <item>Molluscs</item>
+        <item>Mustard</item>
+        <item>Peanut</item>
+        <item>Sesame</item>
+        <item>Soya</item>
+        <item>Sulphides</item>
+        <item>TreeNuts</item>
+    </string-array>
+
+</resources>

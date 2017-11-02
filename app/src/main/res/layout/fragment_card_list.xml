@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingTop="2dp"
+    android:background="@color/grey_background"
+    tools:context="com.wright.paul.allergytravelcardapp.userInterface.CreateCardActivity">
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="7dp"
+        android:padding="2dp"
+        tools:listitem="@android:layout/two_line_list_item"/>
+
+    <TextView
+        android:id="@+id/emptyTV"
+        android:text="Tap to create a card."
+        android:contextClickable="true"
+        android:textSize="20dp"
+        android:clickable="true"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:visibility="gone"
+        />
+
+</RelativeLayout>
+
