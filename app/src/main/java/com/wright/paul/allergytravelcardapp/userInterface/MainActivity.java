@@ -342,7 +342,6 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
         if (buyIntent) {
             buy();
         }
-
     }
 
     /**

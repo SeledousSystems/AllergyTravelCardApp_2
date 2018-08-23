@@ -1,5 +1,6 @@
 package com.wright.paul.allergytravelcardapp.model;
 
+import android.app.NotificationManager;
 import android.content.Context;
 import android.util.Log;
 
@@ -65,6 +66,7 @@ public class CardManager {
         int date = (int) new Date().getTime() / 1000;
         return date;
     }
+
 
     /**
      * Method to builds a string to output to the user the countries their card can be utilised in.
