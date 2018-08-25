@@ -67,6 +67,19 @@ public class CardManager {
         return date;
     }
 
+    public static String getAllCountriesText(Context context, String language) {
+        String[] countryArray = CardManager.getCountries(language, context);
+        final String message = language + " can be used in " + CardManager.buildCountryMessage(countryArray);
+        return message;
+    }
+
+    public static String getAllergyText(Context context, String allergy) {
+        int allergyTextId = context.getResources().getIdentifier(allergy.toLowerCase(), "string", context.getPackageName());
+        Log.d("Allergy Text ID", allergyTextId + "  " + context.getPackageName());
+        String allergyText = context.getString(allergyTextId);
+        return allergyText;
+    }
+
 
     /**
      * Method to builds a string to output to the user the countries their card can be utilised in.
@@ -75,7 +88,6 @@ public class CardManager {
      * @return
      */
     public static String buildCountryMessage(String countryArray[]) {
-
         StringBuilder builder = new StringBuilder();
         if (countryArray.length == 1) builder.append(countryArray[0]);
         else {
@@ -192,7 +204,6 @@ public class CardManager {
     }
 
     public static String getProCountries(Context context) {
-
         String[] freeCountries = context.getResources().getStringArray(R.array.language_array_free);
         String[] proCountries = context.getResources().getStringArray(R.array.language_array_premium);
         StringBuilder sb = new StringBuilder();

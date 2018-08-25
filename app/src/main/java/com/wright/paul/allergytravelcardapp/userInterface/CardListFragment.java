@@ -119,15 +119,15 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
             }
 
             @Override
-            public void shareButtonListener(View v, int position) {
-                Toast.makeText(context, "share functuion tba",Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
             public void deleteButtonListener(View v, int position) {
                 final Card cardDelete = cardList.get(position);
                 deleteCard(cardDelete);
                 Toast.makeText(getActivity(), "Allergy Card Deleted", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void cardWrapperListener(int position) {
+                viewCard(position);
             }
         });
 

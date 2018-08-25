@@ -1,19 +1,19 @@
 package com.wright.paul.allergytravelcardapp.userInterface;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.wright.paul.allergytravelcardapp.R;
 import com.wright.paul.allergytravelcardapp.model.Card;
+import com.wright.paul.allergytravelcardapp.model.CardManager;
 
 import java.util.List;
 
@@ -23,16 +23,16 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
     private Context context;
     private int itemResource;
     CardHolder holder;
-    protected ImageButton notifButton, deleteButton, viewButton, shareButton;
     public CardAdapterListener onClickListener;
-
-    private CustomListViewAdaptor.OnItemClickListener mListener;
 
     public interface CardAdapterListener {
         void deleteButtonListener(View v, int position);
+
         void notifButtonListener(View v, int position);
+
         void viewButtonListener(View v, int position);
-        void shareButtonListener(View v, int position);
+
+        void cardWrapperListener(int position);
     }
 
     public CardAdapter(Context context, int itemResource, List<Card> cards, CardAdapterListener listener) {
@@ -62,24 +62,24 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
     public void onBindViewHolder(@NonNull CardHolder holder, int position) {
 
         // 5. Use position to access the correct Card object
-        Card card = this.cards.get(position);
+        final Card card = this.cards.get(position);
 
         this.holder = holder;
         // 6. Bind the card object to the holder
         holder.bindCard(card);
         final int cardPos = position;
 
+        holder.cardWrapper.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickListener.cardWrapperListener(cardPos);
+            }
+        });
+
         holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onClickListener.deleteButtonListener(v, cardPos);
-            }
-        });
-
-        holder.shareButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onClickListener.shareButtonListener(v, cardPos);
             }
         });
 
@@ -97,8 +97,50 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
             }
         });
 
+        holder.flagImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        Log.d("testy", "card = " + cards.get(position));
+                try {
+                    String message = CardManager.getAllCountriesText(context, card.getLanguage());
+                    AlertDialog.Builder bld = new AlertDialog.Builder(context);
+                    bld.setIcon(R.mipmap.ic_logo);
+                    bld.setTitle(card.getLanguage() + " Language");
+                    bld.setMessage(message);
+                    bld.setNeutralButton("CLOSE", null);
+                    Log.d("FLAG_DIALOG", "Showing showAlert dialog: " + message);
+                    bld.create();
+                    AlertDialog dialog = bld.show();
+                    //center the text in the showAlert
+                    TextView messageView = (TextView) dialog.findViewById(android.R.id.message);
+                    messageView.setGravity(Gravity.CENTER);
+                } catch (Exception e) {
 
+                }
+            }
+        });
+
+        holder.allergyImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                try {
+                    String message = CardManager.getAllergyText(context, card.getAllergy());
+                    Log.d("FLAG_DIALOG", "Showing showAlert dialog: " + message);
+                    AlertDialog.Builder bld = new AlertDialog.Builder(context);
+                    bld.setIcon(R.mipmap.ic_logo);
+                    bld.setTitle(card.getAllergy());
+                    bld.setMessage(message);
+                    bld.setNeutralButton("CLOSE", null);
+                    Log.d("FLAG_DIALOG", "Showing showAlert dialog: " + message);
+                    bld.create();
+                    AlertDialog dialog = bld.show();
+                    //center the text in the showAlert
+                    TextView messageView = (TextView) dialog.findViewById(android.R.id.message);
+                    messageView.setGravity(Gravity.CENTER);
+                } catch (Exception e) {
+                }
+            }
+        });
     }
 }
