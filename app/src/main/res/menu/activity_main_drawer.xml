@@ -6,20 +6,12 @@
         <menu>
             <item
                 android:id="@+id/nav_features"
-                android:icon="@drawable/manual_48"
+                android:icon="@drawable/appl_icon"
                 android:title="App Features" />
-            <!--<item-->
-                <!--android:id="@+id/nav_show_allergies"-->
-                <!--android:icon="@drawable/appl_icon_36"-->
-                <!--android:title="Allergy Information" />-->
             <item
                 android:id="@+id/nav_about"
                 android:icon="@drawable/ic_info_outline_black_24dp"
                 android:title="About" />
-            <!--<item-->
-                <!--android:id="@+id/nav_resources"-->
-                <!--android:icon="@drawable/ic_library_books_black_24dp"-->
-                <!--android:title="Allergy Resources" />-->
             <item
                 android:id="@+id/nav_get_pro"
                 android:icon="@drawable/play_strore_icon_48"

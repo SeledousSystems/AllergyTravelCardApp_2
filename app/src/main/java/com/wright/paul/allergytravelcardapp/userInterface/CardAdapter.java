@@ -9,6 +9,9 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.wright.paul.allergytravelcardapp.R;
@@ -24,14 +27,13 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
     private int itemResource;
     CardHolder holder;
     public CardAdapterListener onClickListener;
+    private final static int FADE_DURATION = 1200; //FADE_DURATION in milliseconds
+
 
     public interface CardAdapterListener {
         void deleteButtonListener(View v, int position);
-
         void notifButtonListener(View v, int position);
-
         void viewButtonListener(View v, int position);
-
         void cardWrapperListener(int position);
     }
 
@@ -142,5 +144,17 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
                 }
             }
         });
+
+        // Set the view to fade in
+        setFadeAnimation(holder.itemView);
+
     }
+
+
+    private void setFadeAnimation(View view) {
+        AlphaAnimation anim = new AlphaAnimation(0.0f, 1.0f);
+        anim.setDuration(FADE_DURATION);
+        view.startAnimation(anim);
+    }
+
 }

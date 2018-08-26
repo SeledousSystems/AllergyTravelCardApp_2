@@ -71,7 +71,7 @@ public class CardHolder extends RecyclerView.ViewHolder implements View.OnClickL
         final Card cardFinal = card;
 
         //set the content for Text and Image view of the card
-        cardAllergy.setText(card.getAllergy());
+        cardAllergy.setText(card.getAllergy() + " Allergy");
         cardLanguage.setText(card.getLanguage());
         flagImage.setImageResource(CardManager.getResourceID(card.getLanguage()));
 
