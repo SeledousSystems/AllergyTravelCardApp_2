@@ -28,7 +28,7 @@ public class CardHolder extends RecyclerView.ViewHolder implements View.OnClickL
     private Context context;
     protected TextView cardLanguage, cardAllergy;
     protected ImageView flagImage, allergyImage;
-    private Card card;
+    protected Card card;
     protected LinearLayout linearLayout, cardWrapper;
 
 
