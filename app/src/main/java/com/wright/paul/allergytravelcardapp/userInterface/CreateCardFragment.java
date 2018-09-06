@@ -152,7 +152,7 @@ public class CreateCardFragment extends Fragment {
         /**
          * call test method do not leave on in production
          */
-        //createTestCards();
+        createTestCards();
 
         return view;
     }

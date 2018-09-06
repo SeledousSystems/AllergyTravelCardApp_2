@@ -39,6 +39,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import jp.wasabeef.recyclerview.animators.FadeInAnimator;
+import jp.wasabeef.recyclerview.animators.LandingAnimator;
+
 /**
  * Class that defines the CardListFragment
  */
@@ -99,6 +102,7 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
         //if this is the startup of the app then add all cards from the DB to the ArrayList so
         //they can be displayed in the list view
         if (appStartUp) {
+
             cardList.clear();
             cardList.addAll(cardDBOpenHelper.getAllCards());
             Collections.sort(cardList);
@@ -135,31 +139,8 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(context);
         cardListView.setLayoutManager(mLayoutManager);
         cardListView.setAdapter(cardAdapter);
-
-        //touch helper for swipe to delete
-        ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
-            @Override
-            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-                return false;
-            }
-
-            @Override
-            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-                final Card cardDelete = cardList.get(viewHolder.getLayoutPosition());
-                deleteCard(cardDelete);
-                Toast.makeText(getActivity(), "Allergy Card Deleted", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
-                // view the background view
-            }
-        };
-
-        // attaching the touch helper to recycler view
-        new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(cardListView);
-
-
+        cardListView.setItemAnimator(new LandingAnimator());
+        cardListView.getItemAnimator().setChangeDuration(0);
         Log.d("***", "cardlist size = " + cardList.size());
 
         //assign and initialise the list view
@@ -205,6 +186,9 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
     }
 
 
+    private void rebuildCardList() {
+
+    }
 
     /**
      * onClick method to handle click event for the buttons and the empty list view
@@ -358,8 +342,12 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
      * deleteCard method to remove a card from the list and db and refresh the view.
      */
     public void deleteCard(Card card) {
+        Log.d(TAG, "Card == " + cardList.indexOf(card)  + "  size == " + cardList.size() );
         cardDBOpenHelper.deleteCardID(card.getDbID());
+        cardAdapter.notifyItemRemoved(cardList.indexOf(card));
         cardList.remove(card);
+        Log.d(TAG, "Card == " + cardList.indexOf(card) + "  size == " + cardList.size() );
+
         cardAdapter.notifyDataSetChanged();
         mNotificationManager = (NotificationManager) getActivity().getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
         //mNotificationManager.cancel(card.getDbID());
