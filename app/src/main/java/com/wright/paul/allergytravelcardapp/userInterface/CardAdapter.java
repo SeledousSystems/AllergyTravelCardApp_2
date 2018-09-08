@@ -144,22 +144,5 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
                 }
             }
         });
-
-        // Set the view to fade in
-        setFadeAnimation(holder.itemView);
-
     }
-
-    @Override
-    public long getItemId(int position) {
-
-        return super.getItemId(position);
-    }
-
-    private void setFadeAnimation(View view) {
-        AlphaAnimation anim = new AlphaAnimation(0.0f, 1.0f);
-        anim.setDuration(FADE_DURATION);
-        view.startAnimation(anim);
-    }
-
 }

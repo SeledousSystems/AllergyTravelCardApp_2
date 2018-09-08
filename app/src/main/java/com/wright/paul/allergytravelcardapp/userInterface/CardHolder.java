@@ -76,7 +76,7 @@ public class CardHolder extends RecyclerView.ViewHolder implements View.OnClickL
         flagImage.setImageResource(CardManager.getResourceID(card.getLanguage()));
 
         allergyImage.setImageResource(CardManager.getResourceID(card.getAllergy()));
-        linearLayout.setBackgroundColor(getDominantColor(CardManager.getResourceID(card.getAllergy())));
+        linearLayout.setBackgroundColor(getDominantColor(CardManager.getResourceID(card.getLanguage())));
     }
 }
 
