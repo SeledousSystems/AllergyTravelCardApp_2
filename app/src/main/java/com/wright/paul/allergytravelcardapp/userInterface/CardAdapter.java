@@ -56,12 +56,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
         // 3. Inflate the view and return the new ViewHolder
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(this.itemResource, parent, false);
-
         return new CardHolder(this.context, view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CardHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CardHolder holder, final int position) {
 
         // 5. Use position to access the correct Card object
         final Card card = this.cards.get(position);
@@ -69,33 +68,32 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
         this.holder = holder;
         // 6. Bind the card object to the holder
         holder.bindCard(card);
-        final int cardPos = position;
 
         holder.cardWrapper.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onClickListener.cardWrapperListener(cardPos);
+                onClickListener.cardWrapperListener(position);
             }
         });
 
         holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onClickListener.deleteButtonListener(v, cardPos);
+                onClickListener.deleteButtonListener(v, position);
             }
         });
 
         holder.viewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onClickListener.viewButtonListener(v, cardPos);
+                onClickListener.viewButtonListener(v, position);
             }
         });
 
         holder.notifButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onClickListener.notifButtonListener(v, cardPos);
+                onClickListener.notifButtonListener(v, position);
             }
         });
 
