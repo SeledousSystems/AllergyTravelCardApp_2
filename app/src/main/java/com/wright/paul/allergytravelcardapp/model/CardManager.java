@@ -217,6 +217,6 @@ public class CardManager {
                 }
             }
         }
-        return sb.toString() + ". \n\n The PRO edition includes over 400 allergy cards for 140 countries.";
+        return sb.toString() + ". \n\n The PRO edition includes over 490 allergy cards for 170 countries.";
     }
 }
