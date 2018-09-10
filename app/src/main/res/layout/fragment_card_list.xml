@@ -4,23 +4,31 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:paddingTop="2dp"
-    android:background="@color/grey_background"
+    android:background="@color/white"
     tools:context="com.wright.paul.allergytravelcardapp.userInterface.CreateCardActivity">
 
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/listView"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:divider="@android:color/transparent"
-        android:dividerHeight="7dp"
-        android:padding="2dp"
-        tools:listitem="@android:layout/two_line_list_item"/>
+        android:dividerHeight="5dp"
+        android:padding="2dp"/>
+
+    <!--<ListView-->
+        <!--android:id="@+id/listView"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:divider="@android:color/transparent"-->
+        <!--android:dividerHeight="7dp"-->
+        <!--android:padding="2dp"-->
+        <!--tools:listitem="@android:layout/two_line_list_item"/>-->
 
     <TextView
         android:id="@+id/emptyTV"
-        android:text="Tap to create a card."
+        android:text="Welcome to Allergy Travel Cards\n\nTap to create a card"
         android:contextClickable="true"
-        android:textSize="20dp"
+        android:textSize="25sp"
         android:clickable="true"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

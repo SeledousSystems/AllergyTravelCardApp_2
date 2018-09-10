@@ -10,18 +10,17 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include
-            layout="@layout/tool_bar"/>
+        <include layout="@layout/tool_bar" />
 
         <fragment
             android:id="@+id/fragment_card_list"
             android:name="com.wright.paul.allergytravelcardapp.userInterface.CardListFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1.02"
+            android:layout_weight="1"
             tools:layout="@layout/fragment_card_list" />
 
         <Button

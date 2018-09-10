@@ -10,8 +10,6 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,12 +75,13 @@ public class CreateCardFragment extends Fragment {
         languageTV = (TextView) view.findViewById(R.id.languageTV);
         languageTV.setMovementMethod(new ScrollingMovementMethod());
         if (isPremium) {
-            applyCountriesToTV("afrikaans");
+            //getAllCountriesText("afrikaans");
+            CardManager.getAllCountriesText(this.getContext(), "afrikaans");
         } else {
             setLanguageTextView("afrikaans");
         }
-        allergySpinner = (Spinner) view.findViewById(R.id.allergySpinner);
 
+        allergySpinner = (Spinner) view.findViewById(R.id.allergySpinner);
         allergyIV = (ImageView) view.findViewById(R.id.allergyIV);
         allergyTV = (TextView) view.findViewById(R.id.allergyTV);
 
@@ -166,13 +165,6 @@ public class CreateCardFragment extends Fragment {
         }
     }
 
-//    @Override
-//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-//        // TODO Add your menu entries here
-//        inflater.inflate(R.menu.menu_main, menu);
-//        super.onCreateOptionsMenu(menu, inflater);
-//    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -191,12 +183,6 @@ public class CreateCardFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         listener = null;
-    }
-
-    public void applyCountriesToTV(String language) {
-        String[] countryArray = CardManager.getCountries(language, this.getContext());
-        final String message = language + " can be used in " + CardManager.buildCountryMessage(countryArray);
-        languageTV.setText(message);
     }
 
     @Override
@@ -231,7 +217,7 @@ public class CreateCardFragment extends Fragment {
             newCardIntent.putExtra(CardManager.as, allergySpinner.getSelectedItem().toString());
             getActivity().overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             startActivity(newCardIntent);
-            Toast.makeText(getActivity(), languageSpinner.getSelectedItem().toString() + " " + allergySpinner.getSelectedItem().toString() + " allergy card has been added to your list.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), languageSpinner.getSelectedItem().toString() + " " + allergySpinner.getSelectedItem().toString() + " allergy card added", Toast.LENGTH_SHORT).show();
 
             //for adding a card to the list launch the main activity
         } else {
@@ -240,12 +226,11 @@ public class CreateCardFragment extends Fragment {
             getActivity().overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
             startActivity(intent);
             toast = new Toast(getActivity());
-            toast.makeText(getActivity(), languageSpinner.getSelectedItem().toString() + " " + allergySpinner.getSelectedItem().toString() + " allergy card has been added to your list.", Toast.LENGTH_SHORT).show();
+            toast.makeText(getActivity(), languageSpinner.getSelectedItem().toString() + " " + allergySpinner.getSelectedItem().toString() + " allergy card added", Toast.LENGTH_SHORT).show();
         }
     }
 
     void setLanguageTextView(String language) {
-
         String[] countryArray = CardManager.getCountries(language, this.getContext());
         final String message = "Your " + language + " allergy travel card can be used in " + CardManager.buildCountryMessage(countryArray);
         languageTV.setText(message);

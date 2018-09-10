@@ -48,7 +48,7 @@ public class CardActivity extends AppCompatActivity {
     private Button englishTranslation, allergyDescription, allergyPicture, lock;
     private boolean locked = false;
     private int redColour = Color.parseColor("#c2185b");
-    private int lightBlueColour = Color.parseColor("#03A9F4");
+    private int lightBlueColour = Color.parseColor("#375273");
     private Toast toast;
 
     //method for counting space taken up by unicode

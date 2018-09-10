@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="language_array_premium">
+        <item>Arabic</item>
         <item>Afrikaans</item>
         <item>Albanian</item>
         <item>Bosnian</item>
@@ -20,6 +21,8 @@
         <item>Icelandic</item>
         <item>Indonesian</item>
         <item>Italian</item>
+        <item>Japanese</item>
+        <item>Korean</item>
         <item>Latvian</item>
         <item>Norwegian</item>
         <item>Polish</item>

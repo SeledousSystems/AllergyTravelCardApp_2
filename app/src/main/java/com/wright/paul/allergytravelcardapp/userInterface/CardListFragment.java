@@ -8,21 +8,23 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SimpleItemAnimator;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -38,6 +40,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import jp.wasabeef.recyclerview.animators.LandingAnimator;
+
 /**
  * Class that defines the CardListFragment
  */
@@ -51,7 +55,7 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
     //Static list to hold the user created cards during run time
     public static List<Card> cardList = new ArrayList<>();
     static Boolean appStartUp = true;
-    protected ListView cardListView;
+    //    protected ListView cardListView;
     protected CustomListViewAdaptor cardListViewAdaptor;
     protected int itemPosition;
     private SQLiteDatabase db;
@@ -61,6 +65,9 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
     private Handler handler;
     private CardListListener listener = null;
     private NotificationManager mNotificationManager;
+    private TextView emptyTV;
+    protected RecyclerView cardListView;
+    private CardAdapter cardAdapter;
 
     /**
      * Static method to get the static Card Collection
@@ -101,36 +108,70 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
             Collections.sort(cardList);
             appStartUp = false;
         }
-        //assign and initialise the list view
-        cardListView = (ListView) view.findViewById(R.id.listView);
-        cardListViewAdaptor = new CustomListViewAdaptor(view.getContext(), cardList);
-        cardListView.setAdapter(cardListViewAdaptor);
-        //initialise the context menu
-        registerForContextMenu(cardListView);
+        //recycler here
+        cardListView = (RecyclerView) view.findViewById(R.id.listView);
+        cardAdapter = new CardAdapter(view.getContext(), R.layout.custom_list_view, cardList, new CardAdapter.CardAdapterListener() {
+            @Override
+            public void viewButtonListener(View v, int position) {
+                viewCard(position);
+            }
+
+            @Override
+            public void notifButtonListener(View v, int position) {
+                createNotification_2(position);
+                Toast.makeText(getActivity(), "Allergy Card added to Notification Bar", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void deleteButtonListener(View v, int position) {
+                deleteCard(position);
+            }
+
+            @Override
+            public void cardWrapperListener(int position) {
+                viewCard(position);
+            }
+        });
+
+        cardListView.setHasFixedSize(true);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(context);
+        cardListView.setLayoutManager(mLayoutManager);
+        cardListView.setAdapter(cardAdapter);
+        cardListView.setItemAnimator(new LandingAnimator());
+        ((SimpleItemAnimator) cardListView.getItemAnimator()).setSupportsChangeAnimations(false);
+        swipeToDismissTouchHelper.attachToRecyclerView(cardListView);
 
         //handle empty list view
-        TextView emptyText = (TextView) view.findViewById(R.id.emptyTV);
-        emptyText.setOnClickListener(new View.OnClickListener() {
+        emptyTV = view.findViewById(R.id.emptyTV);
+        checkEmptyView();
+
+        //TextView emptyText = (TextView) view.findViewById(R.id.emptyTV);
+        emptyTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), CreateCardActivity.class);
                 startActivity(intent);
             }
         });
-        cardListView.setEmptyView(emptyText);
+        //cardListView.setEmptyView(emptyText);
 
         //create an instance of the handler for non-UI process
         handler = new Handler();
-        //define the gesture detector for the list view
-        final GestureDetector gestureDetector = new GestureDetector(this.getContext(), new GestureListener());
-        cardListView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(final View view, final MotionEvent event) {
-                itemPosition = cardListView.getSelectedItemPosition();
-                return gestureDetector.onTouchEvent(event);
-            }
-        });
+
         return view;
+    }
+
+
+    private void checkEmptyView() {
+
+        if (cardList.isEmpty()) {
+            cardListView.setVisibility(View.GONE);
+            emptyTV.setVisibility(View.VISIBLE);
+        }
+        else {
+            cardListView.setVisibility(View.VISIBLE);
+            emptyTV.setVisibility(View.GONE);
+        }
     }
 
     /**
@@ -166,143 +207,114 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
         listener = (CardListListener) context;
     }
 
-    /**
-     * method to set up the context menu
-     *
-     * @param item
-     * @return
-     */
-    @Override
-    public boolean onContextItemSelected(MenuItem item) {
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-        final int position = info.position;
-        switch (item.getItemId()) {
-            //Context menu selection to view the card, fires an intent for the Card activity
-            case R.id.view_card:
-                Card cardView = cardList.get(position);
-                Intent newCardIntent = new Intent(getActivity(), CardActivity.class);
-                newCardIntent.putExtra(CardManager.ls, cardView.getLanguage());
-                newCardIntent.putExtra(CardManager.as, cardView.getAllergy());
-                newCardIntent.putExtra(CardManager.cn, cardList.indexOf(cardView));
-                startActivity(newCardIntent);
-                return true;
-            //Context menu selection to delete card card is deleted from the list view
-            case R.id.delete_card:
-                final Card cardDelete = cardList.get(position);
-                deleteCard(cardDelete);
-                Toast.makeText(getActivity(), "Allergy Card Deleted", Toast.LENGTH_SHORT).show();
-                return true;
-            //Context menu selection to move the card to the bottom of the list view by setting the
-            // card's lastviewed attribute to less than the last card in the list and then updating the listview.
-            case R.id.move_card_bottom:
-                Card cardBottom = cardList.get(position);
-                cardBottom.setLastViewed(cardList.get(cardList.size() - 1).getLastViewed() - 1);
-                Collections.sort(cardList);
-                cardListViewAdaptor.notifyDataSetChanged();
-                return true;
-            //Context menu selection to move the card to the top of the list view by setting the lastviewed
-            //int to current date and then updating the list.
-            case R.id.move_card_top:
-                Card cardTop = cardList.get(position);
-                cardTop.setLastViewed(CardManager.getCurrentDateInt());
-                Collections.sort(cardList);
-                cardListViewAdaptor.notifyDataSetChanged();
-                return true;
-            //Context menu selection to show the countries that the card can be used in. Gets teh list, creates a
-            //message and then displays it in an AlertDialog.
-            case R.id.show_countries:
-                final Card cardShowCountries = cardList.get(position);
-                final String language = cardShowCountries.getLanguage();
-                final String allergy = cardShowCountries.getAllergy();
-
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        String[] countryArray = CardManager.getCountries(cardShowCountries.getLanguage(), context);
-                        final String message = "Your " + language + " " + allergy + " Allergy Card can be used in " + CardManager.buildCountryMessage(countryArray);
-                        //on completion of the background task run the handler to post the showAlert dialog, which is run in the UI Thread
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                AlertDialog alertDialog = new AlertDialog.Builder(context).create();
-                                alertDialog.setTitle(cardShowCountries.getLanguage() + " " + cardShowCountries.getAllergy() + " Allergy Card.");
-                                alertDialog.setMessage(message);
-                                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "CLOSE",
-                                        new DialogInterface.OnClickListener() {
-                                            public void onClick(DialogInterface dialog, int which) {
-                                                dialog.dismiss();
-                                            }
-                                        });
-                                alertDialog.show();
-                            }
-                        });
-                    }
-                }).start();
-                return true;
-            //Context menu selection to create a notification for the user to display a card
-            //directly from their notification bar. Clicking on the notification fires an intent
-            //to display the card
-            case R.id.create_notification:
-                Card notificationCard = cardList.get(position);
-
-                NotificationCompat.Builder mBuilder =
-                        new NotificationCompat.Builder(getActivity().getApplicationContext())
-                                .setSmallIcon(R.mipmap.ic_logo)
-                                .setContentTitle(notificationCard.getLanguage() + " " + notificationCard.getAllergy() + " Allergy Card")
-                                .setContentText("Tap to view this Allergy Card");
-                // Creates an explicit intent for the Card Activity and passes the language and allergy to the
-                Intent notificationIntent = new Intent(getActivity().getApplicationContext(), CardActivity.class);
-                //The notification intent needs to pass the language and allergy fields to the card activity incase the card
-                //is deleted prior to viewing.
-                notificationIntent.putExtra(CardManager.ls, notificationCard.getLanguage());
-                notificationIntent.putExtra(CardManager.as, notificationCard.getAllergy());
-                //notificationIntent.putExtra(CardManager.cn, notificationCard.getDbID());
-                // The stack builder object will contain an artificial back stack for the
-                // started Activity.
-                // This ensures that navigating backward from the Activity leads out of
-                // your application to the Home screen.
-                TaskStackBuilder stackBuilder = TaskStackBuilder.create(getActivity().getApplicationContext());
-                // Adds the back stack for the Intent (but not the Intent itself)
-                stackBuilder.addParentStack(CardActivity.class);
-                // Adds the Intent that starts the Activity to the top of the stack
-                stackBuilder.addNextIntent(notificationIntent);
-                PendingIntent resultPendingIntent =
-                        stackBuilder.getPendingIntent(notificationCard.getDbID(),
-                                PendingIntent.FLAG_UPDATE_CURRENT
-                        );
-                mBuilder.setContentIntent(resultPendingIntent);
-                NotificationManager mNotificationManager =
-                        (NotificationManager) getActivity().getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
-                // mId allows you to update the notification later on.
-                mNotificationManager.notify(notificationCard.getDbID(), mBuilder.build());
-
-                //Context menu default selection
-            default:
-                return super.onContextItemSelected(item);
-        }
+    private void viewCard(int position) {
+        Card cardView = cardList.get(position);
+        Intent newCardIntent = new Intent(getActivity(), CardActivity.class);
+        newCardIntent.putExtra(CardManager.ls, cardView.getLanguage());
+        newCardIntent.putExtra(CardManager.as, cardView.getAllergy());
+        newCardIntent.putExtra(CardManager.cn, cardList.indexOf(cardView));
+        startActivity(newCardIntent);
     }
+
+    private void createNotification(int position) {
+        Card notificationCard = cardList.get(position);
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(getActivity().getApplicationContext())
+                        .setSmallIcon(R.drawable.appl_icon)
+                        .setContentTitle(notificationCard.getLanguage() + " " + notificationCard.getAllergy() + " Allergy Card")
+                        .setContentText("Tap to view Allergy Card");
+        // Creates an explicit intent for the Card Activity and passes the language and allergy to the
+        Intent notificationIntent = new Intent(getActivity().getApplicationContext(), CardActivity.class);
+        //The notification intent needs to pass the language and allergy fields to the card activity incase the card
+        //is deleted prior to viewing.
+        notificationIntent.putExtra(CardManager.ls, notificationCard.getLanguage());
+        notificationIntent.putExtra(CardManager.as, notificationCard.getAllergy());
+        //notificationIntent.putExtra(CardManager.cn, notificationCard.getDbID());
+        // The stack builder object will contain an artificial back stack for the
+        // started Activity.
+        // This ensures that navigating backward from the Activity leads out of
+        // your application to the Home screen.
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(getActivity().getApplicationContext());
+        // Adds the back stack for the Intent (but not the Intent itself)
+        stackBuilder.addParentStack(CardActivity.class);
+        // Adds the Intent that starts the Activity to the top of the stack
+        stackBuilder.addNextIntent(notificationIntent);
+        PendingIntent resultPendingIntent =
+                stackBuilder.getPendingIntent(notificationCard.getDbID(),
+                        PendingIntent.FLAG_UPDATE_CURRENT
+                );
+        mBuilder.setContentIntent(resultPendingIntent);
+        NotificationManager mNotificationManager =
+                (NotificationManager) getActivity().getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
+        // mId allows you to update the notification later on.
+        mNotificationManager.notify(notificationCard.getDbID(), mBuilder.build());
+    }
+
+    private void createNotification_2(int position) {
+        Card notificationCard = cardList.get(position);
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+                .setSmallIcon(R.drawable.icon_notif)
+                .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), CardManager.getResourceID(notificationCard.getLanguage())))
+                .setContentTitle(notificationCard.getLanguage() + " " + notificationCard.getAllergy() + " Allergy Card")
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText("Tap to show card"))
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        // Creates an explicit intent for the Card Activity and passes the language and allergy to the
+        Intent notificationIntent = new Intent(getActivity().getApplicationContext(), CardActivity.class);
+        //The notification intent needs to pass the language and allergy fields to the card activity incase the card
+        //is deleted prior to viewing.
+        notificationIntent.putExtra(CardManager.ls, notificationCard.getLanguage());
+        notificationIntent.putExtra(CardManager.as, notificationCard.getAllergy());
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(getActivity().getApplicationContext());
+        // Adds the back stack for the Intent (but not the Intent itself)
+        stackBuilder.addParentStack(CardActivity.class);
+        // Adds the Intent that starts the Activity to the top of the stack
+        stackBuilder.addNextIntent(notificationIntent);
+        PendingIntent resultPendingIntent =
+                stackBuilder.getPendingIntent(notificationCard.getDbID(),
+                        PendingIntent.FLAG_UPDATE_CURRENT
+                );
+        mBuilder.setContentIntent(resultPendingIntent);
+        NotificationManager mNotificationManager =
+                (NotificationManager) getActivity().getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
+        // mId allows you to update the notification later on.
+        mNotificationManager.notify(notificationCard.getDbID(), mBuilder.build());
+    }
+
+    //Swipe to Delete
+    ItemTouchHelper swipeToDismissTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
+            ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+        @Override
+        public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+            deleteCard(viewHolder.getAdapterPosition());
+        }
+    });
 
     /**
      * deleteCard method to remove a card from the list and db and refresh the view.
      */
-    public void deleteCard(Card card) {
-        cardDBOpenHelper.deleteCardID(card.getDbID());
+    public void deleteCard(int position) {
+        Card card = cardList.get(position);
+        Log.d(TAG, "Card == " + cardList.indexOf(cardList.get(position)) + "  size == " + cardList.size());
+        cardDBOpenHelper.deleteCardID(cardList.get(position).getDbID());
         cardList.remove(card);
-        cardListViewAdaptor.notifyDataSetChanged();
-        mNotificationManager = (NotificationManager) getActivity().getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
-        mNotificationManager.cancel(card.getDbID());
-    }
+        cardAdapter.notifyDataSetChanged();
 
-    /**
-     * onCreateContextMenu method override for creating the context menu for the list view
-     *
-     * @param menu
-     * @param view
-     * @param menuInfo
-     */
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo menuInfo) {
-        getActivity().getMenuInflater().inflate(R.menu.long_click_menu, menu);
+        if(cardList.size()==0){
+            checkEmptyView();
+        }
+
+        //Toast.makeText(getActivity(), "Allergy Card Deleted", Toast.LENGTH_SHORT).show();
+
+        Log.d(TAG, "Card == " + cardList.indexOf(card) + "  size == " + cardList.size());
+
+        mNotificationManager = (NotificationManager) getActivity().getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
     }
 
     //define the interface for the fragment to allow the activity to pass data to this fragment
@@ -313,92 +325,7 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
     /**
      * Define the gesture detector class to respond to user inputs.
      */
-    private class GestureListener extends GestureDetector.SimpleOnGestureListener {
 
-        /**
-         * method to
-         *
-         * @param position
-         * @param listView
-         * @return
-         */
-        public View getViewByPosition(int position, ListView listView) {
-            final int firstListItemPosition = listView.getFirstVisiblePosition();
-            final int lastListItemPosition = firstListItemPosition + listView.getChildCount() - 1;
-
-            if (position < firstListItemPosition || position > lastListItemPosition) {
-                return listView.getAdapter().getView(position, null, listView);
-            } else {
-                final int childIndex = position - firstListItemPosition;
-                Log.d(TAG, firstListItemPosition + " " + position);
-                return listView.getChildAt(childIndex);
-            }
-        }
-
-        /**
-         * override method for a singleTap event. Intent is fired to the card activity to
-         * display the tapped card.
-         *
-         * @param e
-         * @return
-         */
-        @Override
-        public boolean onSingleTapConfirmed(MotionEvent e) {
-            final int position = cardListView.pointToPosition((int) e.getX(), (int) e.getY());
-            if (position != -1) {
-                //get the card tapped and send an intent to the Card Activity
-                Card card = cardList.get(position);
-                Intent newCardIntent = new Intent(getActivity(), CardActivity.class);
-                newCardIntent.putExtra(CardManager.cn, position);
-                startActivity(newCardIntent);
-                //animate the transition
-                getActivity().overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
-            }
-            return super.onSingleTapConfirmed(e);
-        }
-
-        @Override
-        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-            //get the card position id
-            int position = cardListView.pointToPosition((int) e1.getX(), (int) e1.getY());
-            cardListView.getSelectedView();
-            if (position != -1 && position < cardList.size()) {
-                //Detect a left to right fling that exceeds the distance and velocity minimums defined in the class attributes.
-                //On detection delete the flung card
-                if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-                    Handler handler = new Handler();
-                    //animate the deletion in the direction on the fling
-                    Animation anim = AnimationUtils.loadAnimation(getActivity(), android.R.anim.slide_out_right);
-                    anim.setDuration(500);
-                    Log.d(TAG, position + "");
-                    final Card card = cardList.get(position);
-                    Log.d(TAG, position + "" + card.getLanguage() + " " + cardListView.getChildCount());
-                    //cardListView.getChildAt(position).startAnimation(anim);
-                    getViewByPosition(position, cardListView).startAnimation(anim);
-                    anim.setAnimationListener(new Animation.AnimationListener() {
-                        @Override
-                        public void onAnimationStart(Animation animation) {
-                        }
-
-                        @Override
-                        public void onAnimationEnd(Animation animation) {
-                            //delete the card.
-                            deleteCard(card);
-                            //notify user
-                            Toast.makeText(getActivity(), "Allergy Card Deleted", Toast.LENGTH_SHORT).show();
-                        }
-
-                        @Override
-                        public void onAnimationRepeat(Animation animation) {
-                        }
-                    });
-
-
-                }
-            }
-            return false;
-        }
-    }
 }
 
 

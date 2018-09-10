@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
         int id = item.getItemId();
         switch (id) {
             case R.id.nav_version:
-                alert("Version: 2.2.0\nDeveloper: PeaJay");
+                alert("Version: " + this.getString(R.string.version) + "\nDeveloper: PeaJay");
                 break;
 
             case R.id.nav_about:
@@ -201,7 +201,7 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
                 break;
 
             case R.id.nav_features:
-                alertHTML("<b>Create allergy cards:</b> Use the \"Add New Card\" button, select the language and allergy and then press the \"Create Card\" button.<br><br><b>View a card:</b> Tap a previously created card.<br><br><b>View different cards:</b> Swipe a card to the left or right to view the next card.<br><br><b>Delete allergy cards:</b> Swipe a card to the right.<br><br><b>Additional options:</b> Tap and hold a card in the home screen to view additional options.</string>");
+                alertHTML(this.getString(R.string.features_body));
 
                 break;
 
@@ -342,7 +342,6 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
         if (buyIntent) {
             buy();
         }
-
     }
 
     /**

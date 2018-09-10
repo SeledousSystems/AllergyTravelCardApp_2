@@ -5,6 +5,11 @@
         <item>Hungary</item>
     </string-array>
 
+    <string-array name="korean">
+        <item>North Korea</item>
+        <item>South Korea</item>
+    </string-array>
+
     <string-array name="albanian">
         <item>Albania</item>
         <item>Kosovo</item>
@@ -79,12 +84,12 @@
         <item>Anguilla</item>
         <item>Antigua \&amp; Barbuda</item>
         <item>Australia</item>
-        <item>the Bahamas</item>
+        <item>The Bahamas</item>
         <item>Barbados</item>
         <item>Bermuda</item>
         <item>Belize</item>
-        <item>the British Indian Ocean Territory</item>
-        <item>the British Virgin Islands</item>
+        <item>The British Indian Ocean Territory</item>
+        <item>The British Virgin Islands</item>
         <item>Canada</item>
         <item>The Cayman Islands</item>
         <item>The Falkland Islands</item>
@@ -103,7 +108,7 @@
         <item>Pitcairn Islands</item>
         <item>Saint Helena</item>
         <item>Saint Kitts \&amp; Nevis</item>
-        <item>Saint Vincent \&amp; the Grenadines</item>
+        <item>Saint Vincent \&amp; The Grenadines</item>
         <item>Singapore</item>
         <item>South Georgia Islands</item>
         <item>South Sandwich Islands</item>
@@ -192,7 +197,6 @@
         <item>Côte</item>
         <item>d\'Ivoire</item>
         <item>Democratic</item>
-        <item>Republic of the Congo</item>
         <item>Djibouti</item>
         <item>Equatorial Guinea</item>
         <item>France</item>
