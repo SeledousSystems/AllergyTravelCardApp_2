@@ -26,9 +26,9 @@
 
     <TextView
         android:id="@+id/emptyTV"
-        android:text="Tap to create a card."
+        android:text="Welcome to Allergy Travel Cards\n\nTap to create a card"
         android:contextClickable="true"
-        android:textSize="20dp"
+        android:textSize="25sp"
         android:clickable="true"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

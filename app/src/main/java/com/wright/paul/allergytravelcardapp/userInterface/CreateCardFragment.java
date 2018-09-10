@@ -152,7 +152,7 @@ public class CreateCardFragment extends Fragment {
         /**
          * call test method do not leave on in production
          */
-        createTestCards();
+        //createTestCards();
 
         return view;
     }
@@ -217,7 +217,7 @@ public class CreateCardFragment extends Fragment {
             newCardIntent.putExtra(CardManager.as, allergySpinner.getSelectedItem().toString());
             getActivity().overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             startActivity(newCardIntent);
-            Toast.makeText(getActivity(), languageSpinner.getSelectedItem().toString() + " " + allergySpinner.getSelectedItem().toString() + " allergy card has been added to your list.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), languageSpinner.getSelectedItem().toString() + " " + allergySpinner.getSelectedItem().toString() + " allergy card added", Toast.LENGTH_SHORT).show();
 
             //for adding a card to the list launch the main activity
         } else {
@@ -226,7 +226,7 @@ public class CreateCardFragment extends Fragment {
             getActivity().overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
             startActivity(intent);
             toast = new Toast(getActivity());
-            toast.makeText(getActivity(), languageSpinner.getSelectedItem().toString() + " " + allergySpinner.getSelectedItem().toString() + " allergy card has been added to your list.", Toast.LENGTH_SHORT).show();
+            toast.makeText(getActivity(), languageSpinner.getSelectedItem().toString() + " " + allergySpinner.getSelectedItem().toString() + " allergy card added", Toast.LENGTH_SHORT).show();
         }
     }
 

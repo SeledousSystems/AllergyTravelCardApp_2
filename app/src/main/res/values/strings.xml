@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Allergy Cards</string>
+    <string name="version">3.0</string>
     <string name="card_bottom_text">Allergy Travel Cards</string>
     <string name="title_activity_create_card">CreateCardActivity</string>
     <string name="title_activity_card">CardActivity</string>
@@ -15,7 +16,7 @@
     <string name="total_languages_countries">169</string>
     <string name="total_languages_number">35</string>
     <string name="pro_languages_number">29</string>
-    <string name="pro_countries_number">33</string>
+    <string name="pro_countries_number">29</string>
     <string name="free_countries_number">6</string>
     <string name="allergies_number">14</string>
     <string name="total_cards_number">490</string>
@@ -23,7 +24,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="eat_safely">Eat Safely</string>
-    <string name="features_body">Create allergy cards:\n Use the \"Add New Card\" button, select the language and allergy and then press the \"Create Card\" button. \n\nView a card:\nTap a previously created card.\n\nView different cards: Swipe a card to the left or right to view the next card.\n\nDelete allergy cards: Swipe a card to the right.\n\nAdditional options:\nTap and hold a card in the home screen to view additional options.</string>
+    <string name="features_body">Create allergy cards:\n Use the \"Add New Card\" button, select the language and allergy. \n\nView a card:\nTap a card.\n\nView different cards: Swipe a card to the left or right to view the next card.\n\nDelete allergy cards: Swipe a card to the right.\n\n</string>
 
     <!--<string name="soya">Found sometimes in bean curd, edamame beans, miso pates, textured soya protein, soya flour or tofu, soya is a staple ingredient in oriental food. It can be found in desserts, ice cream, meat products, sauces and vegetarian products.</string>-->
     <!--<string name="gluten">Wheat, rye, barley and oats are often found in foods containing flour, some baking powder, batter, breadcrumbs, cakes, couscous, meat products, pasta, pastry, sauces, soups and some fried food.</string>-->
