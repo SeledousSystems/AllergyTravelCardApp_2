@@ -205,11 +205,6 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
 
                 break;
 
-//            case R.id.nav_resources:
-//                //resources TODO
-
-//            case R.id.nav_show_allergies:
-//                //show  TODO
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -332,8 +327,6 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
         myToolbar.setTitle("My Allergy Cards");
         setSupportActionBar(myToolbar);
 
-        if (myToolbar == null) Log.d("TAGGGGGG", "TAGGGGGG");
-
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -382,14 +375,6 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
         Log.d(TAG, mIsPremium + " onCreate Options menu");
         return super.onCreateOptionsMenu(menu);
     }
-
-//    @Override
-//    public boolean onPrepareOptionsMenu(final Menu menu) {
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        updateMenuItems();
-//        Log.d(TAG, mIsPremium + " onPrepare Options menu");
-//        return super.onCreateOptionsMenu(menu);
-//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -484,6 +469,8 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
                 updateMenuItems();
             } catch (IabHelper.IabAsyncInProgressException e) {
                 complain("Error launching purchase flow. Another async operation in progress. PRO icon");
+            } catch (java.lang.IllegalStateException e) {
+                complain("There is a problem with your google play account. Please check your login details.");
             }
         }
     }
