@@ -5,6 +5,10 @@
         <item>Hungary</item>
     </string-array>
 
+    <string-array name="hebrew">
+        <item>Israel</item>
+    </string-array>
+
     <string-array name="korean">
         <item>North Korea</item>
         <item>South Korea</item>

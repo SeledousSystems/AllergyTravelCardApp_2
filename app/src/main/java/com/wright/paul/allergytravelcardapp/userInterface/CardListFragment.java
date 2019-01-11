@@ -139,7 +139,7 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
         cardListView.setAdapter(cardAdapter);
         cardListView.setItemAnimator(new LandingAnimator());
         ((SimpleItemAnimator) cardListView.getItemAnimator()).setSupportsChangeAnimations(false);
-        swipeToDismissTouchHelper.attachToRecyclerView(cardListView);
+        //swipeToDismissTouchHelper.attachToRecyclerView(cardListView);
 
         //handle empty list view
         emptyTV = view.findViewById(R.id.emptyTV);

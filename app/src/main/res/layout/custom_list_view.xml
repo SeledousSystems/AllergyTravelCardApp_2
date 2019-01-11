@@ -10,6 +10,7 @@
     android:animateLayoutChanges="true"
     android:orientation="horizontal">
 
+
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/image_wrapper"
         android:layout_width="wrap_content"
@@ -22,7 +23,7 @@
             android:id="@+id/allergyImageView"
             android:layout_width="@dimen/card_image_size"
             android:layout_height="@dimen/card_image_size"
-            android:layout_marginBottom="5sp"
+            android:layout_marginTop="0sp"
             android:layout_gravity="top"
             />
 
@@ -32,7 +33,7 @@
             android:layout_height="@dimen/card_image_size"
             android:layout_gravity="bottom"
             android:layout_marginLeft="0sp"
-            android:layout_marginTop="65sp"
+            android:layout_marginTop="50sp"
             />
     </RelativeLayout>
 
@@ -45,13 +46,23 @@
         android:orientation="vertical"
         android:background="@android:drawable/dialog_holo_light_frame">
 
+        <ImageView
+            android:id="@+id/delete"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_gravity="right"
+            android:layout_marginTop="0sp"
+            android:src="@drawable/page_curl_delete" />
+
         <TextView
             android:id="@+id/allergyTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="-20sp"
             android:gravity="center"
             android:text="English"
-            android:textSize="24sp" />
+            android:fontFamily="sans-serif"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/languageTextView"
@@ -60,7 +71,8 @@
             android:gravity="center"
             android:paddingBottom="6sp"
             android:text="Gluten"
-            android:textSize="24sp" />
+            android:fontFamily="sans-serif"
+            android:textSize="18sp" />
 
         <ImageView
             android:id="@+id/cardDividerImageView1"
@@ -129,8 +141,8 @@
 
         </LinearLayout>
 
-    </LinearLayout>
 
+    </LinearLayout>
 
 </LinearLayout>
 
