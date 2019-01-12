@@ -6,6 +6,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -21,7 +22,7 @@ import com.wright.paul.allergytravelcardapp.model.CardManager;
  */
 public class CardHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    protected ImageButton notifButton, deleteButton, viewButton, shareButton;
+    protected Button notifButton, deleteButton, viewButton, shareButton;
     private Context context;
     protected TextView cardLanguage, cardAllergy;
     protected ImageView flagImage, allergyImage;
@@ -41,10 +42,10 @@ public class CardHolder extends RecyclerView.ViewHolder implements View.OnClickL
         allergyImage = (ImageView) itemView.findViewById(R.id.allergyImageView);
         cardWrapper = itemView.findViewById(R.id.card_wrapper);
 
-        notifButton = itemView.findViewById(R.id.button_notif);
+        notifButton = itemView.findViewById(R.id.notif_button);
         //shareButton = itemView.findViewById(R.id.button_share);
-        viewButton = itemView.findViewById(R.id.button_view);
-        deleteButton = itemView.findViewById(R.id.button_delete);
+        viewButton = itemView.findViewById(R.id.share_button);
+        deleteButton = itemView.findViewById(R.id.delete_button);
     }
 
     @Override
@@ -64,19 +65,19 @@ public class CardHolder extends RecyclerView.ViewHolder implements View.OnClickL
 
         allergyImage.setImageResource(CardManager.getResourceID(card.getAllergy()));
 
-        try {
-            Bitmap bitmap = ((BitmapDrawable) flagImage.getDrawable()).getBitmap();
-            int x = bitmap.getWidth() / 5;
-            int y = bitmap.getHeight() / 5;
-
-            int pixel = bitmap.getPixel(x, y);
-
-            linearLayout.setBackgroundColor(pixel);
-            linearLayout.getBackground().setAlpha(200);
-            Log.d("color", "int = " + pixel);
-        } catch (Exception e) {
-            Log.d("exception", e.getMessage());
-        }
+//        try {
+//            Bitmap bitmap = ((BitmapDrawable) flagImage.getDrawable()).getBitmap();
+//            int x = bitmap.getWidth() / 5;
+//            int y = bitmap.getHeight() / 5;
+//
+//            int pixel = bitmap.getPixel(x, y);
+//
+//            linearLayout.setBackgroundColor(pixel);
+//            linearLayout.getBackground().setAlpha(200);
+//            Log.d("color", "int = " + pixel);
+//        } catch (Exception e) {
+//            Log.d("exception", e.getMessage());
+//        }
     }
 }
 

@@ -2,6 +2,11 @@ package com.wright.paul.allergytravelcardapp.model;
 
 import android.app.NotificationManager;
 import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.wright.paul.allergytravelcardapp.R;
@@ -218,5 +223,12 @@ public class CardManager {
             }
         }
         return sb.toString() + ". \n\n The PRO edition includes over 490 allergy cards for 170 countries.";
+    }
+
+    public static Drawable drawCard(Context context, Card card) {
+
+
+
+        return drawable;
     }
 }

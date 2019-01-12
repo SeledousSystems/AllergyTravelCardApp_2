@@ -7,8 +7,7 @@
     android:layout_marginLeft="5dp"
     android:layout_marginRight="1dp"
     android:layout_marginTop="0dp"
-    android:animateLayoutChanges="true"
-    android:orientation="horizontal">
+    android:animateLayoutChanges="true">
 
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -23,9 +22,8 @@
             android:id="@+id/allergyImageView"
             android:layout_width="@dimen/card_image_size"
             android:layout_height="@dimen/card_image_size"
-            android:layout_marginTop="0sp"
             android:layout_gravity="top"
-            />
+            android:layout_marginTop="0sp" />
 
         <ImageView
             android:id="@+id/flagImageView"
@@ -33,8 +31,7 @@
             android:layout_height="@dimen/card_image_size"
             android:layout_gravity="bottom"
             android:layout_marginLeft="0sp"
-            android:layout_marginTop="50sp"
-            />
+            android:layout_marginTop="50sp" />
     </RelativeLayout>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -43,8 +40,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10sp"
         android:layout_marginLeft="-40sp"
-        android:orientation="vertical"
-        android:background="@android:drawable/dialog_holo_light_frame">
+        android:background="@android:drawable/dialog_holo_light_frame"
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/delete"
@@ -52,26 +49,26 @@
             android:layout_height="30sp"
             android:layout_gravity="right"
             android:layout_marginTop="0sp"
-            android:src="@drawable/page_curl_delete" />
+            android:src="@drawable/page_curl" />
 
         <TextView
             android:id="@+id/allergyTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="-20sp"
+            android:fontFamily="sans-serif"
             android:gravity="center"
             android:text="English"
-            android:fontFamily="sans-serif"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/languageTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
             android:gravity="center"
             android:paddingBottom="6sp"
             android:text="Gluten"
-            android:fontFamily="sans-serif"
             android:textSize="18sp" />
 
         <ImageView
@@ -79,8 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:paddingLeft="10sp"
-            android:paddingRight="10sp"
-            />
+            android:paddingRight="10sp" />
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/button_wrapper"
@@ -88,55 +84,114 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="0sp"
             android:layout_marginTop="0sp"
+            android:background="@color/light_blue"
+            android:alpha="0.6"
             android:gravity="center"
             android:orientation="horizontal"
-            android:background="@color/grey_background"
-            android:paddingBottom="10sp"
-            android:paddingLeft="0sp"
-            android:paddingTop="15sp">
+            android:paddingBottom="0sp"
+            android:paddingLeft="50sp"
+            android:paddingTop="0sp">
 
-            <ImageButton
-                android:id="@+id/button_notif"
-                android:layout_width="@dimen/card_button_size"
-                android:layout_height="@dimen/card_button_size"
-                android:layout_marginLeft="@dimen/card_button_spacing"
-                android:layout_marginRight="@dimen/card_button_spacing"
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></Space>
+
+            <Button
+                android:id="@+id/delete_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:background="@null"
-                android:src="@drawable/baseline_message_black_18dp"
-                android:alpha="@dimen/alpha_card_buttons"/>
+                android:gravity="center"
+                android:maxLines="2"
+                android:text="@string/delete_but_text"
+                android:textColor="@color/white"
+                android:textSize="10sp" />
 
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></Space>
 
-            <ImageButton
-                android:id="@+id/button_delete"
-                android:layout_width="@dimen/card_button_size"
-                android:layout_height="@dimen/card_button_size"
-                android:paddingLeft="20sp"
-                android:paddingRight="20sp"
-                android:layout_marginLeft="@dimen/card_button_spacing"
-                android:layout_marginRight="@dimen/card_button_spacing"
+            <Button
+                android:id="@+id/share_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:background="@null"
-                android:src="@drawable/baseline_delete_black_18dp"
-                android:alpha="@dimen/alpha_card_buttons"/>
+                android:gravity="center"
+                android:text="@string/notification_but_text"
+                android:textColor="@color/white"
+                android:textSize="10sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></Space>
+
+            <Button
+                android:id="@+id/notif_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="center"
+                android:text="@string/share_but_text"
+                android:textColor="@color/white"
+                android:textSize="10sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"></Space>
             <!--<ImageButton-->
-                <!--android:id="@+id/button_share"-->
-                <!--android:layout_width="@dimen/card_button_size"-->
-                <!--android:layout_height="@dimen/card_button_size"-->
-                <!--android:layout_marginLeft="@dimen/card_button_spacing"-->
-                <!--android:layout_marginRight="@dimen/card_button_spacing"-->
-                <!--android:background="@null"-->
-                <!--android:src="@drawable/baseline_share_black_18dp"-->
-                <!--android:alpha="@dimen/alpha_card_buttons"/>-->
+            <!--android:id="@+id/button_notif"-->
+            <!--android:layout_width="@dimen/card_button_size"-->
+            <!--android:layout_height="@dimen/card_button_size"-->
+            <!--android:layout_marginLeft="@dimen/card_button_spacing"-->
+            <!--android:layout_marginRight="@dimen/card_button_spacing"-->
+            <!--android:background="@null"-->
+            <!--android:elevation="2dp"-->
+            <!--android:src="@drawable/baseline_message_black_18dp"-->
+            <!--android:alpha="@dimen/alpha_card_buttons"-->
+            <!--/>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/button_background"-->
+            <!--android:layout_marginLeft="@dimen/card_button_spacing"-->
+            <!--android:layout_marginRight="@dimen/card_button_spacing">-->
+
+            <!--<ImageButton-->
+            <!--android:id="@+id/button_delete"-->
+            <!--android:layout_width="@dimen/card_button_size"-->
+            <!--android:layout_height="@dimen/card_button_size"-->
+            <!--android:layout_marginLeft="@dimen/card_button_spacing"-->
+            <!--android:layout_marginRight="@dimen/card_button_spacing"-->
+            <!--android:paddingLeft="20sp"-->
+            <!--android:paddingRight="20sp"-->
+            <!--android:alpha="@dimen/alpha_card_buttons"/>-->
+
+            <!--</LinearLayout>-->
+            <!--&lt;!&ndash;<ImageButton&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/button_share"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="@dimen/card_button_size"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="@dimen/card_button_size"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_marginLeft="@dimen/card_button_spacing"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_marginRight="@dimen/card_button_spacing"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:background="@null"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:src="@drawable/baseline_share_black_18dp"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:alpha="@dimen/alpha_card_buttons"/>&ndash;&gt;-->
 
 
-            <ImageButton
-                android:id="@+id/button_view"
-                android:layout_width="@dimen/card_button_size"
-                android:layout_height="@dimen/card_button_size"
-                android:layout_marginLeft="@dimen/card_button_spacing"
-                android:layout_marginRight="@dimen/card_button_spacing"
-                android:background="@null"
-                android:src="@drawable/baseline_open_in_new_black_18dp"
-                android:alpha="@dimen/alpha_card_buttons"/>
+            <!--<ImageButton-->
+            <!--android:id="@+id/button_view"-->
+            <!--android:layout_width="@dimen/card_button_size"-->
+            <!--android:layout_height="@dimen/card_button_size"-->
+            <!--android:layout_marginLeft="@dimen/card_button_spacing"-->
+            <!--android:layout_marginRight="@dimen/card_button_spacing"-->
+            <!--android:background="@null"-->
+            <!--android:src="@drawable/baseline_open_in_new_black_18dp"-->
+            <!--android:alpha="@dimen/alpha_card_buttons"/>-->
 
 
         </LinearLayout>

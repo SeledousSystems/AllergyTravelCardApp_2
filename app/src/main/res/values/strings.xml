@@ -26,6 +26,9 @@
     <string name="eat_safely">Eat Safely</string>
     <string name="features_body">Create allergy cards:\n Use the \"Add New Card\" button, select the language and allergy. \n\nView a card:\nTap a card.\n\nView different cards: Swipe a card to the left or right to view the next card.\n\nDelete allergy cards: Swipe a card to the right.\n\n</string>
 
+    <string name="delete_but_text">Delete\nCard</string>
+    <string name="share_but_text">Share\nCard</string>
+    <string name="notification_but_text">Create\nNotification</string>
     <!--<string name="soya">Found sometimes in bean curd, edamame beans, miso pates, textured soya protein, soya flour or tofu, soya is a staple ingredient in oriental food. It can be found in desserts, ice cream, meat products, sauces and vegetarian products.</string>-->
     <!--<string name="gluten">Wheat, rye, barley and oats are often found in foods containing flour, some baking powder, batter, breadcrumbs, cakes, couscous, meat products, pasta, pastry, sauces, soups and some fried food.</string>-->
     <!--<string name="peanut">Peanuts are often used as an ingredient in biscuits, cakes, curries, desserts, sauces, groundnut oil and peanut flour.</string>-->
