@@ -2,12 +2,15 @@ package com.wright.paul.allergytravelcardapp.model;
 
 import android.app.NotificationManager;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.PictureDrawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.widget.ImageView;
 
 import com.wright.paul.allergytravelcardapp.R;
 import com.wright.paul.allergytravelcardapp.userInterface.CardListFragment;
@@ -225,10 +228,26 @@ public class CardManager {
         return sb.toString() + ". \n\n The PRO edition includes over 490 allergy cards for 170 countries.";
     }
 
-    public static Drawable drawCard(Context context, Card card) {
+//    public static Drawable drawCard(Context context, Card card) {
+//
+//        Drawable cardDrawable = new CardDrawable(context, card);
+//
+//        return cardDrawable;
+//    }
 
-
-
-        return drawable;
-    }
+//    public Bitmap drawableToBitmap(PictureDrawable pd) {
+//        Bitmap bm = Bitmap.createBitmap(pd.getIntrinsicWidth(), pd.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+//        Canvas canvas = new Canvas(bm);
+//        canvas.drawPicture(pd.getPicture());
+//        return bm;
+//    }
+//
+//    public Bitmap drawbaleToBitmap2(Drawable drawable) {
+//        ImageView imgView = (ImageView) findViewById(R.id.ImageView);
+//        imgView.setImageResource(R.drawable.abc_image);
+//        z.setDrawingCacheEnabled(true);
+//        Bitmap bitmap = Bitmap.createBitmap(v.getDrawingCache());
+//
+//        return bitmap;
+//    }
 }

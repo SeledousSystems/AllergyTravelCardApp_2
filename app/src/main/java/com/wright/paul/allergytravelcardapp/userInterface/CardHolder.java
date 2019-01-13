@@ -43,7 +43,7 @@ public class CardHolder extends RecyclerView.ViewHolder implements View.OnClickL
         cardWrapper = itemView.findViewById(R.id.card_wrapper);
 
         notifButton = itemView.findViewById(R.id.notif_button);
-        //shareButton = itemView.findViewById(R.id.button_share);
+        shareButton = itemView.findViewById(R.id.share_button);
         viewButton = itemView.findViewById(R.id.share_button);
         deleteButton = itemView.findViewById(R.id.delete_button);
     }

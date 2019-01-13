@@ -39,6 +39,9 @@
         <activity
             android:name="com.wright.paul.allergytravelcardapp.userInterface.CardActivity"
             android:screenOrientation="landscape"></activity>
+        <activity
+            android:name="com.wright.paul.allergytravelcardapp.userInterface.ShareCardActivity"
+            android:screenOrientation="landscape"></activity>
 
         <!--<service-->
         <!--android:name="com.wright.paul.allergytravelcardapp.model.LocationService"-->

@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -42,6 +43,8 @@ import java.util.List;
 
 import jp.wasabeef.recyclerview.animators.LandingAnimator;
 
+import static com.wright.paul.allergytravelcardapp.userInterface.MainActivity.mIsPremium;
+
 /**
  * Class that defines the CardListFragment
  */
@@ -68,7 +71,10 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
     private TextView emptyTV;
     protected RecyclerView cardListView;
     private CardAdapter cardAdapter;
-
+    private SharedPreferences premium;
+    private String premiumPref = "APP_PREF";
+    private String premiumPrefBool = "palladium";
+    public static boolean mIsPremium = false;
     /**
      * Static method to get the static Card Collection
      *
@@ -99,6 +105,7 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
         //get the SQLite DB
         cardDBOpenHelper = new CardDBOpenHelper(view.getContext());
         db = cardDBOpenHelper.getReadableDatabase();
+        premium = context.getSharedPreferences(premiumPref, 0);
 
         //if this is the startup of the app then add all cards from the DB to the ArrayList so
         //they can be displayed in the list view
@@ -125,6 +132,18 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
             @Override
             public void deleteButtonListener(View v, int position) {
                 deleteCard(position);
+            }
+
+            @Override
+            public void shareButtonListener(View v, int position) {
+                Card cardView = cardList.get(position);
+                Intent newCardIntent = new Intent(getActivity(), ShareCardActivity.class);
+                newCardIntent.putExtra(CardManager.ls, cardView.getLanguage());
+                newCardIntent.putExtra(CardManager.as, cardView.getAllergy());
+                newCardIntent.putExtra(CardManager.cn, cardList.indexOf(cardView));
+                startActivity(newCardIntent);
+
+
             }
 
             @Override
@@ -158,7 +177,26 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
         //create an instance of the handler for non-UI process
         handler = new Handler();
 
+        mIsPremium = getPref();
+
         return view;
+    }
+
+    boolean getPref() {
+        premium = context.getSharedPreferences(premiumPref, 0);
+        Log.d(TAG, mIsPremium + " get pref");
+        return premium.getBoolean(premiumPrefBool, false);
+    }
+
+
+    private void shareCard(int position) {
+
+        if(!mIsPremium) {
+            Toast.makeText(context, "Upgrade to premium to share cards with everyone.", Toast.LENGTH_SHORT).show();
+        } else {
+            //TODO draw card
+            //TODO throw share intent
+        }
     }
 
 

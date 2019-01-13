@@ -34,6 +34,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
         void deleteButtonListener(View v, int position);
         void notifButtonListener(View v, int position);
         void viewButtonListener(View v, int position);
+        void shareButtonListener(View v, int position);
         void cardWrapperListener(int position);
     }
 
@@ -89,6 +90,14 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
                 onClickListener.viewButtonListener(v, position);
             }
         });
+
+        holder.shareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickListener.shareButtonListener(v, position);
+            }
+        });
+
 
         holder.notifButton.setOnClickListener(new View.OnClickListener() {
             @Override
