@@ -27,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.wright.paul.allergytravelcardapp.R;
+import com.wright.paul.allergytravelcardapp.model.CardManager;
 import com.wright.paul.allergytravelcardapp.util.IabBroadcastReceiver;
 import com.wright.paul.allergytravelcardapp.util.IabHelper;
 import com.wright.paul.allergytravelcardapp.util.IabResult;
@@ -74,6 +75,8 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
     private String premiumPref = "APP_PREF";
     private String premiumPrefBool = "palladium"; // store the premium setting in shared preferences for offline use, call it palladium so its not totally obvious
     private SharedPreferences premiumSP;
+    private int downloadresult = 0;
+
     // Callback for when a purchase is finished
     IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener = new IabHelper.OnIabPurchaseFinishedListener() {
         public void onIabPurchaseFinished(IabResult result, Purchase purchase) {
@@ -128,7 +131,6 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
             // Is it a failure, if so output and quit
             if (result.isFailure()) {
                 complain("Failed to query inventory: " + result);
-                Toast.makeText(MainActivity.this, "UI Updated", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -231,6 +233,16 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
         mIsPremium = getPref();
         Log.d(TAG, mIsPremium + " onCreate");
 
+        downloadresult = getIntent().getIntExtra(CardManager.ds, 0);
+        String language = getIntent().getStringExtra(CardManager.ls);
+        String allergy = getIntent().getStringExtra(CardManager.as);
+        if (downloadresult == 1) {
+            Toast.makeText(this, "Download failed.....whoops, sorry.", Toast.LENGTH_SHORT).show();
+        }
+        if (downloadresult == 2) {
+            Toast.makeText(this, language + " " + allergy + " Card Downloaded.", Toast.LENGTH_SHORT).show();
+
+        }
         /**
          * Logic to manage the layout if dependant on device orientation
          * Landscape - utilises landscape layout and sets boolean WideLayout to true. Spinners are resized for landscape.

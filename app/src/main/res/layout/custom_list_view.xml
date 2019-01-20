@@ -34,7 +34,7 @@
             android:layout_marginTop="50sp" />
     </RelativeLayout>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:id="@+id/Text_wrapper"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -59,6 +59,8 @@
             android:fontFamily="sans-serif"
             android:gravity="center"
             android:text="English"
+            android:paddingTop="6sp"
+            android:paddingBottom="6sp"
             android:textSize="18sp" />
 
         <TextView
@@ -67,7 +69,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
             android:gravity="center"
-            android:paddingBottom="6sp"
+            android:paddingBottom="8sp"
             android:text="Gluten"
             android:textSize="18sp" />
 
@@ -89,7 +91,7 @@
             android:gravity="center"
             android:orientation="horizontal"
             android:paddingBottom="0sp"
-            android:paddingLeft="50sp"
+            android:paddingLeft="40sp"
             android:paddingTop="0sp">
 
             <Space

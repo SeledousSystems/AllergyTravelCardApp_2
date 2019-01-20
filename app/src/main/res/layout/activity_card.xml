@@ -44,7 +44,6 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="center" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -72,7 +71,9 @@
             app:autoSizeStepGranularity="2sp"
             app:autoSizeTextType="uniform" />
 
+
         <LinearLayout
+            android:id="@+id/button_LL"
             android:layout_width="match_parent"
             android:layout_height="40sp"
             android:orientation="horizontal">
@@ -81,9 +82,9 @@
                 android:id="@+id/englishTranslationButton"
                 android:layout_width="fill_parent"
                 android:layout_height="60dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:background="@color/light_blue"
@@ -100,9 +101,9 @@
                 android:id="@+id/allergyDescription"
                 android:layout_width="fill_parent"
                 android:layout_height="60dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:background="@color/light_blue"
@@ -119,9 +120,9 @@
                 android:id="@+id/allergyPicture"
                 android:layout_width="fill_parent"
                 android:layout_height="60dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:background="@color/light_blue"
@@ -138,19 +139,40 @@
                 android:id="@+id/lock"
                 android:layout_width="fill_parent"
                 android:layout_height="60dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:background="@color/light_blue"
                 android:text="Lock\nCard"
                 android:textColor="@color/card_white"
                 android:textSize="14dp" />
+        </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/ATCTV"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/light_blue" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimaryLight"
+                android:gravity="center|center"
+                android:text="Allergy Travel Cards - Android App"
+                android:textColor="@color/white"
+                android:textSize="25dp" />
 
         </LinearLayout>
 
     </LinearLayout>
+
 
 </LinearLayout>

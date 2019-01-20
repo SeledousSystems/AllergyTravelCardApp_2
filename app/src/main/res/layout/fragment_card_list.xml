@@ -4,6 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:paddingTop="2dp"
+    android:id="@+id/relativeLayout"
     android:background="@color/white"
     tools:context="com.wright.paul.allergytravelcardapp.userInterface.CreateCardActivity">
 

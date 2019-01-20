@@ -28,6 +28,8 @@ public class CardManager {
     public static String ls = "languageSelected";
     public static String as = "allergySelected";
     public static String cn = "cardNumber";
+    public static String dl = "download";
+    public static String ds = "downloadSuccess";
     private static String TAG = "CARDMANAGER";
 
     /**

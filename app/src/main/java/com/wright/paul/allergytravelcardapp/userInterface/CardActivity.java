@@ -1,20 +1,28 @@
 package com.wright.paul.allergytravelcardapp.userInterface;
 
 import android.app.AlertDialog;
+import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -25,8 +33,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.shashank.sony.fancytoastlib.FancyToast;
 import com.wright.paul.allergytravelcardapp.R;
 import com.wright.paul.allergytravelcardapp.model.CardManager;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import static android.os.Environment.DIRECTORY_DOWNLOADS;
+import static android.view.View.GONE;
 
 /**
  * CardActivity that defines the Allergy Card.
@@ -50,6 +67,9 @@ public class CardActivity extends AppCompatActivity {
     private int redColour = Color.parseColor("#c2185b");
     private int lightBlueColour = Color.parseColor("#375273");
     private Toast toast;
+    private LinearLayout button_LL;
+    private Boolean download = false;
+    private LinearLayout atcLL;
 
     //method for counting space taken up by unicode
     static int countUniCodeChar(String s) {
@@ -74,6 +94,16 @@ public class CardActivity extends AppCompatActivity {
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        context = this;
+        download = getIntent().getBooleanExtra(CardManager.dl, false);
+
+        if (download) {
+            //Toast.makeText(context, "Downloading card....", Toast.LENGTH_SHORT).show();
+            FancyToast.makeText(this,"Downloading card...",FancyToast.LENGTH_LONG,FancyToast.INFO,R.drawable.androidicon);
+        } else {
+
+        }
+
         //set up the view so it is ful screen.
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -110,22 +140,6 @@ public class CardActivity extends AppCompatActivity {
         allergyImageView = findViewById(R.id.allergyImageView);
         allergyImageView.setImageResource(CardManager.getResourceID(allergy));
 
-        //set a layered drawable to overlay the info icon on the flag
-//        Drawable[] layers1 = new Drawable[2];
-//        //get the height and width to place the info icon correctly
-//        BitmapFactory.Options o1 = new BitmapFactory.Options();
-//        o1.inTargetDensity = DisplayMetrics.DENSITY_DEFAULT;
-//        Bitmap bmp = BitmapFactory.decodeResource(context.getResources(),
-//                CardManager.getResourceID(language), o1);
-
-//        layers1[0] = r.getDrawable(CardManager.getResourceID(allergy));
-//        layers1[1] = r.getDrawable(R.drawable.ic_info_outline_black_small);
-//        if (language.equals("English")) {
-//            layers1[1].setAlpha(0);
-//        } else {
-//            layers1[1].setAlpha(100);
-//        }
-
         allergyImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -141,33 +155,6 @@ public class CardActivity extends AppCompatActivity {
         flagImageView = findViewById(R.id.flagImageView);
         flagImageView.setImageResource(CardManager.getResourceID(language));
 
-//        //set a layered drawable to overlay the info icon on the flag
-//        Drawable[] layers2 = new Drawable[2];
-//        //get the height and width to place the info icon correctly
-//        BitmapFactory.Options o2 = new BitmapFactory.Options();
-//        o2.inTargetDensity = DisplayMetrics.DENSITY_DEFAULT;
-//        Bitmap bmp2 = BitmapFactory.decodeResource(context.getResources(),
-//                CardManager.getResourceID(language), o2);
-////        int bmpWidth2 = bmp.getWidth();
-////        int bmpHeight2 = bmp.getHeight();
-////        Log.d("TAGGGGGG", "width = " + bmpWidth + " bmpHeight " + bmpHeight);
-//
-//
-//        layers2[0] = r.getDrawable(CardManager.getResourceID(language));
-//        layers2[1] = r.getDrawable(R.drawable.ic_info_outline_black_small);
-//        if (language.equals("English")) {
-//            layers2[1].setAlpha(0);
-//        } else {
-//            layers2[1].setAlpha(100);
-//        }
-//        //layers[1].setBounds(60, 60, bmpWidth, bmpHeight);
-//        LayerDrawable layerDrawable2 = new LayerDrawable(layers2);
-//        // left top right bottom
-//        layerDrawable2.setLayerInset(1, 450, 0, 0, 450);
-
-        //LayerDrawable layerDrawable = new LayerDrawable(layers);
-        //flagImageView.setImageDrawable(layerDrawable2);
-
         flagImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -181,29 +168,13 @@ public class CardActivity extends AppCompatActivity {
             }
         });
 
-        cardTitleTextView = (TextView) findViewById(R.id.cardTitleTextView);
-        cardBodyTextView = (TextView) findViewById(R.id.cardBodyTextView);
+        cardTitleTextView = findViewById(R.id.cardTitleTextView);
+        cardBodyTextView = findViewById(R.id.cardBodyTextView);
 
         // Set the text for the card title
         cardTitleTextView.setText(allergy + " Allergy - " + language);
         //get the text for the body of the card based on the allergy and language.
         String bodyText = CardManager.getCardBodyText(allergy, language, this);
-
-//        //get display size
-//        Display display = getWindowManager().getDefaultDisplay();
-//        Point size = new Point();
-//        display.getSize(size);
-//        int width = size.x;
-//        int height = size.y;
-//        Log.d(TAG, "x= " + width + "    y = " + height + " size = " + size);
-//        Log.d(TAG, getResources().getConfiguration().screenLayout + "    " + Configuration.SCREENLAYOUT_SIZE_LARGE);
-//
-//        if ((getResources().getConfiguration().screenLayout &
-//                Configuration.SCREENLAYOUT_SIZE_MASK) ==
-//                Configuration.SCREENLAYOUT_SIZE_LARGE) {
-//            // on a large screen device ...
-//            Log.d(TAG, Configuration.SCREENLAYOUT_SIZE_MASK + "  = true   ");
-//        }
 
         // if language text size gets too large or small or nulls, set it to 21.
         //if (languageTextSize < 20 || languageTextSize > 30) languageTextSize = 21;
@@ -215,7 +186,7 @@ public class CardActivity extends AppCompatActivity {
         cardBodyTextView.setText(bodyText);
 
         //make the icon clickable and return to main activity, not working at present
-        iconImageView = (ImageView) findViewById(R.id.iconImageView);
+        iconImageView = findViewById(R.id.iconImageView);
         iconImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -255,9 +226,7 @@ public class CardActivity extends AppCompatActivity {
             }
         });
 
-        allergyPicture = (Button)
-
-                findViewById((R.id.allergyPicture));
+        allergyPicture = findViewById((R.id.allergyPicture));
         allergyPicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -280,15 +249,93 @@ public class CardActivity extends AppCompatActivity {
         //get the view and set a gesture detector for the card to respond ot flings.
         cardLL = (LinearLayout) findViewById(R.id.cardLL);
 
-        final GestureDetector gestureDetectorC = new GestureDetector(this.getApplicationContext(), new GestureListener());
+        final GestureDetector gestureDetector = new GestureDetector(this.getApplicationContext(), new GestureListener());
         cardLL.setOnTouchListener(new View.OnTouchListener()
 
         {
             @Override
             public boolean onTouch(final View view, final MotionEvent event) {
-                return gestureDetectorC.onTouchEvent(event);
+                return gestureDetector.onTouchEvent(event);
             }
         });
+
+        if (download) {
+            ViewTreeObserver vto = cardLL.getViewTreeObserver();
+            vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                @Override
+                public void onGlobalLayout() {
+                    button_LL = findViewById(R.id.button_LL);
+                    button_LL.setVisibility(GONE);
+
+                    cardLL.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                    int width = cardLL.getMeasuredWidth();
+                    int height = cardLL.getMeasuredHeight();
+                    //shareView(cardLL);
+
+                    Bitmap bitmap = getBitmapFromView(cardLL);
+                    try {
+                        Log.d("TAGGG", "hhhtttttttttttttttthh");
+                        downloadBitmap(bitmap);
+                        Log.d("TAGGG", "hhhhhhhhhhhhhhhhhhhh");
+                    } catch (IOException e) {
+                        //return user to the main screen with failure message
+                        Log.d("TAGGG", "hhhhhhhhhfailhh");
+                        Intent newCardIntent = new Intent(context, MainActivity.class);
+                        newCardIntent.putExtra(CardManager.ls, language);
+                        newCardIntent.putExtra(CardManager.as, allergy);
+                        newCardIntent.putExtra(CardManager.ds, 1);
+                        startActivity(newCardIntent);
+                    }
+                    Log.d("TAGGG", "width = " + width + " height = " + height);
+                    //return user to the main screen with success message
+                    Intent newCardIntent = new Intent(context, MainActivity.class);
+                    newCardIntent.putExtra(CardManager.ls, language);
+                    newCardIntent.putExtra(CardManager.as, allergy);
+                    newCardIntent.putExtra(CardManager.ds, 2);
+                    startActivity(newCardIntent);
+                }
+            });
+        } else {
+            atcLL = findViewById(R.id.ATCTV);
+            atcLL.setVisibility(View.GONE);
+        }
+    }
+
+    public File downloadBitmap(Bitmap bmp) throws IOException {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.JPEG, 60, bytes);
+        File dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        String fileName = allergy + " " + language + " Allergy Card.jpg";
+        File f = new File(dir, fileName);
+        f.createNewFile();
+        FileOutputStream fo = new FileOutputStream(f);
+        fo.write(bytes.toByteArray());
+        fo.close();
+
+        DownloadManager downloadManager = (DownloadManager) context.getSystemService(DOWNLOAD_SERVICE);
+        downloadManager.addCompletedDownload(f.getName(), f.getName(), true, "image/jpeg",f.getAbsolutePath(),f.length(),true);
+
+        return f;
+    }
+
+    private Bitmap getBitmapFromView(View view) {
+        //Define a bitmap with the same size as the view
+        Bitmap returnedBitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
+        //Bind a canvas to it
+        Canvas canvas = new Canvas(returnedBitmap);
+        //Get the view's background
+        Drawable bgDrawable = view.getBackground();
+        if (bgDrawable != null) {
+            //has background drawable, then draw it on the canvas
+            bgDrawable.draw(canvas);
+        } else {
+            //does not have background drawable, then draw white background on the canvas
+            canvas.drawColor(Color.WHITE);
+        }
+        // draw the view on the canvas
+        view.draw(canvas);
+        //return the bitmap
+        return returnedBitmap;
     }
 
     /**
@@ -310,7 +357,8 @@ public class CardActivity extends AppCompatActivity {
     /**
      * show locked toast
      */
-    private void showLockedToast() {
+    private void
+    showLockedToast() {
         toast.cancel();
         toast = Toast.makeText(context, "Card is locked", Toast.LENGTH_SHORT);
         toast.show();

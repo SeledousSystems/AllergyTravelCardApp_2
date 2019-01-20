@@ -1,5 +1,6 @@
 package com.wright.paul.allergytravelcardapp.userInterface;
 
+import android.Manifest;
 import android.animation.LayoutTransition;
 import android.app.AlertDialog;
 import android.app.NotificationManager;
@@ -8,27 +9,25 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SimpleItemAnimator;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
-import android.view.ContextMenu;
-import android.view.GestureDetector;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,7 +42,7 @@ import java.util.List;
 
 import jp.wasabeef.recyclerview.animators.LandingAnimator;
 
-import static com.wright.paul.allergytravelcardapp.userInterface.MainActivity.mIsPremium;
+import static android.support.v4.content.PermissionChecker.checkSelfPermission;
 
 /**
  * Class that defines the CardListFragment
@@ -75,6 +74,8 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
     private String premiumPref = "APP_PREF";
     private String premiumPrefBool = "palladium";
     public static boolean mIsPremium = false;
+    private Intent newCardIntent;
+
     /**
      * Static method to get the static Card Collection
      *
@@ -117,6 +118,7 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
         }
         //recycler here
         cardListView = (RecyclerView) view.findViewById(R.id.listView);
+        final View relativeView = view.findViewById(R.id.relativeLayout);
         cardAdapter = new CardAdapter(view.getContext(), R.layout.custom_list_view, cardList, new CardAdapter.CardAdapterListener() {
             @Override
             public void viewButtonListener(View v, int position) {
@@ -131,19 +133,26 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
 
             @Override
             public void deleteButtonListener(View v, int position) {
+                deleteCardDialog(position);
+
                 deleteCard(position);
             }
 
             @Override
             public void shareButtonListener(View v, int position) {
                 Card cardView = cardList.get(position);
-                Intent newCardIntent = new Intent(getActivity(), ShareCardActivity.class);
+                newCardIntent = new Intent(getActivity(), CardActivity.class);
                 newCardIntent.putExtra(CardManager.ls, cardView.getLanguage());
                 newCardIntent.putExtra(CardManager.as, cardView.getAllergy());
                 newCardIntent.putExtra(CardManager.cn, cardList.indexOf(cardView));
-                startActivity(newCardIntent);
-
-
+                newCardIntent.putExtra(CardManager.dl, true);
+                if (isStoragePermissionGranted()) {
+                    startActivity(newCardIntent);
+                } else {
+                    ActivityCompat.requestPermissions(getActivity(),
+                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                            1);
+                }
             }
 
             @Override
@@ -173,12 +182,9 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
             }
         });
         //cardListView.setEmptyView(emptyText);
-
         //create an instance of the handler for non-UI process
         handler = new Handler();
-
         mIsPremium = getPref();
-
         return view;
     }
 
@@ -188,25 +194,90 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
         return premium.getBoolean(premiumPrefBool, false);
     }
 
+    void deleteCardDialog(final int position) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-    private void shareCard(int position) {
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                deleteCard(position);
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // User cancelled the dialog
+            }
+        });
+        builder.setTitle("Delete " + cardList.get(position).getLanguage() + " " + cardList.get(position).getAllergy() + " Card?");
+        AlertDialog dialog = builder.create();
+    }
 
-        if(!mIsPremium) {
-            Toast.makeText(context, "Upgrade to premium to share cards with everyone.", Toast.LENGTH_SHORT).show();
+    public boolean isStoragePermissionGranted() {
+
+        if (checkSelfPermission(getActivity(),
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            // Permission is not granted
+            // Should we show an explanation?
+            if (shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                //Toast.makeText(getContext(), "permision is already granted", Toast.LENGTH_SHORT).show();
+
+                // Show an explanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
+            } else {
+                // No explanation needed; request the permission
+                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        1);
+
+                //Toast.makeText(getContext(), "requesting permision.", Toast.LENGTH_SHORT).show();
+
+                // The callback method gets the result of the request.
+            }
         } else {
-            //TODO draw card
-            //TODO throw share intent
+            // Permission has already been granted, do the sharing here.
+            //Toast.makeText(getContext(), "permission already granted, not requesting.", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        Toast.makeText(context, "onrequest method reached", Toast.LENGTH_SHORT).show();
+        switch (requestCode) {
+            case 1: {
+                // If request is cancelled, the result arrays are empty.
+
+                Log.d(TAG, "grant results  size = " + grantResults.length);
+                for (int i: grantResults) {
+                    Log.d(TAG, "grant results = " + i);
+                }
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // Toast.makeText(getContext(), "Permision granted", Toast.LENGTH_SHORT).show();
+                    startActivity(newCardIntent);
+                } else if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_DENIED) {
+                    Toast.makeText(getContext(), "Download cancelled, permission required to download cards.", Toast.LENGTH_SHORT).show();
+                } else {
+
+                }
+                return;
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request.
         }
     }
 
-
     private void checkEmptyView() {
-
         if (cardList.isEmpty()) {
             cardListView.setVisibility(View.GONE);
             emptyTV.setVisibility(View.VISIBLE);
-        }
-        else {
+        } else {
             cardListView.setVisibility(View.VISIBLE);
             emptyTV.setVisibility(View.GONE);
         }
@@ -344,11 +415,11 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
         cardList.remove(card);
         cardAdapter.notifyDataSetChanged();
 
-        if(cardList.size()==0){
+        if (cardList.size() == 0) {
             checkEmptyView();
         }
 
-        //Toast.makeText(getActivity(), "Allergy Card Deleted", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), card.getAllergy() + " " + card.getLanguage() + " " + "Allergy Card Deleted", Toast.LENGTH_SHORT).show();
 
         Log.d(TAG, "Card == " + cardList.indexOf(card) + "  size == " + cardList.size());
 
