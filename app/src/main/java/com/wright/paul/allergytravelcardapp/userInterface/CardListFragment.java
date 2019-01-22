@@ -14,11 +14,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SimpleItemAnimator;
@@ -147,10 +145,10 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
                 newCardIntent.putExtra(CardManager.cn, cardList.indexOf(cardView));
                 newCardIntent.putExtra(CardManager.dl, true);
                 if (isStoragePermissionGranted()) {
+                    Toast.makeText(context, "Downloading Card...", Toast.LENGTH_SHORT).show();
                     startActivity(newCardIntent);
                 } else {
-                    ActivityCompat.requestPermissions(getActivity(),
-                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                             1);
                 }
             }
@@ -239,29 +237,24 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
             //Toast.makeText(getContext(), "permission already granted, not requesting.", Toast.LENGTH_SHORT).show();
             return true;
         }
-
         return false;
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        Toast.makeText(context, "onrequest method reached", Toast.LENGTH_SHORT).show();
+
         switch (requestCode) {
             case 1: {
                 // If request is cancelled, the result arrays are empty.
 
-                Log.d(TAG, "grant results  size = " + grantResults.length);
-                for (int i: grantResults) {
-                    Log.d(TAG, "grant results = " + i);
-                }
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // Toast.makeText(getContext(), "Permision granted", Toast.LENGTH_SHORT).show();
                     startActivity(newCardIntent);
                 } else if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_DENIED) {
-                    Toast.makeText(getContext(), "Download cancelled, permission required to download cards.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Download cancelled, storage permission required to download cards", Toast.LENGTH_SHORT).show();
                 } else {
 
                 }

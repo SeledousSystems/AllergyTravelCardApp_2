@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <item android:title="Passie Details">
+    <item android:title="Menu_prem">
         <menu>
             <item
                 android:id="@+id/nav_features"

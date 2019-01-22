@@ -204,7 +204,6 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
 
             case R.id.nav_features:
                 alertHTML(this.getString(R.string.features_body));
-
                 break;
 
         }
@@ -247,34 +246,34 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
          * Logic to manage the layout if dependant on device orientation
          * Landscape - utilises landscape layout and sets boolean WideLayout to true. Spinners are resized for landscape.
          */
-        if (configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            setContentView(R.layout.activity_main_landscape);
-            wideLayout = true;
+//        if (configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+//            setContentView(R.layout.activity_main_landscape);
+//            wideLayout = true;
+//
+//            languageSpinner = (Spinner) findViewById(R.id.languageSpinner);
+//            languageSpinner.getLayoutParams().height = (int) getResources().getDimension(R.dimen.spinner_landscape_height);
+//
+//            allergySpinner = (Spinner) findViewById(R.id.allergySpinner);
+//            allergySpinner.getLayoutParams().height = (int) getResources().getDimension(R.dimen.spinner_landscape_height);
 
-            languageSpinner = (Spinner) findViewById(R.id.languageSpinner);
-            languageSpinner.getLayoutParams().height = (int) getResources().getDimension(R.dimen.spinner_landscape_height);
-
-            allergySpinner = (Spinner) findViewById(R.id.allergySpinner);
-            allergySpinner.getLayoutParams().height = (int) getResources().getDimension(R.dimen.spinner_landscape_height);
-
-            /**
-             * Portrait - utilises portrait layout and sets boolean WideLayout to true. Create new card button is initialised and click listener set which starts the create card activity.
-             */
-        } else {
-            setContentView(R.layout.activity_main_portrait);
-            wideLayout = false;
-            createNewCardButton = (Button) findViewById(R.id.createNewCardButton);
-            createNewCardButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    mIsPremium = getPref();
-                    updateMenuItems();
-                    Intent newCardIntent = new Intent(MainActivity.this, CreateCardActivity.class);
-                    // invalidateOptionsMenu();
-                    startActivity(newCardIntent, new Bundle());
-                }
-            });
-        }
+        /**
+         * Portrait - utilises portrait layout and sets boolean WideLayout to true. Create new card button is initialised and click listener set which starts the create card activity.
+         */
+//        } else {
+        setContentView(R.layout.activity_main_portrait);
+        wideLayout = false;
+        createNewCardButton = (Button) findViewById(R.id.createNewCardButton);
+        createNewCardButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mIsPremium = getPref();
+                updateMenuItems();
+                Intent newCardIntent = new Intent(MainActivity.this, CreateCardActivity.class);
+                // invalidateOptionsMenu();
+                startActivity(newCardIntent, new Bundle());
+            }
+        });
+//        }
 
         String base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsELOm9n3HjMhOA2pf9ic6mN1HD8CqDOgLd46j66a77WKlVgM22E+i5uQnuIbWVgqp5Gam6MVIztBkpUYMVgurItzXlnoufW0POFvYLVdZXiJXfKuT5GpP/8GyMYKlPbcVvoytFRQuR/Ox/nBdNzzSbBvFeNInpqZn6BNuJ+sjZ6ixj/KZCOycUvriRA5VLiw6KxpEMrqGSaICfgBO4pjia+00+J0G8PMZAyg/ObudTAaY8LItWxeOEH2VvGxn1FgH4XEEQGPL4MsXxm0pll0oSKykfdZhcFSae9KhYGVxn/rqExRWA0X97bz20fgxERXloFGgvPaURHO4YJxzvq8tQIDAQAB";
 

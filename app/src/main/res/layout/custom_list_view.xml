@@ -44,7 +44,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/delete"
+            android:id="@+id/open"
             android:layout_width="30sp"
             android:layout_height="30sp"
             android:layout_gravity="right"
@@ -59,8 +59,8 @@
             android:fontFamily="sans-serif"
             android:gravity="center"
             android:text="English"
-            android:paddingTop="6sp"
-            android:paddingBottom="6sp"
+            android:paddingTop="8sp"
+            android:paddingBottom="4sp"
             android:textSize="18sp" />
 
         <TextView
@@ -70,6 +70,7 @@
             android:fontFamily="sans-serif"
             android:gravity="center"
             android:paddingBottom="8sp"
+            android:paddingTop="4sp"
             android:text="Gluten"
             android:textSize="18sp" />
 
