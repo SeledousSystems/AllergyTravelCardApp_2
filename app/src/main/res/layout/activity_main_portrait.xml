@@ -29,7 +29,6 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:background="@color/light_blue"
-            android:shadowRadius="5"
             android:text="@string/create_new_card"
             android:textColor="@color/card_white"
             android:textSize="18sp" />

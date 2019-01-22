@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:paddingTop="2dp"
+    android:paddingTop="0dp"
     android:id="@+id/relativeLayout"
     android:background="@color/white"
     tools:context="com.wright.paul.allergytravelcardapp.userInterface.CreateCardActivity">
@@ -14,7 +14,8 @@
         android:layout_height="match_parent"
         android:divider="@android:color/transparent"
         android:dividerHeight="5dp"
-        android:padding="2dp"/>
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"/>
 
     <!--<ListView-->
         <!--android:id="@+id/listView"-->

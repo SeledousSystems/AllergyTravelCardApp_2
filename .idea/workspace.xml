@@ -12,9 +12,9 @@
     <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e84baff-c7c7-4135-9736-782d4c49bfdf" name="Default" comment="Complete, ready for testing this time&#10;- Delete dialog fixed&#10;- Toasts fixed">
+    <list default="true" id="9e84baff-c7c7-4135-9736-782d4c49bfdf" name="Default" comment="Complete, ready for testing this time&#10;- Delete dialog fixed again&#10;- recycler view layout fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardListFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardListFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_portrait.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_portrait.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_card_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_card_list.xml" afterDir="false" />
     </list>
     <ignored path="AllergyTravelCardApp.iws" />
@@ -56,7 +56,7 @@
           <entry key="gradle" value="5" />
           <entry key="java" value="8" />
           <entry key="png" value="6" />
-          <entry key="xml" value="22" />
+          <entry key="xml" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -64,23 +64,23 @@
           <entry key="Groovy" value="5" />
           <entry key="Image" value="6" />
           <entry key="JAVA" value="8" />
-          <entry key="XML" value="22" />
+          <entry key="XML" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="2" />
           <entry key="java" value="1001" />
-          <entry key="txt" value="269" />
-          <entry key="xml" value="348" />
+          <entry key="txt" value="302" />
+          <entry key="xml" value="368" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="2" />
           <entry key="JAVA" value="1001" />
-          <entry key="PLAIN_TEXT" value="269" />
-          <entry key="XML" value="348" />
+          <entry key="PLAIN_TEXT" value="302" />
+          <entry key="XML" value="368" />
         </counts>
       </usages-collector>
     </session>
@@ -90,11 +90,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="59">
-              <caret line="411" column="35" lean-forward="true" selection-start-line="411" selection-start-column="35" selection-end-line="411" selection-end-column="35" />
+              <caret line="411" column="35" selection-start-line="411" selection-start-column="35" selection-end-line="411" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -112,29 +112,20 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/language_array_free.xml">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_portrait.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_card_list.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="13" column="44" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
+            <state relative-caret-position="391">
+              <caret line="23" column="47" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
             </state>
           </provider>
           <provider editor-type-id="android-designer2" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_portrait.xml">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_card_list.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
+            <state relative-caret-position="68">
+              <caret line="4" column="39" lean-forward="true" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
             </state>
           </provider>
           <provider editor-type-id="android-designer2" />
@@ -2243,7 +2234,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/model/DialogManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/nav_header_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main_portrait.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CreateCardFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/spinner_view.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/language_array_premium.xml" />
@@ -2271,8 +2261,9 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/language_array_free.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_card_list.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardListFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main_portrait.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_card_list.xml" />
       </list>
     </option>
   </component>
@@ -2857,7 +2848,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548146018496</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Complete, ready for testing this time&#10;- Delete dialog fixed again&#10;- recycler view layout fixed">
+      <created>1548146826950</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1548146826950</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2945,7 +2943,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Add language and allergy info to create card activity&#10;- added strings for allergies&#10;- added info image to allergy symbol&#10;&#10;Todo&#10;- resources&#10;- buttons bottom of card (info, speak?)" />
     <MESSAGE value="Add language and allergy info to create card activity&#10;- added strings for allergies&#10;- added info image to allergy symbol&#10;&#10;Todo&#10;- resources list &amp; dialog&#10;- buttons bottom of card (info, speak?)&#10;- add pictures from website" />
     <MESSAGE value="Add language and allergy info to create card activity&#10;- added strings for allergies&#10;- added info image to allergy symbol&#10;- changed lock toast&#10;- fixed get pro bug on create card screen&#10;&#10;Todo&#10;- resources list &amp; dialog&#10;- buttons bottom of card (info, speak?)&#10;- add pictures from website" />
     <MESSAGE value="Add language and allergy info to create card activity&#10;- added strings for allergies&#10;- added info image to allergy symbol&#10;- changed lock toast&#10;- fixed get pro bug on create card screen&#10;- buy option on create card activity&#10;&#10;Todo&#10;- resources list &amp; dialog&#10;- get pro colour change&#10;" />
@@ -2970,7 +2967,8 @@
     <MESSAGE value="Have added branding to download cards&#10;TODO:&#10;- sort permission handler&#10;- open image on cards&#10;- monkey testing &#10;- about symbol needs to be black&#10;- premium status in about from menu" />
     <MESSAGE value="Complete, ready for testing" />
     <MESSAGE value="Complete, ready for testing this time&#10;- Delete dialog fixed&#10;- Toasts fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Complete, ready for testing this time&#10;- Delete dialog fixed&#10;- Toasts fixed" />
+    <MESSAGE value="Complete, ready for testing this time&#10;- Delete dialog fixed again&#10;- recycler view layout fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Complete, ready for testing this time&#10;- Delete dialog fixed again&#10;- recycler view layout fixed" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/recyclerview-v7/27.1.1/ad225a74247e675db0b05ea4f8b17202acbb7f9d/recyclerview-v7-27.1.1-sources.jar!/android/support/v7/widget/helper/ItemTouchHelper.java">
@@ -3236,22 +3234,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_portrait.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_card_list.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="13" column="44" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml">
       <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="android-designer2" />
@@ -3273,12 +3255,28 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="59">
-          <caret line="411" column="35" lean-forward="true" selection-start-line="411" selection-start-column="35" selection-end-line="411" selection-end-column="35" />
+          <caret line="411" column="35" selection-start-line="411" selection-start-column="35" selection-end-line="411" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_portrait.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="47" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_card_list.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="39" lean-forward="true" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
   </component>
 </project>
