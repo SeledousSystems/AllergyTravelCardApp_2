@@ -413,7 +413,7 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
             checkEmptyView();
         }
 
-        Toast.makeText(getActivity(), card.getAllergy() + " " + card.getLanguage() + " " + "Allergy Card deleted", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), card.getLanguage() + " " + card.getAllergy() + " " + "Allergy Card deleted", Toast.LENGTH_SHORT).show();
 
         Log.d(TAG, "Card == " + cardList.indexOf(card) + "  size == " + cardList.size());
 
