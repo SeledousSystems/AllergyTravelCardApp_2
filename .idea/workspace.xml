@@ -12,17 +12,10 @@
     <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e84baff-c7c7-4135-9736-782d4c49bfdf" name="Default" comment="Have added branding to download cards&#10;TODO:&#10;- sort permission handler&#10;- open image on cards&#10;- monkey testing &#10;- premium status in about from menu">
+    <list default="true" id="9e84baff-c7c7-4135-9736-782d4c49bfdf" name="Default" comment="Complete, ready for testing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardListFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardListFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_info_white_24dp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_list_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_list_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_card_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_card_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer_pemium.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer_pemium.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/language_array_free.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/language_array_free.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <ignored path="AllergyTravelCardApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -77,16 +70,16 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="2" />
-          <entry key="java" value="976" />
-          <entry key="txt" value="191" />
+          <entry key="java" value="989" />
+          <entry key="txt" value="219" />
           <entry key="xml" value="348" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="2" />
-          <entry key="JAVA" value="976" />
-          <entry key="PLAIN_TEXT" value="191" />
+          <entry key="JAVA" value="989" />
+          <entry key="PLAIN_TEXT" value="219" />
           <entry key="XML" value="348" />
         </counts>
       </usages-collector>
@@ -100,8 +93,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="256" column="115" selection-start-line="256" selection-start-column="115" selection-end-line="256" selection-end-column="115" />
+            <state relative-caret-position="127">
+              <caret line="29" column="27" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -112,11 +105,11 @@
           <provider selected="true" editor-type-id="android-designer2" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="101">
-              <caret line="205" column="66" selection-start-line="205" selection-start-column="66" selection-end-line="205" selection-end-column="66" />
+            <state relative-caret-position="93">
+              <caret line="238" column="67" selection-start-line="238" selection-start-column="67" selection-end-line="238" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -139,7 +132,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values/language_array_free.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
@@ -181,8 +174,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>v</find>
-      <find>menu</find>
       <find>version</find>
       <find>lock</find>
       <find>col</find>
@@ -208,9 +199,11 @@
       <find>dia</find>
       <find>fancy</find>
       <find>delete</find>
-      <find>toast</find>
       <find>gone</find>
       <find>permiss</find>
+      <find>deleted</find>
+      <find>toast</find>
+      <find>download</find>
     </findStrings>
   </component>
   <component name="GenerateSignedApkSettings">
@@ -2297,10 +2290,10 @@
         <option value="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/custom_list_view.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_card_list.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardListFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/language_array_free.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardListFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -2871,7 +2864,14 @@
       <option name="project" value="LOCAL" />
       <updated>1547976475479</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Complete, ready for testing">
+      <created>1548145692325</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1548145692325</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2959,7 +2959,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Add language and allergy info to create card activity&#10;- added strings for allergies&#10;- added info image to allergy symbol" />
     <MESSAGE value="Add language and allergy info to create card activity&#10;- added strings for allergies&#10;- added info image to allergy symbol&#10;&#10;Todo&#10;- resources&#10;- buttons bottom of card (lock, info, speak?)" />
     <MESSAGE value="Add language and allergy info to create card activity&#10;- added strings for allergies&#10;- added info image to allergy symbol&#10;&#10;Todo&#10;- resources&#10;- buttons bottom of card (info, speak?)" />
     <MESSAGE value="Add language and allergy info to create card activity&#10;- added strings for allergies&#10;- added info image to allergy symbol&#10;&#10;Todo&#10;- resources list &amp; dialog&#10;- buttons bottom of card (info, speak?)&#10;- add pictures from website" />
@@ -2984,7 +2983,8 @@
     <MESSAGE value="Added hebrew&#10;added &quot;oils&quot; to nuts cards&#10;updated font size" />
     <MESSAGE value="Started share card function&#10;Changed english flag to uk/usa split" />
     <MESSAGE value="Have added branding to download cards&#10;TODO:&#10;- sort permission handler&#10;- open image on cards&#10;- monkey testing &#10;- about symbol needs to be black&#10;- premium status in about from menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Have added branding to download cards&#10;TODO:&#10;- sort permission handler&#10;- open image on cards&#10;- monkey testing &#10;- about symbol needs to be black&#10;- premium status in about from menu" />
+    <MESSAGE value="Complete, ready for testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Complete, ready for testing" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/recyclerview-v7/27.1.1/ad225a74247e675db0b05ea4f8b17202acbb7f9d/recyclerview-v7-27.1.1-sources.jar!/android/support/v7/widget/helper/ItemTouchHelper.java">
@@ -3256,20 +3256,6 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardListFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="256" column="115" selection-start-line="256" selection-start-column="115" selection-end-line="256" selection-end-column="115" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="205" column="66" selection-start-line="205" selection-start-column="66" selection-end-line="205" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -3288,6 +3274,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="29" column="27" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="238" column="67" selection-start-line="238" selection-start-column="67" selection-end-line="238" selection-end-column="67" />
         </state>
       </provider>
     </entry>

@@ -133,7 +133,7 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
             public void deleteButtonListener(View v, int position) {
                 deleteCardDialog(position);
 
-                deleteCard(position);
+                //deleteCard(position);
             }
 
             @Override
@@ -207,6 +207,7 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
         });
         builder.setTitle("Delete " + cardList.get(position).getLanguage() + " " + cardList.get(position).getAllergy() + " Card?");
         AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     public boolean isStoragePermissionGranted() {
@@ -412,7 +413,7 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
             checkEmptyView();
         }
 
-        Toast.makeText(getActivity(), card.getAllergy() + " " + card.getLanguage() + " " + "Allergy Card Deleted", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), card.getAllergy() + " " + card.getLanguage() + " " + "Allergy Card deleted", Toast.LENGTH_SHORT).show();
 
         Log.d(TAG, "Card == " + cardList.indexOf(card) + "  size == " + cardList.size());
 

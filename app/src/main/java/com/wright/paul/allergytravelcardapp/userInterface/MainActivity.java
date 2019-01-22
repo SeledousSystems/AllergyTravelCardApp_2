@@ -236,10 +236,10 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
         String language = getIntent().getStringExtra(CardManager.ls);
         String allergy = getIntent().getStringExtra(CardManager.as);
         if (downloadresult == 1) {
-            Toast.makeText(this, "Download failed.....whoops, sorry.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Download failed.....whoops, sorry", Toast.LENGTH_SHORT).show();
         }
         if (downloadresult == 2) {
-            Toast.makeText(this, language + " " + allergy + " Card Downloaded.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, language + " " + allergy + " Card Downloaded", Toast.LENGTH_SHORT).show();
 
         }
         /**
