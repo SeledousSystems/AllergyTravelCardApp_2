@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wright.paul.allergytravelcardapp">
-    <!--removed location services at this time-->
-    <!--<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />-->
-    <!--<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />-->
+
+    <!-- removed location services at this time -->
+    <!-- <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> -->
+    <!-- <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> -->
     <uses-permission android:name="com.android.vending.BILLING" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-    <!--uses-sdk tools:overrideLibrary="android.support.test.uiautomator.v18-->
 
     <application
         android:allowBackup="true"
@@ -18,42 +17,37 @@
         android:theme="@style/AppTheme"
         android:versionCode="35"
         android:versionName="3.1">
-        <!--<activity-->
-        <!--android:name=".userInterface.SplashActivity"-->
-        <!--android:theme="@style/SplashTheme">-->
-        <!--<intent-filter>-->
-        <!--<action android:name="android.intent.action.MAIN" />-->
-        <!--<category android:name="android.intent.category.LAUNCHER" />-->
-        <!--</intent-filter>-->
-        <!--</activity>-->
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/text_selected" />
+        <!-- <activity -->
+        <!-- android:name=".userInterface.SplashActivity" -->
+        <!-- android:theme="@style/SplashTheme"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
         <activity
-            android:name="com.wright.paul.allergytravelcardapp.userInterface.MainActivity"
+            android:name=".userInterface.MainActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.wright.paul.allergytravelcardapp.userInterface.CreateCardActivity"
+        <activity
+            android:name=".userInterface.CreateCardActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.wright.paul.allergytravelcardapp.userInterface.CardActivity"
-            android:screenOrientation="landscape"></activity>
+            android:name=".userInterface.CardActivity"
+            android:screenOrientation="landscape" />
         <activity
-            android:name="com.wright.paul.allergytravelcardapp.userInterface.ShareCardActivity"
-            android:screenOrientation="landscape"></activity>
-
-        <!--<service-->
-        <!--android:name="com.wright.paul.allergytravelcardapp.model.LocationService"-->
-        <!--android:enabled="true"-->
-        <!--android:exported="false"-->
-        <!--android:icon="@drawable/appl_icon"-->
-        <!--android:isolatedProcess="false"-->
-        <!--android:label="@string/location_service"-->
-        <!--android:process=":location_service" />-->
-
+            android:name=".userInterface.ShareCardActivity"
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>

@@ -108,7 +108,7 @@
                 android:gravity="center"
                 android:maxLines="2"
                 android:text="@string/delete_but_text"
-                android:textColor="@color/white"
+                android:textColor="@color/text_selected"
                 android:textSize="10sp" />
 
             <Space
