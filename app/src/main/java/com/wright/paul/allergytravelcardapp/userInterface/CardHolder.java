@@ -51,6 +51,8 @@ public class CardHolder extends RecyclerView.ViewHolder implements View.OnClickL
     @Override
     public void onClick(View view) {
 
+
+
     }
 
     public void bindCard(Card card) {
@@ -64,6 +66,7 @@ public class CardHolder extends RecyclerView.ViewHolder implements View.OnClickL
         flagImage.setImageResource(CardManager.getResourceID(card.getLanguage()));
 
         allergyImage.setImageResource(CardManager.getResourceID(card.getAllergy()));
+
 
 //        try {
 //            Bitmap bitmap = ((BitmapDrawable) flagImage.getDrawable()).getBitmap();

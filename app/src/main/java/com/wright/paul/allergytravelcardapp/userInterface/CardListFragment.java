@@ -151,17 +151,21 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
                 Log.d("onSwiped", "on move " + swipeDir + " " + viewHolder.getItemId());
-                deleteCard(viewHolder.getLayoutPosition());
+                deleteCardDialog(viewHolder.getLayoutPosition());
+                Log.d("clearViewOut", cardDBOpenHelper.getAllCards().toString());
             }
 
             @Override
             public void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
                 super.clearView(recyclerView, viewHolder);
                 if(dragFrom != -1 && dragTo != -1 && dragFrom != dragTo) {
-                    cardDBOpenHelper.swapCardsLastViewed(fromCard, toCard);
-                }
+                    cardDBOpenHelper.saveCollectionToDB(cardList);
 
+                    Log.d("clearViewOut", cardDBOpenHelper.getAllCards().toString() );
+                    //cardAdapter.notifyDataSetChanged();
+                }
                 dragFrom = dragTo = -1;
+
             }
         };
 
@@ -441,19 +445,19 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
         mNotificationManager.notify(notificationCard.getDbID(), mBuilder.build());
     }
 
-    //Swipe to Delete
-    ItemTouchHelper swipeToDismissTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
-            ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
-        @Override
-        public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-            return false;
-        }
-
-        @Override
-        public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-            deleteCard(viewHolder.getAdapterPosition());
-        }
-    });
+//    //Swipe to Delete
+//    ItemTouchHelper swipeToDismissTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
+//            ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+//        @Override
+//        public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+//            return false;
+//        }
+//
+//        @Override
+//        public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+//            deleteCard(viewHolder.getAdapterPosition());
+//        }
+//    });
 
     /**
      * deleteCard method to remove a card from the list and db and refresh the view.

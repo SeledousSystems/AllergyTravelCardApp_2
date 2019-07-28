@@ -5,7 +5,7 @@
     android:layout_height="fill_parent"
     android:paddingTop="0dp"
     android:id="@+id/relativeLayout"
-    android:background="@color/white"
+    android:background="@drawable/recycler_selector"
     tools:context="com.wright.paul.allergytravelcardapp.userInterface.CreateCardActivity">
 
     <android.support.v7.widget.RecyclerView
