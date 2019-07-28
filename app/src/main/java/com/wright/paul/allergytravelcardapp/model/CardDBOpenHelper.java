@@ -115,4 +115,23 @@ public class CardDBOpenHelper extends SQLiteOpenHelper {
                 new String[]{card.getLanguage(), card.getAllergy()});
     }
 
+    public void swapCardsLastViewed(Card card1, Card card2) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String id1 = Integer.toString(card1.getDbID());
+        String id2 = Integer.toString(card2.getDbID());
+
+        //create the cv and update the DB Card1
+        ContentValues cv1 = new ContentValues();
+        cv1.put("language", card2.getLanguage());
+        cv1.put("allergy", card2.getAllergy());
+        db.update("Card", cv1, "_id = ?",  new String[]{id1});
+
+        //create the cv and update the DB Card2
+        ContentValues cv2 = new ContentValues();
+        cv2.put("language", card1.getLanguage());
+        cv2.put("allergy", card1.getAllergy());
+        db.update("Card", cv2, "_id = ?",  new String[]{id2});
+
+    }
+
 }

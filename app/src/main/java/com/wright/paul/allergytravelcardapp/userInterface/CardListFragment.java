@@ -114,8 +114,64 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
             Collections.sort(cardList);
             appStartUp = false;
         }
-        //recycler here
+
+        //define item touchhelper to handle drags and flicks in recycler view
+        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP | ItemTouchHelper.DOWN, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+
+            int dragFrom = -1;
+            int dragTo = -1;
+
+            Card fromCard;
+            Card toCard;
+
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                Log.d("TouchMover", "on move " + viewHolder.getAdapterPosition() + " target = " + target.getAdapterPosition());
+
+                Collections.swap(cardList, viewHolder.getAdapterPosition(), target.getAdapterPosition());
+                cardAdapter.notifyItemMoved(viewHolder.getAdapterPosition(), target.getAdapterPosition());
+
+                int fromPosition = viewHolder.getAdapterPosition();
+                int toPosition = target.getAdapterPosition();
+
+
+                if(dragFrom == -1) {
+                    fromCard = cardList.get(fromPosition);
+                    dragFrom =  fromPosition;
+
+                }
+                dragTo = toPosition;
+                toCard = cardList.get(toPosition);
+
+                //adapter.onItemMove(fromPosition, toPosition);
+
+                return true;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
+                Log.d("onSwiped", "on move " + swipeDir + " " + viewHolder.getItemId());
+                deleteCard(viewHolder.getLayoutPosition());
+            }
+
+            @Override
+            public void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+                super.clearView(recyclerView, viewHolder);
+                if(dragFrom != -1 && dragTo != -1 && dragFrom != dragTo) {
+                    cardDBOpenHelper.swapCardsLastViewed(fromCard, toCard);
+                }
+
+                dragFrom = dragTo = -1;
+            }
+        };
+
+        //recycler view attached to view here
         cardListView = (RecyclerView) view.findViewById(R.id.listView);
+
+        //touch helper attached to recyclerview here
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
+        itemTouchHelper.attachToRecyclerView(cardListView);
+
         final View relativeView = view.findViewById(R.id.relativeLayout);
         cardAdapter = new CardAdapter(view.getContext(), R.layout.custom_list_view, cardList, new CardAdapter.CardAdapterListener() {
             @Override
@@ -356,7 +412,7 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
     private void createNotification_2(int position) {
         Card notificationCard = cardList.get(position);
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
-                .setSmallIcon(R.drawable.icon_notif)
+                .setSmallIcon(R.drawable.appl_icon)
                 .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), CardManager.getResourceID(notificationCard.getLanguage())))
                 .setContentTitle(notificationCard.getLanguage() + " " + notificationCard.getAllergy() + " Allergy Card")
                 .setStyle(new NotificationCompat.BigTextStyle()
@@ -420,14 +476,32 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
         mNotificationManager = (NotificationManager) getActivity().getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
     }
 
+    private void swapCards(int draggedCardPos, int targetCardPos) {
+        //get the cards
+        Card draggedCard = cardList.get(draggedCardPos);
+        Card targetedCard = cardList.get(targetCardPos);
+        //get their lastviewed values which is their sortinf value
+        int dcID = draggedCard.getLastViewed();
+        int tcID = targetedCard.getLastViewed();
+        //remove from database
+        deleteCard(draggedCardPos);
+        deleteCard(targetCardPos);
+        //set the cards with their new lastviewed values
+        draggedCard.setLastViewed(tcID);
+        targetedCard.setLastViewed(dcID);
+        //add them to the database
+        cardDBOpenHelper.addCard(db, draggedCard);
+        cardDBOpenHelper.addCard(db, targetedCard);
+        //notify the adaptor the data has been updated
+        cardAdapter.notifyDataSetChanged();
+    }
+
     //define the interface for the fragment to allow the activity to pass data to this fragment
     public interface CardListListener {
         void onCardListTouched();
     }
 
-    /**
-     * Define the gesture detector class to respond to user inputs.
-     */
+
 
 }
 

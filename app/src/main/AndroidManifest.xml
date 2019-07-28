@@ -17,9 +17,9 @@
         android:theme="@style/AppTheme"
         android:versionCode="35"
         android:versionName="3.1">
-        <meta-data
-            android:name="com.google.android.actions"
-            android:resource="@xml/text_selected" />
+        <!--<meta-data-->
+            <!--android:name="com.google.android.actions"-->
+            <!--android:resource="@xml/text_selected" />-->
         <!-- <activity -->
         <!-- android:name=".userInterface.SplashActivity" -->
         <!-- android:theme="@style/SplashTheme"> -->
