@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -25,9 +26,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
     private int itemResource;
     CardHolder holder;
     public CardAdapterListener onClickListener;
-    private final static int FADE_DURATION = 1200; //FADE_DURATION in milliseconds
-    private int selectedPosition = -1;
-
 
     public interface CardAdapterListener {
         void deleteButtonListener(View v, int position);
@@ -39,6 +37,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
         void shareButtonListener(View v, int position);
 
         void cardWrapperListener(int position);
+
     }
 
     public CardAdapter(Context context, int itemResource, List<Card> cards, CardAdapterListener listener) {
@@ -69,17 +68,14 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
         // 5. Use position to access the correct Card object
         final Card card = this.cards.get(position);
 
+
         this.holder = holder;
         // 6. Bind the card object to the holder
         holder.bindCard(card);
-
-        selectedPosition=position;
-        holder.itemView.setBackgroundColor(Color.TRANSPARENT);
-
         holder.cardWrapper.setOnLongClickListener(new View.OnLongClickListener() {
+
             @Override
             public boolean onLongClick(View view) {
-                view.setBackgroundColor(Color.parseColor("#42A5F5"));
                 return false;
             }
         });
@@ -88,7 +84,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
             @Override
             public void onClick(View v) {
                 onClickListener.cardWrapperListener(position);
-                v.setBackgroundColor(Color.TRANSPARENT);
+
             }
         });
 
@@ -166,10 +162,5 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
                 }
             }
         });
-
-//        if (selectedPosition == position)
-//            holder.itemView.setBackgroundColor(Color.parseColor("#42A5F5"));
-//        else
-//            holder.itemView.setBackgroundColor(Color.parseColor("#ffffff"));
     }
 }

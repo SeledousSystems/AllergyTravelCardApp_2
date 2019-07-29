@@ -83,7 +83,7 @@ public class Card implements Comparable<Card> {
     }
 
     /**
-     * Overriden compare to method for sorting collections of Card objects based on their
+     * Overridden compare to method for sorting collections of Card objects based on their
      * lastViewed value.
      *
      * @param anotherCard

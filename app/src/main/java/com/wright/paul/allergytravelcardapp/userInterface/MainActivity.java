@@ -575,11 +575,6 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
 //        Log.d(TAG, mIsPremium + " testPremium");
 //    }
 
-    void testCards() {
-
-
-    }
-
     boolean getPref() {
         premiumSP = getSharedPreferences(premiumPref, 0);
         Log.d(TAG, mIsPremium + " get pref");

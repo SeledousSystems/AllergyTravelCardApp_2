@@ -162,7 +162,7 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
                     cardDBOpenHelper.saveCollectionToDB(cardList);
 
                     Log.d("clearViewOut", cardDBOpenHelper.getAllCards().toString() );
-                    //cardAdapter.notifyDataSetChanged();
+                    cardAdapter.notifyDataSetChanged();
                 }
                 dragFrom = dragTo = -1;
 
@@ -192,25 +192,23 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
             @Override
             public void deleteButtonListener(View v, int position) {
                 deleteCardDialog(position);
-
-                //deleteCard(position);
             }
 
             @Override
             public void shareButtonListener(View v, int position) {
-                Card cardView = cardList.get(position);
-                newCardIntent = new Intent(getActivity(), CardActivity.class);
-                newCardIntent.putExtra(CardManager.ls, cardView.getLanguage());
-                newCardIntent.putExtra(CardManager.as, cardView.getAllergy());
-                newCardIntent.putExtra(CardManager.cn, cardList.indexOf(cardView));
-                newCardIntent.putExtra(CardManager.dl, true);
-                if (isStoragePermissionGranted()) {
-                    Toast.makeText(context, "Downloading Card...", Toast.LENGTH_SHORT).show();
-                    startActivity(newCardIntent);
-                } else {
-                    requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                            1);
-                }
+//                Card cardView = cardList.get(position);
+//                newCardIntent = new Intent(getActivity(), CardActivity.class);
+//                newCardIntent.putExtra(CardManager.ls, cardView.getLanguage());
+//                newCardIntent.putExtra(CardManager.as, cardView.getAllergy());
+//                newCardIntent.putExtra(CardManager.cn, cardList.indexOf(cardView));
+//                newCardIntent.putExtra(CardManager.dl, true);
+//                if (isStoragePermissionGranted()) {
+//                    Toast.makeText(context, "Downloading Card...", Toast.LENGTH_SHORT).show();
+//                    startActivity(newCardIntent);
+//                } else {
+//                    requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+//                            1);
+//                }
             }
 
             @Override
