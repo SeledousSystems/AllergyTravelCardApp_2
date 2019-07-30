@@ -57,7 +57,7 @@
             android:id="@+id/cardDividerImageView1"
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@color/light_blue" />
+            android:background="@color/colorPrimaryLight" />
 
         <TextView
             android:id="@+id/cardBodyTextView"
@@ -87,7 +87,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:background="@color/light_blue"
+                android:background="@color/colorPrimaryLight"
                 android:text="Show\nTranslation"
                 android:textColor="@color/card_white"
                 android:textSize="14dp" />
@@ -106,7 +106,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:background="@color/light_blue"
+                android:background="@color/colorPrimaryLight"
                 android:text="Allergy\nDescription"
                 android:textColor="@color/card_white"
                 android:textSize="14dp" />
@@ -125,8 +125,8 @@
                 android:layout_alignParentBottom="true"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:background="@color/light_blue"
-                android:text="Allergy\nPicture"
+                android:background="@color/colorPrimaryLight"
+                android:text="Allergy\nImage"
                 android:textColor="@color/card_white"
                 android:textSize="14dp" />
 
@@ -144,7 +144,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:background="@color/light_blue"
+                android:background="@color/colorPrimaryLight"
                 android:text="Lock\nCard"
                 android:textColor="@color/card_white"
                 android:textSize="14dp" />

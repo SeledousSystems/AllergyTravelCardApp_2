@@ -150,9 +150,7 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
 
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
-                Log.d("onSwiped", "on move " + swipeDir + " " + viewHolder.getItemId());
-                deleteCardDialog(viewHolder.getLayoutPosition());
-                Log.d("clearViewOut", cardDBOpenHelper.getAllCards().toString());
+                deleteCard(viewHolder.getLayoutPosition());
             }
 
             @Override
@@ -196,19 +194,6 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
 
             @Override
             public void shareButtonListener(View v, int position) {
-//                Card cardView = cardList.get(position);
-//                newCardIntent = new Intent(getActivity(), CardActivity.class);
-//                newCardIntent.putExtra(CardManager.ls, cardView.getLanguage());
-//                newCardIntent.putExtra(CardManager.as, cardView.getAllergy());
-//                newCardIntent.putExtra(CardManager.cn, cardList.indexOf(cardView));
-//                newCardIntent.putExtra(CardManager.dl, true);
-//                if (isStoragePermissionGranted()) {
-//                    Toast.makeText(context, "Downloading Card...", Toast.LENGTH_SHORT).show();
-//                    startActivity(newCardIntent);
-//                } else {
-//                    requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-//                            1);
-//                }
             }
 
             @Override
@@ -223,7 +208,6 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
         cardListView.setAdapter(cardAdapter);
         cardListView.setItemAnimator(new LandingAnimator());
         ((SimpleItemAnimator) cardListView.getItemAnimator()).setSupportsChangeAnimations(false);
-        //swipeToDismissTouchHelper.attachToRecyclerView(cardListView);
 
         //handle empty list view
         emptyTV = view.findViewById(R.id.emptyTV);
@@ -443,20 +427,6 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
         mNotificationManager.notify(notificationCard.getDbID(), mBuilder.build());
     }
 
-//    //Swipe to Delete
-//    ItemTouchHelper swipeToDismissTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
-//            ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
-//        @Override
-//        public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-//            return false;
-//        }
-//
-//        @Override
-//        public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-//            deleteCard(viewHolder.getAdapterPosition());
-//        }
-//    });
-
     /**
      * deleteCard method to remove a card from the list and db and refresh the view.
      */
@@ -476,26 +446,6 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
         Log.d(TAG, "Card == " + cardList.indexOf(card) + "  size == " + cardList.size());
 
         mNotificationManager = (NotificationManager) getActivity().getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
-    }
-
-    private void swapCards(int draggedCardPos, int targetCardPos) {
-        //get the cards
-        Card draggedCard = cardList.get(draggedCardPos);
-        Card targetedCard = cardList.get(targetCardPos);
-        //get their lastviewed values which is their sortinf value
-        int dcID = draggedCard.getLastViewed();
-        int tcID = targetedCard.getLastViewed();
-        //remove from database
-        deleteCard(draggedCardPos);
-        deleteCard(targetCardPos);
-        //set the cards with their new lastviewed values
-        draggedCard.setLastViewed(tcID);
-        targetedCard.setLastViewed(dcID);
-        //add them to the database
-        cardDBOpenHelper.addCard(db, draggedCard);
-        cardDBOpenHelper.addCard(db, targetedCard);
-        //notify the adaptor the data has been updated
-        cardAdapter.notifyDataSetChanged();
     }
 
     //define the interface for the fragment to allow the activity to pass data to this fragment

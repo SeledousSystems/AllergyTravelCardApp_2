@@ -2,24 +2,35 @@
 <project version="4">
   <component name="AndroidLayouts">
     <shared>
-      <config />
+      <config>
+        <device id="pixel" />
+        <device id="Nexus 10" />
+        <device id="Nexus 7" />
+      </config>
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4152054-d625-4950-b745-886a4f1eae84" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/model/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/model/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AllergyTravelCardApp_2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AllergyTravelCardApp_2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app-release.apk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardListFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardListFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CustomCardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CustomCardView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CustomListViewAdaptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CustomListViewAdaptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CustomCardView_bup.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_card.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_card.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_portrait.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_portrait.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_list_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_list_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_list_view_bup.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_card_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_card_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_create_card_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_create_card_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,28 +56,32 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="26" />
-          <entry key="xml" value="14" />
+          <entry key="gradle" value="1" />
+          <entry key="java" value="28" />
+          <entry key="xml" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="26" />
-          <entry key="XML" value="14" />
+          <entry key="Groovy" value="1" />
+          <entry key="JAVA" value="28" />
+          <entry key="XML" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2133" />
-          <entry key="txt" value="151" />
-          <entry key="xml" value="294" />
+          <entry key="gradle" value="3" />
+          <entry key="java" value="2145" />
+          <entry key="txt" value="167" />
+          <entry key="xml" value="478" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2133" />
-          <entry key="PLAIN_TEXT" value="151" />
-          <entry key="XML" value="294" />
+          <entry key="Groovy" value="3" />
+          <entry key="JAVA" value="2145" />
+          <entry key="PLAIN_TEXT" value="167" />
+          <entry key="XML" value="478" />
         </counts>
       </usages-collector>
     </session>
@@ -74,88 +89,54 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/MainActivity.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_card.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="576" selection-start-line="576" selection-end-line="576" />
+            <state relative-caret-position="493">
+              <caret line="128" column="44" selection-start-line="128" selection-start-column="44" selection-end-line="128" selection-end-column="44" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/custom_list_view.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="90" column="38" selection-start-line="90" selection-start-column="38" selection-end-line="90" selection-end-column="38" />
+              <folding>
+                <element signature="e#3986#4011#0" expanded="true" />
+                <element signature="e#5137#5168#0" expanded="true" />
+                <element signature="e#6701#6725#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-425">
+              <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CustomListViewAdaptor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="50" column="40" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/custom_list_view.xml">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_create_card_view.xml">
           <provider editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="35" column="43" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
-              <folding>
-                <element signature="e#4309#4334#0" expanded="true" />
-                <element signature="e#5495#5526#0" expanded="true" />
-                <element signature="e#7122#7146#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="289">
+              <caret line="128" column="56" selection-start-line="128" selection-start-column="56" selection-end-line="128" selection-end-column="56" />
             </state>
           </provider>
           <provider selected="true" editor-type-id="android-designer2" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-27/data/res/values/colors_holo.xml">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CustomCardView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardHolder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/model/Card.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="86" column="24" selection-start-line="86" selection-start-column="24" selection-end-line="86" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/model/CardDrawable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-289">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/model/CardManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3196">
-              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+            <state relative-caret-position="85">
+              <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -163,14 +144,24 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1190">
-              <caret line="195" selection-start-line="195" selection-end-line="195" />
+            <state relative-caret-position="391">
+              <caret line="110" column="25" selection-start-line="110" selection-start-column="25" selection-end-line="110" selection-end-column="25" />
               <folding>
                 <element signature="e#7563#7564#0" expanded="true" />
                 <element signature="e#7621#7622#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_portrait.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="31" column="56" selection-start-line="31" selection-start-column="56" selection-end-line="31" selection-end-column="56" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2" />
         </entry>
       </file>
     </leaf>
@@ -187,7 +178,15 @@
       <find>cardDBOpenHelper</find>
       <find>CardAdapterListener</find>
       <find>CardAdapter</find>
+      <find>lock</find>
     </findStrings>
+  </component>
+  <component name="GenerateSignedApkSettings">
+    <option name="EXPORT_PRIVATE_KEY" value="false" />
+    <option name="KEY_STORE_PATH" value="C:\Users\Paul\AndroidStudioProjects\KeyStorePath\AllergyCardKeyStore.jks" />
+    <option name="KEY_ALIAS" value="AllergyCardKeyStore" />
+    <option name="REMEMBER_PASSWORDS" value="true" />
+    <option name="BUILD_TARGET_KEY" value="apk" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -198,22 +197,29 @@
         <option value="$PROJECT_DIR$/app/src/main/res/color/text_selected.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/model/CardDBOpenHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/recycler_selector.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_card_list.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CustomListViewAdaptor.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CustomCardView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardHolder.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/model/Card.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardListFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main_portrait.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_create_card_view.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_card_list.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardListFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_card.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/custom_list_view.xml" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="952" />
-    <option name="width" value="977" />
+    <option name="x" value="707" />
+    <option name="y" value="10" />
+    <option name="width" value="980" />
     <option name="height" value="1038" />
   </component>
   <component name="ProjectView">
@@ -264,13 +270,11 @@
               <item name="AllergyTravelCardApp_2" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="drawable" type="ddeffd01:AndroidResFolderTypeNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
             <path>
               <item name="AllergyTravelCardApp_2" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
             </path>
           </expand>
           <select />
@@ -280,9 +284,13 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="ExportApk.ApkPath" value="C:\Users\Paul\AndroidStudioProjects\AllergyTravelCardApp_2\app" />
+    <property name="ExportApk.BuildVariants" value="release" />
+    <property name="ExportApk.SignV1" value="true" />
+    <property name="ExportApk.SignV2" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="device.picker.selection" value="Nexus_5X_API_27" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../KeyStorePath/AllergyCardKeyStore.jks" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RunDashboard">
@@ -352,7 +360,7 @@
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
       <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="true" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
@@ -430,29 +438,36 @@
       <option name="project" value="LOCAL" />
       <updated>1564337967742</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added recyclerview drag and drop and swype functions&#10;                                   Added DB update for drag and drop&#10;                                   added colour change for draged item&#10;                                   updated buttons">
+      <created>1564399247135</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1564399247135</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.33087248" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.33087248" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Designer" order="6" />
       <window_info id="Capture Tool" order="7" />
+      <window_info anchor="bottom" id="Find" weight="0.11290322" />
       <window_info anchor="bottom" id="Run" order="0" weight="0.32991204" />
-      <window_info anchor="bottom" id="Logcat" order="1" weight="0.18181819" />
+      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.49932885" weight="0.271261" />
       <window_info anchor="bottom" id="TODO" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" />
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.32991204" />
-      <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50067115" side_tool="true" weight="0.32991204" />
       <window_info anchor="bottom" id="Version Control" order="6" />
-      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.4457478" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.43255132" />
       <window_info anchor="bottom" id="Android Profiler" order="8" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
@@ -468,16 +483,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added recyclerview drag and drop and swype functions" />
     <MESSAGE value="Added recyclerview drag and drop and swype functions&#10;Added DB update for drag and drop&#10;added colour change for draged item" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added recyclerview drag and drop and swype functions&#10;Added DB update for drag and drop&#10;added colour change for draged item" />
+    <MESSAGE value="Added recyclerview drag and drop and swype functions&#10;                                   Added DB update for drag and drop&#10;                                   added colour change for draged item&#10;                                   updated buttons" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added recyclerview drag and drop and swype functions&#10;                                   Added DB update for drag and drop&#10;                                   added colour change for draged item&#10;                                   updated buttons" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_card.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="android-designer2" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cardimage.xml">
       <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="android-designer2" />
@@ -500,34 +509,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="39" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/recycler_selector.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/model/CardDBOpenHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="140" column="56" selection-start-line="140" selection-start-column="56" selection-end-line="140" selection-end-column="56" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_card_list.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/ShareCardActivity.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -599,17 +586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardListFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="195" selection-start-line="195" selection-end-line="195" />
-          <folding>
-            <element signature="e#7563#7564#0" expanded="true" />
-            <element signature="e#7621#7622#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="39">
@@ -627,13 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-27/data/res/values/colors_holo.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
@@ -641,18 +610,107 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/custom_list_view.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="34" column="67" selection-start-line="34" selection-start-column="67" selection-end-line="34" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/recycler_selector.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_create_card.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_create_card_view.xml">
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="35" column="43" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
-          <folding>
-            <element signature="e#4309#4334#0" expanded="true" />
-            <element signature="e#5495#5526#0" expanded="true" />
-            <element signature="e#7122#7146#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="289">
+          <caret line="128" column="56" selection-start-line="128" selection-start-column="56" selection-end-line="128" selection-end-column="56" />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_portrait.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="31" column="56" selection-start-line="31" selection-start-column="56" selection-end-line="31" selection-end-column="56" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_card_list.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="71" column="31" lean-forward="true" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wright/paul/allergytravelcardapp/userInterface/CardListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="110" column="25" selection-start-line="110" selection-start-column="25" selection-end-line="110" selection-end-column="25" />
+          <folding>
+            <element signature="e#7563#7564#0" expanded="true" />
+            <element signature="e#7621#7622#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_card.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="128" column="44" selection-start-line="128" selection-start-column="44" selection-end-line="128" selection-end-column="44" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/custom_list_view.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="90" column="38" selection-start-line="90" selection-start-column="38" selection-end-line="90" selection-end-column="38" />
+          <folding>
+            <element signature="e#3986#4011#0" expanded="true" />
+            <element signature="e#5137#5168#0" expanded="true" />
+            <element signature="e#6701#6725#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-425">
+          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

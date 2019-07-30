@@ -64,8 +64,8 @@ public class CardActivity extends AppCompatActivity {
     private String TAG = "CARD_ACTIVITY";
     private Button englishTranslation, allergyDescription, allergyPicture, lock;
     private boolean locked = false;
-    private int redColour = Color.parseColor("#c2185b");
-    private int lightBlueColour = Color.parseColor("#375273");
+    private int redColour = Color.parseColor("#7f0000");
+    private int lightBlueColour = Color.parseColor("#3949AB");
     private Toast toast;
     private LinearLayout button_LL;
     private Boolean download = false;
