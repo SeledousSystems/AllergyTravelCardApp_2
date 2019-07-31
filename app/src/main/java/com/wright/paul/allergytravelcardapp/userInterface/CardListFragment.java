@@ -14,6 +14,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
@@ -194,6 +195,23 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
 
             @Override
             public void shareButtonListener(View v, int position) {
+                Card cardView = cardList.get(position);
+                Intent newCardIntent = new Intent(getActivity(), ShareCardActivity.class);
+                newCardIntent = new Intent(getActivity(), CardActivity.class);
+                newCardIntent.putExtra(CardManager.ls, cardView.getLanguage());
+                newCardIntent.putExtra(CardManager.as, cardView.getAllergy());
+                newCardIntent.putExtra(CardManager.cn, cardList.indexOf(cardView));
+                startActivity(newCardIntent);
+
+
+                newCardIntent.putExtra(CardManager.dl, true);
+                if (isStoragePermissionGranted()) {
+                    startActivity(newCardIntent);
+                } else {
+                    ActivityCompat.requestPermissions(getActivity(),
+                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                            1);
+                }
             }
 
             @Override
