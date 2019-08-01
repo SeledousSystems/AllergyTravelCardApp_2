@@ -172,7 +172,7 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
                 if (!mIsPremium) {
                     alert("This app creates allergy cards in " + this.getString(R.string.total_languages_number) + " different languages to use when purchasing food. The free version offers all " + this.getString(R.string.allergies_number) + " allergies and " + this.getString(R.string.free_countries_number) + " languages. To unlock " + this.getString(R.string.additional_languages_countries) + " click 'GET PRO'. Your purchase supports the developer and allows the addition of further languages, allergies and features.");
                 } else {
-                    alert("This app creates " + this.getString(R.string.total_cards_number) + " different food allergy cards, in " + this.getString(R.string.total_languages_number) + " languages, for " + this.getString(R.string.total_languages_countries) + " countries. You own the PRO edition.");
+                    alert("This app creates " + this.getString(R.string.total_cards_number) + " different food allergy cards, in " + this.getString(R.string.total_languages_number) + " languages, for " + this.getString(R.string.total_languages_countries) + " countries.\nYou own the PRO edition.");
                 }
                 return super.onOptionsItemSelected(item);
 
@@ -541,17 +541,6 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
         if (payload.equals(developerPayload)) return true;
         else return false;
     }
-
-    // get the users email for use in confirming legitimate purchase
-//    String getUserEmail() {
-//        String marketAssociatedEmailId = "";
-//        Account[] accounts = AccountManager.get(context).getAccountsByType("com.google");
-//        if (accounts.length > 0) {
-//            marketAssociatedEmailId = accounts[0].name;
-//        }
-//        Log.d(TAG, marketAssociatedEmailId);
-//        return marketAssociatedEmailId;
-//    }
 
     //on destroy clean up the iap objects
     @Override

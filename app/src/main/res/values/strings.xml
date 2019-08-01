@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Allergy Cards</string>
-    <string name="version">3.1</string>
+    <string name="version">3.3</string>
     <string name="card_bottom_text">Allergy Travel Cards</string>
     <string name="title_activity_create_card">CreateCardActivity</string>
     <string name="title_activity_card">CardActivity</string>

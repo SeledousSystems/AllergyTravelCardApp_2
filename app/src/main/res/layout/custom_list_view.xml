@@ -56,7 +56,7 @@
             android:paddingTop="8sp"
             android:paddingBottom="4sp"
             android:text="English"
-            android:textSize="20sp" />
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/languageTextView"
@@ -67,7 +67,7 @@
             android:paddingTop="4sp"
             android:paddingBottom="8sp"
             android:text="Gluten"
-            android:textSize="20sp" />
+            android:textSize="22sp" />
 
         <ImageView
             android:id="@+id/cardDividerImageView1"
@@ -95,8 +95,10 @@
                 android:id="@+id/delete_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorSecondary"
+                android:background="@drawable/button_background"
                 android:text="@string/delete_but_text"
+                android:minHeight="40dp"
+                android:layout_margin="2sp"
                 android:textColor="@color/white"
                 android:layout_weight="1"
                 android:maxLines="1"
@@ -106,8 +108,10 @@
                 android:id="@+id/notif_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorSecondary"
+                android:background="@drawable/button_background"
                 android:text="@string/notification_but_text"
+                android:layout_margin="2sp"
+                android:minHeight="40dp"
                 android:layout_weight="1"
                 android:textColor="@color/white"
                 android:maxLines="1"
@@ -117,8 +121,10 @@
                 android:id="@+id/share_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorSecondary"
+                android:background="@drawable/button_background"
                 android:text="@string/share_but_text"
+                android:layout_margin="2sp"
+                android:minHeight="40dp"
                 android:textColor="@color/white"
                 android:layout_weight="1"
                 android:maxLines="1"

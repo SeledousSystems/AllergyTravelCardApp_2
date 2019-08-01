@@ -3,6 +3,8 @@ package com.wright.paul.allergytravelcardapp.userInterface;
 import android.Manifest;
 import android.animation.LayoutTransition;
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -12,6 +14,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
@@ -41,6 +44,7 @@ import java.util.List;
 
 import jp.wasabeef.recyclerview.animators.LandingAnimator;
 
+import static android.app.NotificationManager.IMPORTANCE_UNSPECIFIED;
 import static android.support.v4.content.PermissionChecker.checkSelfPermission;
 
 /**
@@ -414,35 +418,83 @@ public class CardListFragment extends Fragment implements View.OnClickListener {
     }
 
     private void createNotification_2(int position) {
-        Card notificationCard = cardList.get(position);
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
-                .setSmallIcon(R.drawable.appl_icon)
-                .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), CardManager.getResourceID(notificationCard.getLanguage())))
-                .setContentTitle(notificationCard.getLanguage() + " " + notificationCard.getAllergy() + " Allergy Card")
-                .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText("Tap to show card"))
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
-        // Creates an explicit intent for the Card Activity and passes the language and allergy to the
-        Intent notificationIntent = new Intent(getActivity().getApplicationContext(), CardActivity.class);
-        //The notification intent needs to pass the language and allergy fields to the card activity incase the card
-        //is deleted prior to viewing.
-        notificationIntent.putExtra(CardManager.ls, notificationCard.getLanguage());
-        notificationIntent.putExtra(CardManager.as, notificationCard.getAllergy());
-        TaskStackBuilder stackBuilder = TaskStackBuilder.create(getActivity().getApplicationContext());
-        // Adds the back stack for the Intent (but not the Intent itself)
-        stackBuilder.addParentStack(CardActivity.class);
-        // Adds the Intent that starts the Activity to the top of the stack
-        stackBuilder.addNextIntent(notificationIntent);
-        PendingIntent resultPendingIntent =
-                stackBuilder.getPendingIntent(notificationCard.getDbID(),
-                        PendingIntent.FLAG_UPDATE_CURRENT
-                );
-        mBuilder.setContentIntent(resultPendingIntent);
-        NotificationManager mNotificationManager =
-                (NotificationManager) getActivity().getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
-        // mId allows you to update the notification later on.
-        mNotificationManager.notify(notificationCard.getDbID(), mBuilder.build());
+        Card notifCard = cardList.get(position);
+
+        NotificationManager mNotificationManager;
+
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(context.getApplicationContext(), "notify_001");
+        Intent ii = new Intent(context.getApplicationContext(), MainActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, ii, 0);
+
+        NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle();
+        bigText.bigText("Allergy Travel Cards");
+        bigText.setBigContentTitle(notifCard.getAllergy() + " Allergy in " + notifCard.getLanguage());
+        bigText.setSummaryText("Tap to open Allergy Card");
+
+        mBuilder.setContentIntent(pendingIntent);
+        mBuilder.setSmallIcon(R.drawable.appl_icon);
+        mBuilder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(), CardManager.getResourceID(notifCard.getLanguage())));
+        mBuilder.setContentTitle(notifCard.getAllergy() + " " + notifCard.getLanguage());
+        //mBuilder.setContentText("");
+        mBuilder.setPriority(Notification.PRIORITY_MAX);
+        mBuilder.setStyle(bigText);
+
+        mNotificationManager =
+                (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        // check to see if Oreo or higher (8.0)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+        {
+            String channelId = "Your_channel_id";
+            NotificationChannel channel = new NotificationChannel(
+                    channelId,
+                    "Channel human readable title",NotificationManager.IMPORTANCE_DEFAULT);
+            mNotificationManager.createNotificationChannel(channel);
+            mBuilder.setChannelId(channelId);
+        }
+
+        mNotificationManager.notify(0, mBuilder.build());
+
+
+
+
+
+
+
+
+//
+//
+//        Card notificationCard = cardList.get(position);
+//        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+//                .setSmallIcon(R.drawable.appl_icon)
+//                .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), CardManager.getResourceID(notificationCard.getLanguage())))
+//                .setContentTitle(notificationCard.getLanguage() + " " + notificationCard.getAllergy() + " Allergy Card")
+//                .setStyle(new NotificationCompat.BigTextStyle()
+//                        .bigText("Tap to show card"))
+//                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+//
+//        // Creates an explicit intent for the Card Activity and passes the language and allergy to the
+//        Intent notificationIntent = new Intent(getActivity().getApplicationContext(), CardActivity.class);
+//        //The notification intent needs to pass the language and allergy fields to the card activity incase the card
+//        //is deleted prior to viewing.
+//        notificationIntent.putExtra(CardManager.ls, notificationCard.getLanguage());
+//        notificationIntent.putExtra(CardManager.as, notificationCard.getAllergy());
+//        TaskStackBuilder stackBuilder = TaskStackBuilder.create(getActivity().getApplicationContext());
+//        // Adds the back stack for the Intent (but not the Intent itself)
+//        stackBuilder.addParentStack(CardActivity.class);
+//        // Adds the Intent that starts the Activity to the top of the stack
+//        stackBuilder.addNextIntent(notificationIntent);
+//        PendingIntent resultPendingIntent =
+//                stackBuilder.getPendingIntent(notificationCard.getDbID(),
+//                        PendingIntent.FLAG_UPDATE_CURRENT
+//                );
+//        mBuilder.setContentIntent(resultPendingIntent);
+//        NotificationManager mNotificationManager =
+//                (NotificationManager) getActivity().getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
+//        // mId allows you to update the notification later on.
+//        mNotificationManager.notify(notificationCard.getDbID(), mBuilder.build());
     }
 
     /**

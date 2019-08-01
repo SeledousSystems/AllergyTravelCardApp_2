@@ -4,16 +4,12 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ImageView;
 
 import com.wright.paul.allergytravelcardapp.R;
-import com.wright.paul.allergytravelcardapp.model.CardDrawable;
 import com.wright.paul.allergytravelcardapp.model.CardManager;
 
 public class ShareCardActivity extends AppCompatActivity {
@@ -30,23 +26,8 @@ public class ShareCardActivity extends AppCompatActivity {
 
         imageView = findViewById(R.id.imageView);
 
-        //TODO get drawable
-        //Drawable cardDrawable = new CardDrawable(this, language, allergy);
-        //cardDrawable.draw(canvas);
-//        Paint paint = new Paint();
-//        canvas.drawPaint(paint);
-//        paint.setColor(Color.BLACK);
-//        paint.setTextSize(16);
-//        canvas.drawText("sldljsdjlkdf", 0, 0, paint);
-//
-//        imageView.draw(canvas);
-
-        //imageView.setImageDrawable(cardDrawable);
-
-        int width = imageView.getMaxWidth();
+         int width = imageView.getMaxWidth();
         int height = imageView.getMaxHeight();
-        Log.d("dilifhiufh", "width = " + width + " heigh = " + height);
-
 
         Bitmap bitmap = Bitmap.createBitmap(640, 350, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
