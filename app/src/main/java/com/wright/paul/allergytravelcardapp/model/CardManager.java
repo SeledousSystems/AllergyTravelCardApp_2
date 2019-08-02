@@ -97,7 +97,7 @@ public class CardManager {
      * @param countryArray
      * @return
      */
-    public static String buildCountryMessage(String countryArray[]) {
+    public static String buildCountryMessage(String[] countryArray) {
         StringBuilder builder = new StringBuilder();
         if (countryArray.length == 1) builder.append(countryArray[0]);
         else {

@@ -198,7 +198,7 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
                 bld.create();
                 AlertDialog dialog = bld.show();
                 //center the text in the showAlert
-                TextView messageView = (TextView) dialog.findViewById(android.R.id.message);
+                TextView messageView = dialog.findViewById(android.R.id.message);
                 messageView.setGravity(Gravity.CENTER);
                 break;
 
@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
                 break;
 
         }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -262,7 +262,7 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
 //        } else {
         setContentView(R.layout.activity_main_portrait);
         wideLayout = false;
-        createNewCardButton = (Button) findViewById(R.id.createNewCardButton);
+        createNewCardButton = findViewById(R.id.createNewCardButton);
         createNewCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -315,12 +315,12 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
             }
         });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         toggle = new ActionBarDrawerToggle(this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         if (mIsPremium) {
             navigationView.getMenu().findItem(R.id.nav_get_pro).setVisible(false);
@@ -334,7 +334,7 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
 
 
         //Add the app icon to the action bar
-        Toolbar myToolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.app_bar);
+        Toolbar myToolbar = findViewById(R.id.app_bar);
         myToolbar.setTitle("My Allergy Cards");
         setSupportActionBar(myToolbar);
 
@@ -514,7 +514,7 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
         AlertDialog dialog = bld.show();
 
         //center the text in the showAlert
-        TextView messageView = (TextView) dialog.findViewById(android.R.id.message);
+        TextView messageView = dialog.findViewById(android.R.id.message);
         messageView.setGravity(Gravity.CENTER);
     }
 
@@ -528,7 +528,7 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
         AlertDialog dialog = bld.show();
 
         //center the text in the showAlert
-        TextView messageView = (TextView) dialog.findViewById(android.R.id.message);
+        TextView messageView = dialog.findViewById(android.R.id.message);
         messageView.setGravity(Gravity.CENTER);
     }
 
@@ -538,8 +538,7 @@ public class MainActivity extends AppCompatActivity implements CreateCardFragmen
      */
     boolean verifyDeveloperPayload(Purchase p) {
         String payload = p.getDeveloperPayload();
-        if (payload.equals(developerPayload)) return true;
-        else return false;
+        return payload.equals(developerPayload);
     }
 
     //on destroy clean up the iap objects

@@ -35,7 +35,7 @@ public class CustomListViewAdaptor extends ArrayAdapter<Card> {
     private OnItemClickListener onItemClickListener;
 
     public interface OnItemClickListener {
-        public void onItemClick(View view, int position);
+        void onItemClick(View view, int position);
     }
 
     public CustomListViewAdaptor(Context context, List<Card> cards, OnItemClickListener onItemClickListener) {

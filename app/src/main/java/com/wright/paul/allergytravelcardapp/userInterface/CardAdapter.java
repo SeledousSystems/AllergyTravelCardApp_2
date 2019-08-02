@@ -132,7 +132,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
                     bld.create();
                     AlertDialog dialog = bld.show();
                     //center the text in the showAlert
-                    TextView messageView = (TextView) dialog.findViewById(android.R.id.message);
+                    TextView messageView = dialog.findViewById(android.R.id.message);
                     messageView.setGravity(Gravity.CENTER);
                 } catch (Exception e) {
 
@@ -156,7 +156,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
                     bld.create();
                     AlertDialog dialog = bld.show();
                     //center the text in the showAlert
-                    TextView messageView = (TextView) dialog.findViewById(android.R.id.message);
+                    TextView messageView = dialog.findViewById(android.R.id.message);
                     messageView.setGravity(Gravity.CENTER);
                 } catch (Exception e) {
                 }
