@@ -7,7 +7,7 @@ android {
         applicationId "com.wright.paul.allergytranslationcardapp"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 51
+        versionCode 52
         versionName "3.3"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
