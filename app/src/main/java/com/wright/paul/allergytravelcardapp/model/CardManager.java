@@ -97,7 +97,7 @@ public class CardManager {
      * @param countryArray
      * @return
      */
-    public static String buildCountryMessage(String countryArray[]) {
+    public static String buildCountryMessage(String[] countryArray) {
         StringBuilder builder = new StringBuilder();
         if (countryArray.length == 1) builder.append(countryArray[0]);
         else {
@@ -230,26 +230,4 @@ public class CardManager {
         return sb.toString() + ". \n\n The PRO edition includes over 490 allergy cards for 170 countries.";
     }
 
-//    public static Drawable drawCard(Context context, Card card) {
-//
-//        Drawable cardDrawable = new CardDrawable(context, card);
-//
-//        return cardDrawable;
-//    }
-
-//    public Bitmap drawableToBitmap(PictureDrawable pd) {
-//        Bitmap bm = Bitmap.createBitmap(pd.getIntrinsicWidth(), pd.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-//        Canvas canvas = new Canvas(bm);
-//        canvas.drawPicture(pd.getPicture());
-//        return bm;
-//    }
-//
-//    public Bitmap drawbaleToBitmap2(Drawable drawable) {
-//        ImageView imgView = (ImageView) findViewById(R.id.ImageView);
-//        imgView.setImageResource(R.drawable.abc_image);
-//        z.setDrawingCacheEnabled(true);
-//        Bitmap bitmap = Bitmap.createBitmap(v.getDrawingCache());
-//
-//        return bitmap;
-//    }
 }

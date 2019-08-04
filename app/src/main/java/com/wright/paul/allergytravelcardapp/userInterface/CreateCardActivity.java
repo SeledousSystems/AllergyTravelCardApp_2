@@ -41,7 +41,7 @@ public class CreateCardActivity extends AppCompatActivity implements CreateCardF
         }
 
         //Add the app icon to the action bar
-        Toolbar myToolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.app_bar);
+        Toolbar myToolbar = findViewById(R.id.app_bar);
         myToolbar.setTitle("Create Allergy Card");
         setSupportActionBar(myToolbar);
     }

@@ -23,7 +23,6 @@ import com.wright.paul.allergytravelcardapp.model.CardManager;
 public class CardHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     protected Button notifButton, deleteButton, viewButton, shareButton;
-    private Context context;
     protected TextView cardLanguage, cardAllergy;
     protected ImageView flagImage, allergyImage;
     protected Card card;
@@ -33,15 +32,12 @@ public class CardHolder extends RecyclerView.ViewHolder implements View.OnClickL
     public CardHolder(Context context, View itemView) {
         super(itemView);
 
-        this.context = context;
-
-        linearLayout = (LinearLayout) itemView.findViewById(R.id.button_wrapper);
-        cardAllergy = (TextView) itemView.findViewById(R.id.allergyTextView);
-        cardLanguage = (TextView) itemView.findViewById(R.id.languageTextView);
-        flagImage = (ImageView) itemView.findViewById(R.id.flagImageView);
-        allergyImage = (ImageView) itemView.findViewById(R.id.allergyImageView);
+        linearLayout = itemView.findViewById(R.id.button_wrapper);
+        cardAllergy = itemView.findViewById(R.id.allergyTextView);
+        cardLanguage = itemView.findViewById(R.id.languageTextView);
+        flagImage = itemView.findViewById(R.id.flagImageView);
+        allergyImage = itemView.findViewById(R.id.allergyImageView);
         cardWrapper = itemView.findViewById(R.id.card_wrapper);
-
         notifButton = itemView.findViewById(R.id.notif_button);
         shareButton = itemView.findViewById(R.id.share_button);
         viewButton = itemView.findViewById(R.id.share_button);
@@ -56,28 +52,12 @@ public class CardHolder extends RecyclerView.ViewHolder implements View.OnClickL
     public void bindCard(Card card) {
 
         this.card = card;
-        final Card cardFinal = card;
 
         //set the content for Text and Image view of the card
         cardAllergy.setText(card.getAllergy() + " Allergy");
         cardLanguage.setText(card.getLanguage());
         flagImage.setImageResource(CardManager.getResourceID(card.getLanguage()));
-
         allergyImage.setImageResource(CardManager.getResourceID(card.getAllergy()));
-
-//        try {
-//            Bitmap bitmap = ((BitmapDrawable) flagImage.getDrawable()).getBitmap();
-//            int x = bitmap.getWidth() / 5;
-//            int y = bitmap.getHeight() / 5;
-//
-//            int pixel = bitmap.getPixel(x, y);
-//
-//            linearLayout.setBackgroundColor(pixel);
-//            linearLayout.getBackground().setAlpha(200);
-//            Log.d("color", "int = " + pixel);
-//        } catch (Exception e) {
-//            Log.d("exception", e.getMessage());
-//        }
     }
 }
 

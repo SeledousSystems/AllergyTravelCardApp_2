@@ -30,11 +30,11 @@ public class CustomSpinnerViewAdapter extends ArrayAdapter<String> {
      * Constructor which initialises the Adapter and assigns the attributes.
      *
      * @param context
-     * @param txtViewResourceId
      * @param objects
      */
     public CustomSpinnerViewAdapter(Context context, int txtViewResourceId, String[] objects) {
         super(context, txtViewResourceId, objects);
+        this.context = context;
         this.strings = objects;
         this.context = context;
     }
@@ -77,9 +77,9 @@ public class CustomSpinnerViewAdapter extends ArrayAdapter<String> {
     public View getCustomView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.spinner_view, parent, false);
-        spinnerTextView = (TextView) view.findViewById(R.id.spinnerTextView);
+        spinnerTextView = view.findViewById(R.id.spinnerTextView);
         spinnerTextView.setText(strings[position]);
-        spinnerImageView = (ImageView) view.findViewById(R.id.spinnerImageView);
+        spinnerImageView = view.findViewById(R.id.spinnerImageView);
         spinnerImageView.setImageResource(CardManager.getResourceID(strings[position]));
         return view;
     }

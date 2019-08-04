@@ -107,7 +107,7 @@
             android:layout_alignParentStart="true"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:background="@color/light_blue"
+            android:background="@color/colorPrimaryLight"
             android:text="Add Card\nTo List"
             android:textColor="@color/card_white"
             android:textSize="14dp" />
@@ -126,7 +126,7 @@
             android:layout_alignParentStart="true"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:background="@color/light_blue"
+            android:background="@color/colorPrimaryLight"
             android:text="View\nCard"
             android:textColor="@color/card_white"
             android:textSize="14dp" />

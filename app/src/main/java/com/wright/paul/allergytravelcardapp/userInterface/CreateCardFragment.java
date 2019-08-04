@@ -69,10 +69,10 @@ public class CreateCardFragment extends Fragment {
         }
 
         //assign the views
-        addCardButton = (Button) view.findViewById(R.id.addCardButton);
-        viewCardButton = (Button) view.findViewById(R.id.viewCardButton);
-        languageSpinner = (Spinner) view.findViewById(R.id.languageSpinner);
-        languageTV = (TextView) view.findViewById(R.id.languageTV);
+        addCardButton = view.findViewById(R.id.addCardButton);
+        viewCardButton = view.findViewById(R.id.viewCardButton);
+        languageSpinner = view.findViewById(R.id.languageSpinner);
+        languageTV = view.findViewById(R.id.languageTV);
         languageTV.setMovementMethod(new ScrollingMovementMethod());
         if (isPremium) {
             //getAllCountriesText("afrikaans");
@@ -81,9 +81,9 @@ public class CreateCardFragment extends Fragment {
             setLanguageTextView("afrikaans");
         }
 
-        allergySpinner = (Spinner) view.findViewById(R.id.allergySpinner);
-        allergyIV = (ImageView) view.findViewById(R.id.allergyIV);
-        allergyTV = (TextView) view.findViewById(R.id.allergyTV);
+        allergySpinner = view.findViewById(R.id.allergySpinner);
+        allergyIV = view.findViewById(R.id.allergyIV);
+        allergyTV = view.findViewById(R.id.allergyTV);
 
         cardDBOpenHelper = new CardDBOpenHelper(view.getContext());
         if (isPremium) {
@@ -226,7 +226,7 @@ public class CreateCardFragment extends Fragment {
             getActivity().overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
             startActivity(intent);
             toast = new Toast(getActivity());
-            toast.makeText(getActivity(), languageSpinner.getSelectedItem().toString() + " " + allergySpinner.getSelectedItem().toString() + " allergy card added", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), languageSpinner.getSelectedItem().toString() + " " + allergySpinner.getSelectedItem().toString() + " allergy card added", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -257,7 +257,7 @@ public class CreateCardFragment extends Fragment {
         AlertDialog dialog = bld.show();
 
         //center the text in the showAlert
-        TextView messageView = (TextView) dialog.findViewById(android.R.id.message);
+        TextView messageView = dialog.findViewById(android.R.id.message);
         messageView.setGravity(Gravity.CENTER);
     }
 

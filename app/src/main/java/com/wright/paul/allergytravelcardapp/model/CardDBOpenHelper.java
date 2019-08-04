@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class provides a facade to the inbuilt SQLite DB. It provides methods to add, delete and get the cards from the
@@ -119,18 +120,40 @@ public class CardDBOpenHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         String id1 = Integer.toString(card1.getDbID());
         String id2 = Integer.toString(card2.getDbID());
+        String allergy1 = card1.getAllergy();
+        String language1 = card1.getLanguage();
+        String allergy2 = card2.getAllergy();
+        String language2 = card2.getLanguage();
 
         //create the cv and update the DB Card1
         ContentValues cv1 = new ContentValues();
-        cv1.put("language", card2.getLanguage());
-        cv1.put("allergy", card2.getAllergy());
+        cv1.put("language", language2);
+        cv1.put("allergy", allergy2);
         db.update("Card", cv1, "_id = ?",  new String[]{id1});
 
         //create the cv and update the DB Card2
         ContentValues cv2 = new ContentValues();
-        cv2.put("language", card1.getLanguage());
-        cv2.put("allergy", card1.getAllergy());
+        cv2.put("language", language1);
+        cv2.put("allergy", allergy1);
         db.update("Card", cv2, "_id = ?",  new String[]{id2});
+    }
+
+    public void saveCollectionToDB(List<Card> cardList) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        //get a baseline lastviewed
+        int lastViewedBase = CardManager.getCurrentDateInt();
+
+        for(int i = 0; i < cardList.size(); i++) {
+            //remove the card
+            deleteCardID(cardList.get(i).getDbID());
+            //get the card
+            Card card = cardList.get(i);
+            //set its lastviewed
+            card.setLastViewed(lastViewedBase-i);
+            //add card
+            addCard(db, card);
+        }
 
     }
 

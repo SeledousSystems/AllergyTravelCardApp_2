@@ -3,9 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:paddingTop="0dp"
     android:id="@+id/relativeLayout"
-    android:background="@color/white"
+    android:background="@drawable/recycler_selector"
     tools:context="com.wright.paul.allergytravelcardapp.userInterface.CreateCardActivity">
 
     <android.support.v7.widget.RecyclerView
@@ -13,24 +12,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="@android:color/transparent"
-        android:dividerHeight="5dp"
-        android:paddingLeft="2dp"
-        android:paddingRight="2dp"/>
-
-    <!--<ListView-->
-        <!--android:id="@+id/listView"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:divider="@android:color/transparent"-->
-        <!--android:dividerHeight="7dp"-->
-        <!--android:padding="2dp"-->
-        <!--tools:listitem="@android:layout/two_line_list_item"/>-->
+        android:dividerHeight="7dp"
+        android:paddingTop="8dp"
+        android:clipToPadding="false"
+        android:scrollbarStyle="outsideOverlay"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"/>
 
     <TextView
         android:id="@+id/emptyTV"
-        android:text="Welcome to\nAllergy Travel Cards\n\n\n\ntap screen to create a card"
+        android:text="Welcome to\nAllergy Travel Cards\n\n\n\nTap the screen to create your first card."
         android:contextClickable="true"
-        android:textSize="25sp"
+        android:textSize="22sp"
         android:layout_marginLeft="2sp"
         android:layout_marginRight="2sp"
         android:layout_marginBottom="10sp"

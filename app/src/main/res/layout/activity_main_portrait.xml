@@ -11,6 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/grey_background"
         android:orientation="vertical">
 
         <include layout="@layout/tool_bar" />
@@ -28,27 +29,12 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:background="@color/light_blue"
+            android:background="@color/colorPrimaryLight"
             android:text="@string/create_new_card"
             android:textColor="@color/card_white"
             android:textSize="18sp" />
 
-        <!--<android.support.v7.widget.Toolbar-->
-        <!--android:id="@+id/toolbar_top"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:minHeight="?attr/actionBarSize"/>-->
-        <!--&lt;!&ndash;android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />&ndash;&gt;-->
-
     </LinearLayout>
-
-    <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-        <!--xmlns:tools="http://schemas.android.com/tools"-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="fill_parent"-->
-        <!--android:background="@color/grey_background">-->
-
-    <!--</RelativeLayout>-->
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"

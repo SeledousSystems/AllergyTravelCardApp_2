@@ -64,8 +64,8 @@ public class CardActivity extends AppCompatActivity {
     private String TAG = "CARD_ACTIVITY";
     private Button englishTranslation, allergyDescription, allergyPicture, lock;
     private boolean locked = false;
-    private int redColour = Color.parseColor("#c2185b");
-    private int lightBlueColour = Color.parseColor("#375273");
+    private int redColour = Color.parseColor("#7f0000");
+    private int lightBlueColour = Color.parseColor("#3949AB");
     private Toast toast;
     private LinearLayout button_LL;
     private Boolean download = false;
@@ -98,10 +98,7 @@ public class CardActivity extends AppCompatActivity {
         download = getIntent().getBooleanExtra(CardManager.dl, false);
 
         if (download) {
-            //Toast.makeText(context, "Downloading card....", Toast.LENGTH_SHORT).show();
             FancyToast.makeText(this,"Downloading card...",FancyToast.LENGTH_LONG,FancyToast.INFO,R.drawable.androidicon);
-        } else {
-
         }
 
         //set up the view so it is ful screen.
@@ -110,7 +107,7 @@ public class CardActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card);
-//        getSupportActionBar().hide();
+
         //set the context for future reference
         context = this;
         toast = new Toast(this);
@@ -118,7 +115,6 @@ public class CardActivity extends AppCompatActivity {
         //hold the card number so on swiping to the next card an intent can be passed using the next card in the arrayList.
         //if the card number is not passed in, the default is -1.
         cardPos = getIntent().getIntExtra(CardManager.cn, -1);
-        Log.d("cardPOs = -1", cardPos + "");
         //if a card is viewed from a notification, find the card to allow correct flinging between all cards
         if (cardPos == -1) {
             language = getIntent().getStringExtra(CardManager.ls);
@@ -132,7 +128,6 @@ public class CardActivity extends AppCompatActivity {
             allergy = CardListFragment.getCardList().get(cardPos).getAllergy();
         }
 
-        Resources r = getResources();
         //views for the card are assigned
         iconImageView = findViewById(R.id.iconImageView);
         iconImageView.setImageResource(R.drawable.appl_icon);
@@ -175,14 +170,6 @@ public class CardActivity extends AppCompatActivity {
         cardTitleTextView.setText(allergy + " Allergy - " + language);
         //get the text for the body of the card based on the allergy and language.
         String bodyText = CardManager.getCardBodyText(allergy, language, this);
-
-        // if language text size gets too large or small or nulls, set it to 21.
-        //if (languageTextSize < 20 || languageTextSize > 30) languageTextSize = 21;
-
-        // cardBodyTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, languageTextSize);
-
-        //set the text for the card body
-        //cardBodyTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, languageTextSize);
         cardBodyTextView.setText(bodyText);
 
         //make the icon clickable and return to main activity, not working at present
@@ -247,7 +234,7 @@ public class CardActivity extends AppCompatActivity {
         });
 
         //get the view and set a gesture detector for the card to respond ot flings.
-        cardLL = (LinearLayout) findViewById(R.id.cardLL);
+        cardLL = findViewById(R.id.cardLL);
 
         final GestureDetector gestureDetector = new GestureDetector(this.getApplicationContext(), new GestureListener());
         cardLL.setOnTouchListener(new View.OnTouchListener()
@@ -268,25 +255,19 @@ public class CardActivity extends AppCompatActivity {
                     button_LL.setVisibility(GONE);
 
                     cardLL.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                    int width = cardLL.getMeasuredWidth();
-                    int height = cardLL.getMeasuredHeight();
-                    //shareView(cardLL);
 
                     Bitmap bitmap = getBitmapFromView(cardLL);
                     try {
-                        Log.d("TAGGG", "hhhtttttttttttttttthh");
                         downloadBitmap(bitmap);
-                        Log.d("TAGGG", "hhhhhhhhhhhhhhhhhhhh");
                     } catch (IOException e) {
                         //return user to the main screen with failure message
-                        Log.d("TAGGG", "hhhhhhhhhfailhh");
                         Intent newCardIntent = new Intent(context, MainActivity.class);
                         newCardIntent.putExtra(CardManager.ls, language);
                         newCardIntent.putExtra(CardManager.as, allergy);
                         newCardIntent.putExtra(CardManager.ds, 1);
                         startActivity(newCardIntent);
                     }
-                    Log.d("TAGGG", "width = " + width + " height = " + height);
+
                     //return user to the main screen with success message
                     Intent newCardIntent = new Intent(context, MainActivity.class);
                     newCardIntent.putExtra(CardManager.ls, language);
@@ -394,7 +375,7 @@ public class CardActivity extends AppCompatActivity {
 
         LayoutInflater factory = LayoutInflater.from(context);
         final View view = factory.inflate(R.layout.alert_image_view, null);
-        ImageView iv = (ImageView) view.findViewById(R.id.dialog_imageview);
+        ImageView iv = view.findViewById(R.id.dialog_imageview);
         iv.setImageResource(CardManager.getResourceID(allergyImageName));
 
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
@@ -439,7 +420,7 @@ public class CardActivity extends AppCompatActivity {
         AlertDialog dialog = bld.show();
 
         //center the text in the showAlert
-        TextView messageView = (TextView) dialog.findViewById(android.R.id.message);
+        TextView messageView = dialog.findViewById(android.R.id.message);
         messageView.setGravity(Gravity.CENTER);
     }
 

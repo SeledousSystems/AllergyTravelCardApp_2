@@ -35,7 +35,7 @@ public class CustomListViewAdaptor extends ArrayAdapter<Card> {
     private OnItemClickListener onItemClickListener;
 
     public interface OnItemClickListener {
-        public void onItemClick(View view, int position);
+        void onItemClick(View view, int position);
     }
 
     public CustomListViewAdaptor(Context context, List<Card> cards, OnItemClickListener onItemClickListener) {
@@ -49,10 +49,6 @@ public class CustomListViewAdaptor extends ArrayAdapter<Card> {
         CustomCardView view = new CustomCardView(getContext());
         view.setCard(getItem(position));
         this.card = cards.get(position);
-
-//        relativeLayout = view.findViewById(R.id.image_wrapper);
-//        relativeLayout.bringToFront();
-//        ViewCompat.setZ(relativeLayout, 5);
         return view;
     }
 }

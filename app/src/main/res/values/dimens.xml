@@ -9,6 +9,6 @@
     <dimen name="card_button_spacing">30sp</dimen>
     <dimen name="card_button_size">30sp</dimen>
     <dimen name="alpha_card_buttons">0.7</dimen>
-    <dimen name="card_image_size">55sp</dimen>
+    <dimen name="card_image_size">60sp</dimen>
 
 </resources>
