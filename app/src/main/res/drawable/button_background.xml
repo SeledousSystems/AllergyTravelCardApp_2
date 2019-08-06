@@ -3,9 +3,6 @@
     <item android:state_pressed="true"
         android:drawable="@drawable/button_clicked" />
 
-    <!-- <item android:state_focused="true"
-    android:drawable="@drawable/button_focused" /> -->
-
     <item android:drawable="@drawable/button_unclicked" />
 
 </selector>

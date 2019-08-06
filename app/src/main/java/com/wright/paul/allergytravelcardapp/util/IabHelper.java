@@ -37,6 +37,8 @@ import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.content.ContentValues.TAG;
+
 
 /**
  * Provides convenience methods for in-app billing. You can create one instance of this
@@ -117,6 +119,9 @@ public class IabHelper {
 
     // Public key for verifying signature, in base64 encoding
     String mSignatureBase64 = null;
+
+    //class ref to Ibinder service to retryn connection
+    IBinder iService;
 
     // Billing response codes
     public static final int BILLING_RESPONSE_RESULT_OK = 0;
@@ -229,7 +234,8 @@ public class IabHelper {
 
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
-                if (mDisposed) return;
+                if (mDisposed) {return;}
+                iService = service;
                 logDebug("Billing service connected.");
                 mService = IInAppBillingService.Stub.asInterface(service);
                 String packageName = mContext.getPackageName();
@@ -413,7 +419,7 @@ public class IabHelper {
      * Initiate the UI flow for an in-app purchase. Call this method to initiate an in-app purchase,
      * which will involve bringing up the Google Play screen. The calling activity will be paused
      * while the user interacts with Google Play, and the result will be delivered via the
-     * activity's {@link Activity#onActivityResult} method, at which point you must call
+     * activity's {@link Activity# onActivityResult} method, at which point you must call
      * this object's {@link #handleActivityResult} method to continue the purchase flow. This method
      * MUST be called from the UI thread of the Activity.
      *
@@ -450,6 +456,10 @@ public class IabHelper {
             Bundle buyIntentBundle;
             if (oldSkus == null || oldSkus.isEmpty()) {
                 // Purchasing a new item or subscription re-signup
+                if (mService == null) {
+                    mService = IInAppBillingService.Stub.asInterface(iService);
+                    Log.d(TAG, "billing here");
+                }
                 buyIntentBundle = mService.getBuyIntent(3, mContext.getPackageName(), sku, itemType,
                         extraData);
             } else {
